@@ -1,0 +1,438 @@
+/* Fluid responsive layout framework by Terry Hibbert */
+
+body {
+    margin: 0;
+    font-family: Helvetica;
+    color: black;
+    overflow-x: hidden;
+}
+
+.debug-only { display: none; }
+.debug .debug-only { display: block; }
+
+.inline { display: inline; }
+
+.clear, .clearLeft { clear: left; }
+.clearRight { clear: right; }
+.clearBoth { clear: both; }
+.center { text-align: center; }
+.text-right { text-align: right; }
+.marginAuto { margin: auto !important; float: none !important; }
+
+.margin2em { margin: 2em; }
+
+.gutter {
+    margin: 0 20px;
+}
+
+.z9 { z-index: 9; }
+.z99 { z-index: 99; }
+.z999 { z-index: 999; }
+.z9999 { z-index: 9999; }
+.z99999 { z-index: 99999; }
+.z999999 { z-index: 999999; }
+
+.bg-white { background-color: #FFF; }
+.bg-black { background-color: #FFF; }
+
+.opacity100 { opacity: 0; }
+.opacity75 { opacity: 0.75; }
+.opacity50 { opacity: 0.5; }
+.opacity25 { opacity: 0.25; }
+
+/* #Columns
+================================================== */
+
+.col {
+    position: relative;
+    float: left;
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.col.right { float: right; }
+
+/* Column debug */
+
+.debug .col {
+    background: -moz-linear-gradient(-45deg, rgba(255,127,127,0.5) 0%, rgba(131,255,127,0.5) 100%);
+    background: -webkit-linear-gradient(-45deg, rgba(255,127,127,0.5) 0%, rgba(131,255,127,0.5) 100%);
+    background: -ms-linear-gradient(-45deg, rgba(255,127,127,0.5) 0%, rgba(131,255,127,0.5) 100%); /* IE10+ */
+    background: linear-gradient(135deg, rgba(255,127,127,0.5) 0%, rgba(131,255,127,0.5) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FF7F7F', endColorstr='#83FF7F', GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.debug .col.one,
+.debug .col.full,
+.debug .col.fullWidth {
+    background-color: #FF00FF;
+}
+
+/* Column sizes */
+
+.one, .full, .fullWidth { width: 100%; }
+
+.half, .quarterx2, .sixthx3, .eighthx4, .tenthx5, .twelfthx6, .sixteenthx8 { width: 50%; }
+
+.third, .sixthx2, .twelfthx4 { width: 33.33%; }
+.thirdx2, .sixthx4, .twelfthx8 { width: 66.66%; }
+
+.quarter, .eighthx2, .twelfthx3, .sixteenthx4 { width: 25%; }
+.quarterx3, .eighthx6, .twelfthx9, .sixteenthx12 { width: 75%; }
+
+.fifth { width: 20%; }
+.fifthx2 { width: 40%; }
+.fifthx3 { width: 60%; }
+.fifthx4 { width: 80%; }
+
+.sixth, .twelfthx2 { width: 16.66%; }
+.sixthx5, sixteenth.twelfthx10 { width: 83.33%; }
+
+.seventh { width: 14.28%; }
+.seventhx2 { width: 28.57%; }
+.seventhx3 { width: 42.85%; }
+.seventhx4 { width: 57.14%; }
+.seventhx5 { width: 71.42%; }
+.seventhx6 { width: 85.71%; }
+
+.eighth, .sixteenthx2 { width: 12.5%; }
+.eighthx3, .sixteenthx6 { width: 37.5%; }
+.eighthx5, .sixteenthx10 { width: 62.5%; }
+.eighthx7, .sixteenthx14 { width: 87.5%; }
+
+.tenth { width: 10%; }
+.tenthx3, .twelfthx3 { width: 30%; }
+.tenthx7 { width: 70%; }
+.tenthx9 { width: 90%; }
+
+.twelfth { width: 8.33%; }
+.twelfthx5 { width: 41.5%; }
+.twelfthx7 { width: 58%; }
+.twelfthx11 { width: 91.66%; }
+
+.sixteenth { width: 6.25% }
+.sixteenthx3 { width: 18.75% }
+.sixteenthx5 { width: 31.25% }
+.sixteenthx7 { width: 43.75% }
+.sixteenthx9 { width: 56.25% }
+.sixteenthx11 { width: 68.75% }
+.sixteenthx13 { width: 81.25% }
+.sixteenthx15 { width: 93.75% }
+
+.seventeenth { width: 5.88% }
+.seventeenthx2 { width: 11.76%; }
+.seventeenthx3 { width: 17.64% }
+.seventeenthx4 { width: 23.52% }
+.seventeenthx5 { width: 29.41% }
+.seventeenthx6 { width: 35.29% }
+.seventeenthx7 { width: 41.17% }
+.seventeenthx8 { width: 47.05% }
+.seventeenthx9 { width: 52.94% }
+.seventeenthx10 { width: 58.82% }
+.seventeenthx11 { width: 64.70% }
+.seventeenthx12 { width: 70.58% }
+.seventeenthx13 { width: 76.47% }
+.seventeenthx14 { width: 82.35% }
+.seventeenthx15 { width: 88.23% }
+.seventeenthx16 { width: 94.11% }
+
+.pad1em { padding: 1em; }
+.pad1_5em { padding: 1.5em; }
+.pad2em { padding: 2em; }
+
+.margin1em { margin: 1em; }
+.margin1_5em { margin: 1.5em; }
+
+
+/* #Absolute positioning
+================================================== */
+
+.position-absolute { position: absolute; }
+.position-static { position: static; }
+.position-fixed { position: fixed; }
+
+.position-absolute.left, .position-static.left, .position-fixed.left { left: 0; }
+.position-absolute.right, .position-static.right, .position-fixed.right { right: 0; }
+.position-absolute.top, .position-static.top, .position-fixed.top { top: 0; }
+.position-absolute.bottom , .position-static.bottom, .position-fixed.bottom{ bottom: 0; }
+
+
+/* #Fixed with fluid columns
+================================================== */
+
+.fluid-right,
+.fluid-left {
+    float: left;
+    width: 100%;
+}
+.fluid-left {
+    float: right;
+}
+
+.fixed {
+    background: #C8FC98;
+    float: left;
+    margin-left: -100%;
+}
+.fixed.right {
+    float: right;
+    margin-right: -100%;
+}
+.fluid-left .fluid-right .fluid { margin-right: 0 !important; }
+.fluid-right .fluid-left .fluid { margin-left: 0 !important; }
+
+.fixed.px100 { width: 100px; }
+.fluid-right.px100 .fluid { margin-left: 100px; }
+.fluid-left.px100 .fluid { margin-right: 100px; }
+
+.fixed.px200 { width: 200px; }
+.fluid-right.px200 .fluid { margin-left: 200px; }
+.fluid-left.px200 .fluid { margin-right: 200px; }
+
+.fixed.px300 { width: 300px; }
+.fluid-right.px300 .fluid { margin-left: 300px; }
+.fluid-left.px300 .fluid { margin-right: 300px; }
+
+.fixed.px400 { width: 400px; }
+.fluid-right.px400 .fluid { margin-left: 400px; }
+.fluid-left.px400 .fluid { margin-right: 400px; }
+
+
+/* #Sticky
+================================================== */
+
+.sticky {
+}
+
+.sticky .sticky-content {
+    position: fixed;
+    z-index: 99;
+}
+
+.sticky.top .sticky-content {
+    position: fixed;
+}
+
+.sticky.flow .sticky-content,
+.sticky.top.flow .sticky-content {
+    position: relative;
+}
+
+.sticky.bottom .sticky-content {
+    bottom: 0;
+}
+
+.sticky.top .sticky-content {
+    top: 0;
+}
+
+.sticky-top {
+    position: fixed;
+    top: 0;
+}
+
+.sticky-bottom {
+    position: fixed;
+    bottom: 0;
+}
+
+.sticky.reserve {
+    clear: left;
+    background-color: #F00;
+}
+
+
+/* #Default Layout
+================================================== */
+
+.container {
+    margin: 0 auto;
+    width: 960px;
+    overflow: hidden;
+}
+
+/* Less than ie9 is fixed. Upgrade please... */
+
+.lt-ie9 .container {
+    width: 960px !important;
+}
+
+
+/* #Desktop / Tablet landscape Layout
+================================================== */
+/* Note: Design for a width of greater than 960px */
+
+@media screen and (min-width:960px) {
+    .not-desktop,
+    .tablet,
+    .tablet-portrait,
+    .tablet-landscape,
+    .mobile,
+    .mobile-portrait,
+    .mobile-landscape
+    {
+        display: none;
+    }
+
+    .tablet-clear, .tablet-landscape-clear { clear: left; }
+    .tablet-center, .tablet-landscape-center { text-align: center; }
+}
+
+
+/* #Tablet (Portrait) Layout
+================================================== */
+/* Note: Design for a width of 768px */
+
+@media screen and (min-width:768px) and (max-width:959px) {
+    .not-tablet-portrait,
+    .not-tablet,
+    .desktop,
+    .tablet-landscape,
+    .mobile,
+    .mobile-landscape,
+    .mobile-portrait
+    {
+        display: none !important;
+    }
+
+    .col.tablet-portrait-full { width: 100% }
+    .col.tablet-portrait-half { width: 50% }
+    .col.tablet-portrait-third { width: 33.3% }
+    .container {
+        width: 768px;
+        background-color: #DBB;
+    }
+
+    .tablet-clear, .tablet-portrait-clear { clear: left; }
+    .tablet-center, .tablet-portrait-center { text-align: center; }
+
+    .fixed.tablet-px100 { width: 100px; }
+    .fluid-right.tablet-px100 .fluid { margin-left: 100px; }
+    .fluid-left.tablet-px100 .fluid { margin-right: 100px; }
+
+    .fixed.tablet-px200 { width: 200px; }
+    .fluid-right.tablet-px200 .fluid { margin-left: 200px; }
+    .fluid-left.tablet-px200 .fluid { margin-right: 200px; }
+
+    .fixed.tablet-px300 { width: 300px; }
+    .fluid-right.tablet-px300 .fluid { margin-left: 300px; }
+    .fluid-left.tablet-px300 .fluid { margin-right: 300px; }
+
+    .fixed.tablet-full, .fixed.tablet-portrait-full { width: 100%;  clear: left; margin-right: 0; margin-left: 0; }
+    .fluid-right.tablet-full, .fluid-right.tablet-portrait-full { clear: left }
+    .fluid-right.tablet-full .fluid, .fluid-right.tablet-portrait-full .fluid { margin-left: 0; }
+    .fluid-left.tablet-full .fluid, .fluid-left.tablet-portrait-full .fluid { margin-right: 0; }
+}
+
+
+/* #Mobile (Landscape) Layout
+================================================== */
+/* Note: Design for a width of 480px */
+
+@media screen and (min-width:480px) and (max-width:767px) {
+    .not-mobile,
+    .not-mobile-landscape,
+    .desktop,
+    .tablet,
+    .tablet-landscape,
+    .tablet-portrait,
+    .mobile-portrait
+    {
+        display: none !important;
+    }
+
+    .col.mobile-full, .col.mobile-landscape-full { width: 100% }
+    .col.mobile-half, .col.mobile-landscape-half { width: 50% }
+    .col.mobile-third, .col.mobile-landscape-third { width: 33.3% }
+    .col.mobile-thirdx2, .col.mobile-landscape-thirdx2 { width: 66.6% }
+    .col.mobile-quarter, .col.mobile-landscape-quarter { width: 25% }
+    .col.mobile-quarterx3, .col.mobile-landscape-quarterx3 { width: 75% }
+    .col.mobile-fifth, .col.mobile-landscape-fifth { width: 20% }
+    .col.mobile-fifthx2, .col.mobile-landscape-fifthx2 { width: 40% }
+    .col.mobile-fifthx3, .col.mobile-landscape-fifthx3 { width: 60% }
+    .col.mobile-fifthx4, .col.mobile-landscape-fifthx4 { width: 80% }
+    .container {
+        width: 100%;
+        background-color: #BDB;
+    }
+
+    .mobile-clear, .mobile-landscape-clear { clear: left; }
+    .mobile-center, .mobile-landscape-center { text-align: center; }
+    .mobile-absolute, .mobile-landscape-absolute { position: absolute; }
+    .mobile-relative, .mobile-landscape-relative { position: relative; }
+
+    .fixed.mobile-px100 { width: 100px; }
+    .fluid-right.mobile-px100 .fluid { margin-left: 100px; }
+    .fluid-left.mobile-px100 .fluid { margin-right: 100px; }
+
+    .fixed.mobile-px200 { width: 200px; }
+    .fluid-right.mobile-px200 .fluid { margin-left: 200px; }
+    .fluid-left.mobile-px200 .fluid { margin-right: 200px; }
+
+    .fixed.mobile-px300 { width: 300px; }
+    .fluid-right.mobile-px300 .fluid { margin-left: 300px; }
+    .fluid-left.mobile-px300 .fluid { margin-right: 300px; }
+
+    .fixed.mobile-full, .fixed.mobile-landscape-full { width: 100%;  clear: left; margin-right: 0; margin-left: 0; }
+    .fluid-right.mobile-full, .fluid-right.mobile-landscape-full { clear: left }
+    .fluid-right.mobile-full .fluid, .fluid-right.mobile-landscape-full .fluid { margin-left: 0; }
+    .fluid-left.mobile-full .fluid, .fluid-left.mobile-landscape-full .fluid { margin-right: 0; }
+}
+
+
+/*  #Mobile (Portrait) Layout
+================================================== */
+/* Note: Design for a width of 320px */
+
+@media screen and (max-width:480px) {
+    .not-mobile,
+    .not-mobile-portrait,
+    .desktop
+    .tablet,
+    .tablet-landscape,
+    .tablet-portrait,
+    .mobile-landscape
+    {
+        display: none !important;
+    }
+
+    .not-mobile, .not-mobile-portrait, .desktop { display: none !important; }
+    .col.mobile-full, .col.mobile-portrait-full { width: 100% }
+    .col.mobile-half, .col.mobile-portrait-half { width: 50% }
+    .col.mobile-third, .col.mobile-portrait-third { width: 33.3% }
+    .col.mobile-thirdx2, .col.mobile-portrait-thirdx2 { width: 66.6% }
+    .col.mobile-quarter, .col.mobile-portrait-quarter { width: 25% }
+    .col.mobile-quarterx3, .col.mobile-portrait-quarterx3 { width: 75% }
+    .col.mobile-fifth, .col.mobile-portrait-fifth { width: 20% }
+    .col.mobile-fifthx2, .col.mobile-portrait-fifthx2 { width: 40% }
+    .col.mobile-fifthx3, .col.mobile-portrait-fifthx3 { width: 60% }
+    .col.mobile-fifthx4, .col.mobile-portrait-fifthx4 { width: 80% }
+    .container {
+        width: 100%;
+        background-color: #BBD;
+    }
+
+    .mobile-clear, .mobile-portrait-clear { clear: left; }
+    .mobile-center, .mobile-portrait-center { text-align: center; }
+    .mobile-absolute, .mobile-portrait-absolute { position: absolute; }
+    .mobile-relative, .mobile-portrait-relative { position: relative; }
+
+    .fixed.mobile-px100 { width: 100px; }
+    .fluid-right.mobile-px100 .fluid { margin-left: 100px; }
+    .fluid-left.mobile-px100 .fluid { margin-right: 100px; }
+
+    .fixed.mobile-px200 { width: 200px; }
+    .fluid-right.mobile-px200 .fluid { margin-left: 200px; }
+    .fluid-left.mobile-px200 .fluid { margin-right: 200px; }
+
+    .fixed.mobile-px300 { width: 300px; }
+    .fluid-right.mobile-px300 .fluid { margin-left: 300px; }
+    .fluid-left.mobile-px300 .fluid { margin-right: 300px; }
+
+    .fixed.mobile-full, .fixed.mobile-portrait-full { width: 100%;  clear: left; margin-right: 0; margin-left: 0; }
+    .fluid-right.mobile-full, .fluid-right.mobile-portrait-full { clear: left }
+    .fluid-right.mobile-full .fluid, .fluid-right.mobile-portrait-full .fluid { margin-left: 0; }
+    .fluid-left.mobile-full .fluid, .fluid-left.mobile-portrait-full .fluid { margin-right: 0; }
+}

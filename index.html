@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6 lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7 lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8 lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="ie ie9 lt-ie10" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>uBank</title>
+    <meta name="description" content="A website" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="fragment" content="!" />
+
+    <link rel="stylesheet" type="text/css" media="all" href="css/t_layout.css">
+
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false&language=en"></script>
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script type="text/javascript" src="js/css3-mediaqueries.js"></script>
+    <![endif]-->
+
+</head>
+<body class="debug">
+    <div class="container ">
+
+        <div class="col clear">
+            <h2>t-layout test : Fixed with fluid</h2>
+        </div>
+        <div class="col clear one">
+            <div  class="fluid-right px100">
+                <div class="fluid">
+                    <div class="col half">.half</div>
+                    <div class="col quarter">.quarter</div>
+                    <div class="col eighth">.eighth</div>
+                    <div class="col eighth">.eighth</div>
+                </div>
+            </div>
+            <div class="fixed px100">.fixed .px100</div>
+        </div>
+
+        <div class="col clear one ">
+            <div  class="fluid-right px200">
+                <div class="fluid">
+                    <div class="col half">.half</div>
+                    <div class="col quarter">.quarter</div>
+                    <div class="col quarter">.quarter</div>
+                </div>
+            </div>
+            <div class="fixed px200">.fixed .px200</div>
+        </div>
+
+        <div class="col clear one ">
+            <div  class="fluid-left px100">
+                <div class="fluid">
+                    <div class="col half">.half</div>
+                    <div class="col quarter">.quarter</div>
+                    <div class="col eighth">.eighth</div>
+                    <div class="col eighth">.eighth</div>
+                </div>
+            </div>
+            <div class="fixed right px100">.fixed .px100</div>
+        </div>
+
+        <div class="col clear one ">
+            <div  class="fluid-left px200">
+                <div class="fluid">
+                    <div class="col half">.half</div>
+                    <div class="col quarter">.quarter</div>
+                    <div class="col quarter">.quarter</div>
+                </div>
+            </div>
+            <div class="fixed right px200">.fixed .px200</div>
+        </div>
+
+        <div class="col clear one ">
+            <div  class="fluid-right px100">
+                <div class="fluid">
+                    <div class="col clear one ">
+                        <div  class="fluid-left px100">
+                            <div class="fluid">
+                                <div class="col half">.half</div>
+                                <div class="col half">.half</div>
+                            </div>
+                        </div>
+                        <div class="fixed right px100">.fixed .px100</div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="fixed left px100">.fixed .px100</div>
+        </div>
+
+        <div class="col clear one ">
+            <div  class="fluid-left px300 tablet-px200 mobile-full">
+                <div class="fluid">
+                    <div class="col half">.half</div>
+                    <div class="col half">.half</div>
+                </div>
+            </div>
+            <div class="fixed right px300 tablet-px200 mobile-landscape-full not-mobile-portrait">.fixed .px300 .mobile-px200</div>
+        </div>
+
+        <div class="col clear">
+            <h2>t-layout test : combinations 3 odd multiples</h2>
+        </div>
+        <div class="col clear one">
+            <div class="col sixthx5">.sixthx5</div>
+            <div class="col twelfth">.twelfth</div>
+            <div class="col twelfth">.twelfth</div>
+
+            <div class="col eighthx3">.eighthx3</div>
+            <div class="col eighthx3">.eighthx3</div>
+            <div class="col eighthx2">.eighthx2</div>
+
+            <div class="col tenthx3">.tenthx3</div>
+            <div class="col tenthx3">.tenthx3</div>
+            <div class="col tenthx3">.tenthx3</div>
+            <div class="col tenth">.tenth</div>
+        </div>
+
+        <div class="col clear">
+            <h2>t-layout test : combinations 2</h2>
+        </div>
+        <div class="col clear one">
+            <div class="col one">.one</div>
+
+            <div class="col half">.half</div>
+            <div class="col quarter">.quarter</div>
+            <div class="col eighth">.eighth</div>
+            <div class="col eighth">.eighth</div>
+
+            <div class="col third">.third</div>
+            <div class="col sixth">.sixth</div>
+            <div class="col sixth">.sixth</div>
+            <div class="col twelfth">.twelfth</div>
+            <div class="col twelfth">.twelfth</div>
+            <div class="col twelfth">.twelfth</div>
+            <div class="col twelfth">.twelfth</div>
+
+            <div class="col quarter">.quarter</div>
+            <div class="col eighth">.eighth</div>
+            <div class="col eighth">.eighth</div>
+            <div class="col eighth">.eighth</div>
+            <div class="col eighth">.eighth</div>
+            <div class="col eighth">.eighth</div>
+            <div class="col eighth">.eighth</div>
+
+            <div class="col fifth">.fifth</div>
+            <div class="col tenth">.tenth</div>
+            <div class="col tenth">.tenth</div>
+            <div class="col tenth">.tenth</div>
+            <div class="col tenth">.tenth</div>
+            <div class="col tenth">.tenth</div>
+            <div class="col tenth">.tenth</div>
+            <div class="col tenth">.tenth</div>
+            <div class="col tenth">.tenth</div>
+
+            <div class="col sixth">.sixth</div>
+            <div class="col twelfth">.twelfth</div>
+            <div class="col twelfth">.twelfth</div>
+            <div class="col twelfth">.twelfth</div>
+            <div class="col twelfth">.twelfth</div>
+            <div class="col twelfth">.twelfth</div>
+            <div class="col twelfth">.twelfth</div>
+            <div class="col twelfth">.twelfth</div>
+            <div class="col twelfth">.twelfth</div>
+            <div class="col twelfth">.twelfth</div>
+            <div class="col twelfth">.twelfth</div>
+
+            <div class="col seventh">.seventh</div>
+            <div class="col seventhx6">.seventh</div>
+
+            <div class="col seventhx2">.seventh</div>
+            <div class="col seventhx5">.seventh</div>
+
+            <div class="col seventhx3">.seventh</div>
+            <div class="col seventhx4">.seventh</div>
+
+            <div class="col seventhx2">.seventh</div>
+            <div class="col seventhx2">.seventh</div>
+            <div class="col seventhx2">.seventh</div>
+            <div class="col seventh">.seventh</div>
+
+            <div class="col eighth">.eighth</div>
+            <div class="col eighth">.eighth</div>
+            <div class="col quarter">.quarter</div>
+            <div class="col tenth">.tenth</div>
+            <div class="col tenth">.tenth</div>
+            <div class="col tenth">.tenth</div>
+            <div class="col tenth">.tenth</div>
+            <div class="col tenth">.tenth</div>
+
+            <div class="col tenth">.tenth</div>
+            <div class="col tenth">.tenth</div>
+            <div class="col tenth">.tenth</div>
+            <div class="col fifth">.fifth</div>
+            <div class="col quarter">.quarter</div>
+            <div class="col eighth">.eighth</div>
+            <div class="col eighth">.eighth</div>
+
+            <div class="col twelfth">.twelfth</div>
+            <div class="col twelfth">.twelfth</div>
+            <div class="col sixth">.sixth</div>
+            <div class="col third">.third</div>
+            <div class="col sixth">.sixth</div>
+            <div class="col twelfth">.twelfth</div>
+            <div class="col twelfth">.twelfth</div>
+        </div>
+
+        <div class="col clear">
+            <h2>t-layout test : combinations 1</h2>
+        </div>
+        <div class="col clear one">
+            <div class="col one">.one</div>
+
+            <div class="col half">.half</div>
+            <div class="col half">.half</div>
+
+            <div class="col third">.third</div>
+            <div class="col third">.third</div>
+            <div class="col third">.third</div>
+
+            <div class="col quarter">.quarter</div>
+            <div class="col quarter">.quarter</div>
+            <div class="col quarter">.quarter</div>
+            <div class="col quarter">.quarter</div>
+
+            <div class="col fifth">.fifth</div>
+            <div class="col fifth">.fifth</div>
+            <div class="col fifth">.fifth</div>
+            <div class="col fifth">.fifth</div>
+            <div class="col fifth">.fifth</div>
+
+            <div class="col sixth">.sixth</div>
+            <div class="col sixth">.sixth</div>
+            <div class="col sixth">.sixth</div>
+            <div class="col sixth">.sixth</div>
+            <div class="col sixth">.sixth</div>
+            <div class="col sixth">.sixth</div>
+
+            <div class="col seventh">.seventh</div>
+            <div class="col seventh">.seventh</div>
+            <div class="col seventh">.seventh</div>
+            <div class="col seventh">.seventh</div>
+            <div class="col seventh">.seventh</div>
+            <div class="col seventh">.seventh</div>
+            <div class="col seventh">.seventh</div>
+
+            <div class="col eighth">.eighth</div>
+            <div class="col eighth">.eighth</div>
+            <div class="col eighth">.eighth</div>
+            <div class="col eighth">.eighth</div>
+            <div class="col eighth">.eighth</div>
+            <div class="col eighth">.eighth</div>
+            <div class="col eighth">.eighth</div>
+            <div class="col eighth">.eighth</div>
+
+            <div class="col tenth">.tenth</div>
+            <div class="col tenth">.tenth</div>
+            <div class="col tenth">.tenth</div>
+            <div class="col tenth">.tenth</div>
+            <div class="col tenth">.tenth</div>
+            <div class="col tenth">.tenth</div>
+            <div class="col tenth">.tenth</div>
+            <div class="col tenth">.tenth</div>
+            <div class="col tenth">.tenth</div>
+            <div class="col tenth">.tenth</div>
+
+            <div class="col twelfth">.twelfth</div>
+            <div class="col twelfth">.twelfth</div>
+            <div class="col twelfth">.twelfth</div>
+            <div class="col twelfth">.twelfth</div>
+            <div class="col twelfth">.twelfth</div>
+            <div class="col twelfth">.twelfth</div>
+            <div class="col twelfth">.twelfth</div>
+            <div class="col twelfth">.twelfth</div>
+            <div class="col twelfth">.twelfth</div>
+            <div class="col twelfth">.twelfth</div>
+            <div class="col twelfth">.twelfth</div>
+            <div class="col twelfth">.twelfth</div>
+
+            <div class="col sixteenth">.sixteenth</div>
+            <div class="col sixteenth">.sixteenth</div>
+            <div class="col sixteenth">.sixteenth</div>
+            <div class="col sixteenth">.sixteenth</div>
+            <div class="col sixteenth">.sixteenth</div>
+            <div class="col sixteenth">.sixteenth</div>
+            <div class="col sixteenth">.sixteenth</div>
+            <div class="col sixteenth">.sixteenth</div>
+            <div class="col sixteenth">.sixteenth</div>
+            <div class="col sixteenth">.sixteenth</div>
+            <div class="col sixteenth">.sixteenth</div>
+            <div class="col sixteenth">.sixteenth</div>
+            <div class="col sixteenth">.sixteenth</div>
+            <div class="col sixteenth">.sixteenth</div>
+            <div class="col sixteenth">.sixteenth</div>
+            <div class="col sixteenth">.sixteenth</div>
+        </div>
+
+        <div class="col clear">
+            <h2>t-layout test</h2>
+        </div>
+        <div class="col clear">
+            <div class="col clear one">
+                .one, .full, .fullWidth
+            </div>
+
+            <div class="col clear half">
+                .half
+            </div>
+            <div class="col half">
+                .quarterx2, .sixthx3, .eighthx4, .tenthx5, .twelfthx6
+            </div>
+
+            <div class="col clear third">
+                .third
+            </div>
+            <div class="col thirdx2">
+                .sixthx2, .twelfthx4
+            </div>
+
+            <div class="col clear quarter">
+                .quarter
+            </div>
+            <div class="col quarterx3">
+                .eighthx2, .twelfthx3
+            </div>
+
+            <div class="col clear fifth">
+                .fifth
+            </div>
+            <div class="col fifthx4">
+                &nbsp;
+            </div>
+
+            <div class="col clear sixth">
+                .sixth
+            </div>
+            <div class="col sixthx5">
+                .twelfthx2
+            </div>
+
+            <div class="col clear eighth">
+                .eighth
+            </div>
+            <div class="col eighthx7">
+                &nbsp;
+            </div>
+
+            <div class="col clear tenth">
+                .tenth
+            </div>
+            <div class="col tenthx9">
+                &nbsp;
+            </div>
+
+            <div class="col clear twelfth">
+                .twelfth
+            </div>
+            <div class="col twelfthx11">
+                &nbsp;
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
