@@ -64,7 +64,7 @@ img {
 
 @mixin colSize($pre, $numerator, $denominator) {
   .#{$pre}-#{$numerator}-#{$denominator} {
-  width: fraction_percent($numerator, $denominator);
+	width: fraction_percent($numerator, $denominator);
   }
 }
 
@@ -128,34 +128,37 @@ img {
     float: right;
   }
 
-  .#{$pre}-fixed {
+  .#{$pre}-fixed-left,
+  .#{$pre}-fixed-right {
     background: #C8FC98;
+  }
+  .#{$pre}-fixed-left {
     float: left;
     margin-left: -100%;
   }
-  .#{$pre}-fixed.right {
+  .#{$pre}-fixed-right {
     float: right;
     margin-right: -100%;
   }
 
-  .#{$pre}-fluid-left .#{$pre}-fluid-right .fluid { margin-right: 0 !important; }
-  .#{$pre}-fluid-right .#{$pre}-fluid-left .fluid { margin-left: 0 !important; }
+  .#{$pre}-fluid-left .#{$pre}-fluid-right .#{$pre}-fluid { margin-right: 0 !important; }
+  .#{$pre}-fluid-right .#{$pre}-fluid-left .#{$pre}-fluid { margin-left: 0 !important; }
 
-  .#{$pre}-fixed.px100 { width: 100px; }
-  .#{$pre}-fluid-right.#{$pre}-px100 .fluid { margin-left: 100px; }
-  .#{$pre}-fluid-left.#{$pre}-px100 .fluid { margin-right: 100px; }
+  .#{$pre}-fixed.#{$pre}-px100 { width: 100px; }
+  .#{$pre}-fluid-right.#{$pre}-px100 .#{$pre}-fluid { margin-left: 100px; }
+  .#{$pre}-fluid-left.#{$pre}-px100 .#{$pre}-fluid { margin-right: 100px; }
 
-  .#{$pre}-fixed.px200 { width: 200px; }
-  .#{$pre}-fluid-right.#{$pre}-px200 .fluid { margin-left: 200px; }
-  .#{$pre}-fluid-left.#{$pre}-px200 .fluid { margin-right: 200px; }
+  .#{$pre}-fixed.#{$pre}-px200 { width: 200px; }
+  .#{$pre}-fluid-right.#{$pre}-px200 .#{$pre}-fluid { margin-left: 200px; }
+  .#{$pre}-fluid-left.#{$pre}-px200 .#{$pre}-fluid { margin-right: 200px; }
 
-  .#{$pre}-fixed.px300 { width: 300px; }
-  .#{$pre}-fluid-right.#{$pre}-px300 .fluid { margin-left: 300px; }
-  .#{$pre}-fluid-left.#{$pre}-px300 .fluid { margin-right: 300px; }
+  .#{$pre}-fixed.#{$pre}-px300 { width: 300px; }
+  .#{$pre}-fluid-right.#{$pre}-px300 .#{$pre}-fluid { margin-left: 300px; }
+  .#{$pre}-fluid-left.#{$pre}-px300 .#{$pre}-fluid { margin-right: 300px; }
 
-  .#{$pre}-fixed.px400 { width: 400px; }
-  .#{$pre}-fluid-right.#{$pre}-px400 .fluid { margin-left: 400px; }
-  .#{$pre}-fluid-left.#{$pre}-px400 .fluid { margin-right: 400px; }
+  .#{$pre}-fixed.#{$pre}-px400 { width: 400px; }
+  .#{$pre}-fluid-right.#{$pre}-px400 .#{$pre}-fluid { margin-left: 400px; }
+  .#{$pre}-fluid-left.#{$pre}-px400 .#{$pre}-fluid { margin-right: 400px; }
 
 
   /* #Absolute positioning
