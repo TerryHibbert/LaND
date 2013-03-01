@@ -1,9 +1,33 @@
-/* Fluid responsive layout framework by Terry Hibbert */
+/* LaND - A fluid responsive layout framework by Terry Hibbert
+ *
+ * Usage 'col La-N-D' where:
+ *  'La' is replaced by the shorthand of the layout:
+ *      a   :   any
+ *      d   :   desktop
+ *      t   :   tablet
+ *      tl  :   tablet landscape
+ *      tp  :   tablet portrait
+ *      m   :   mobile
+ *      ml  :   tablet landscape
+ *      mp  :   tablet portrait
+ *      s   :   screen
+ *      p   :   print
+ *  'N' is the numerator
+ *  'D' is the denominator
+ *  e.g.  'col a-1-2 mp-1-1' will be a half column that changes to full width on mobile portrait
+ */
+
 
 $desktopMin: 960px;
 $tabletLandscapeMin: 960px;
 $tabletPortraitMin: 768px;
 $mobileLandscapeMin: 480px;
+
+$largestDenominator: 16;
+
+
+/* General
+================================================== */
 
 body {
   margin: 0;
@@ -18,40 +42,8 @@ img {
 .debug-only { display: none; }
 .debug .debug-only { display: block; }
 
-.inline { display: inline; }
 
-.clear, .clearLeft { clear: left; }
-.clearRight { clear: right; }
-.clearBoth { clear: both; }
-.center { text-align: center; }
-.text-right { text-align: right; }
-.text-left { text-align: left; }
-.marginAuto { margin: auto !important; float: none !important; }
-
-.margin2em { margin: 2em; }
-
-.gutter {
-  margin: 0 20px;
-}
-
-.cursorPointer { cursor: pointer; }
-
-.z9 { z-index: 9; }
-.z99 { z-index: 99; }
-.z999 { z-index: 999; }
-.z9999 { z-index: 9999; }
-.z99999 { z-index: 99999; }
-.z999999 { z-index: 999999; }
-
-.bg-white { background-color: #FFF; }
-.bg-black { background-color: #FFF; }
-
-.opacity100 { opacity: 0; }
-.opacity75 { opacity: 0.75; }
-.opacity50 { opacity: 0.5; }
-.opacity25 { opacity: 0.25; }
-
-/* #Columns
+/* Columns
 ================================================== */
 
 .col {
@@ -66,8 +58,27 @@ img {
   .overflowVisible { overflow: visible; }
 }
 
-/* Column debug */
+@function fraction_percent($parts, $whole) {
+  @return ($parts / $whole) * 100%;
+}
 
+@mixin colSize($pre, $numerator, $denominator) {
+  .#{$pre}-#{$numerator}-#{$denominator} {
+  width: fraction_percent($numerator, $denominator);
+  }
+}
+
+@mixin colSizes($pre) {
+  @for $i from 1 through $largestDenominator {
+	@for $j from 1 through $i {
+	  @if $j <= $i {
+		@include colSize(#{$pre}, $j, $i);
+	  }
+	}
+  }
+}
+
+/* Column debug */
 .debug {
   .col {
     background: -moz-linear-gradient(-45deg, rgba(255,127,127,0.5) 0%, rgba(131,255,127,0.5) 100%);
@@ -76,6 +87,7 @@ img {
     background: linear-gradient(135deg, rgba(255,127,127,0.5) 0%, rgba(131,255,127,0.5) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FF7F7F', endColorstr='#83FF7F', GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
   }
+
   .col.one,
   .col.full,
   .col.fullWidth {
@@ -83,93 +95,140 @@ img {
   }
 }
 
-.fullHeight { height: 100%; }
 
-.displayTable { display: table; }
-.cellVerticalMiddle { display: table-cell; vertical-align: middle; float: none; }
+/* Layout targeted properties
+================================================== */
 
-@function fraction_percent($parts, $whole) {
-  @return ($parts / $whole) * 100%;
+@mixin targetedProperties($pre) {
+  .#{$pre}-opacity-100 { opacity: 0; }
+  .#{$pre}-opacity-75 { opacity: 0.75; }
+  .#{$pre}-opacity-50 { opacity: 0.5; }
+  .#{$pre}-opacity-25 { opacity: 0.25; }
+
+  .#{$pre}-inline { display: inline; }
+
+  .#{$pre}-clear, .#{$pre}-clearLeft { clear: left; }
+  .#{$pre}-clear-right { clear: right; }
+  .#{$pre}-clear-both { clear: both; }
+  .#{$pre}-text-center { text-align: center; }
+  .#{$pre}-text-right { text-align: right; }
+  .#{$pre}-text-left { text-align: left; }
+  .#{$pre}-margin-auto { margin: auto !important; float: none !important; }
+
+
+  /* #Fixed with fluid columns
+  ================================================== */
+
+  .#{$pre}-fluid-right,
+  .#{$pre}-fluid-left {
+    float: left;
+    width: 100%;
+  }
+  .#{$pre}-fluid-left {
+    float: right;
+  }
+
+  .#{$pre}-fixed {
+    background: #C8FC98;
+    float: left;
+    margin-left: -100%;
+  }
+  .#{$pre}-fixed.right {
+    float: right;
+    margin-right: -100%;
+  }
+
+  .#{$pre}-fluid-left .#{$pre}-fluid-right .fluid { margin-right: 0 !important; }
+  .#{$pre}-fluid-right .#{$pre}-fluid-left .fluid { margin-left: 0 !important; }
+
+  .#{$pre}-fixed.px100 { width: 100px; }
+  .#{$pre}-fluid-right.#{$pre}-px100 .fluid { margin-left: 100px; }
+  .#{$pre}-fluid-left.#{$pre}-px100 .fluid { margin-right: 100px; }
+
+  .#{$pre}-fixed.px200 { width: 200px; }
+  .#{$pre}-fluid-right.#{$pre}-px200 .fluid { margin-left: 200px; }
+  .#{$pre}-fluid-left.#{$pre}-px200 .fluid { margin-right: 200px; }
+
+  .#{$pre}-fixed.px300 { width: 300px; }
+  .#{$pre}-fluid-right.#{$pre}-px300 .fluid { margin-left: 300px; }
+  .#{$pre}-fluid-left.#{$pre}-px300 .fluid { margin-right: 300px; }
+
+  .#{$pre}-fixed.px400 { width: 400px; }
+  .#{$pre}-fluid-right.#{$pre}-px400 .fluid { margin-left: 400px; }
+  .#{$pre}-fluid-left.#{$pre}-px400 .fluid { margin-right: 400px; }
+
+
+  /* #Absolute positioning
+  ================================================== */
+  .#{$pre}-position-absolute { position: absolute; }
+  .#{$pre}-position-static { position: static; }
+  .#{$pre}-position-fixed { position: fixed;}
+
+  .#{$pre}-position-absolute.left, .#{$pre}-position-static.left, .#{$pre}-position-fixed.left { left: 0; }
+  .#{$pre}-position-absolute.right, .#{$pre}-position-static.right, .#{$pre}-position-fixed.right { right: 0; }
+  .#{$pre}-position-absolute.top, .#{$pre}-position-static.top, .#{$pre}-position-fixed.top { top: 0; }
+  .#{$pre}-position-absolute.bottom , .#{$pre}-position-static.bottom, .#{$pre}-position-fixed.bottom{ bottom: 0; }
+
+  /* Depth
+  ================================================== */
+
+  .#{$pre}-z9 { z-index: 9; }
+  .#{$pre}-z99 { z-index: 99; }
+  .#{$pre}-z999 { z-index: 999; }
+  .#{$pre}-z9999 { z-index: 9999; }
+  .#{$pre}-z99999 { z-index: 99999; }
+  .#{$pre}-z999999 { z-index: 999999; }
+
+
+  /* Misc
+  ================================================== */
+  .#{$pre}-cursor-pointer { cursor: pointer; }
+  .#{$pre}-full-height { height: 100%; }
+  .#{$pre}-display-table { display: table; }
+  .#{$pre}-cell-vertical-middle { display: table-cell; vertical-align: middle; float: none; }
+
 }
 
-@mixin colSize($pre, $parts, $whole) {
-  .#{$pre}-#{$parts}-#{$whole} {
-    width: fraction_percent($parts, $whole);
+
+/* Sticky
+================================================== */
+
+.sticky {
+  .sticky-content {
+    position: fixed;
+    z-index: 99;
+    left: 0;
+    right: 0;
   }
 }
 
-@mixin colSizes($pre) {
-  @for $i from 1 through 24 {
-    @for $j from 1 through $i {
-      @if $j <= $i {
-        @include colSize(#{$pre}, $j, $i);
-      }
-    }
-  }
+.sticky.top .sticky-content {
+  position: fixed;
+  top: 0;
 }
 
-@include colSizes($pre: "a");
-
-.pad1em { padding: 1em; }
-.pad1_5em { padding: 1.5em; }
-.pad2em { padding: 2em; }
-
-.margin1em { margin: 1em; }
-.margin1_5em { margin: 1.5em; }
-
-
-/* #Absolute positioning
-================================================== */
-
-.position-absolute { position: absolute; }
-.position-static { position: static; }
-.position-fixed { position: fixed;}
-
-.position-absolute.left, .position-static.left, .position-fixed.left { left: 0; }
-.position-absolute.right, .position-static.right, .position-fixed.right { right: 0; }
-.position-absolute.top, .position-static.top, .position-fixed.top { top: 0; }
-.position-absolute.bottom , .position-static.bottom, .position-fixed.bottom{ bottom: 0; }
-
-
-/* #Fixed with fluid columns
-================================================== */
-
-.fluid-right,
-.fluid-left {
-  float: left;
-  width: 100%;
-}
-.fluid-left {
-  float: right;
+.sticky.flow .sticky-content,
+.sticky.top.flow .sticky-content {
+  position: relative;
 }
 
-.fixed {
-  background: #C8FC98;
-  float: left;
-  margin-left: -100%;
+.sticky.bottom .sticky-content {
+  bottom: 0;
 }
-.fixed.right {
-  float: right;
-  margin-right: -100%;
+
+.sticky-top {
+  position: fixed;
+  top: 0;
 }
-.fluid-left .fluid-right .fluid { margin-right: 0 !important; }
-.fluid-right .fluid-left .fluid { margin-left: 0 !important; }
 
-.fixed.px100 { width: 100px; }
-.fluid-right.px100 .fluid { margin-left: 100px; }
-.fluid-left.px100 .fluid { margin-right: 100px; }
+.sticky-bottom {
+  position: fixed;
+  bottom: 0;
+}
 
-.fixed.px200 { width: 200px; }
-.fluid-right.px200 .fluid { margin-left: 200px; }
-.fluid-left.px200 .fluid { margin-right: 200px; }
-
-.fixed.px300 { width: 300px; }
-.fluid-right.px300 .fluid { margin-left: 300px; }
-.fluid-left.px300 .fluid { margin-right: 300px; }
-
-.fixed.px400 { width: 400px; }
-.fluid-right.px400 .fluid { margin-left: 400px; }
-.fluid-left.px400 .fluid { margin-right: 400px; }
+.sticky.reserve {
+  clear: left;
+}
 
 
 /* #Sticky
@@ -223,38 +282,60 @@ img {
 
 .container {
   margin: 0 auto;
-  width: $desktopMin;
   overflow: hidden;
+  width: $desktopMin;
 }
 
-/* Less than ie9 is fixed. Upgrade please... */
-
+/* Less than ie9 is fixed. Upgrade your browser please... */
 .lt-ie9 .container {
   width: $desktopMin !important;
 }
+
+/* Col sizes for any layout - to override with more specific layouts */
+@include colSizes($pre: "a");
+@include targetedProperties($pre: "a");
 
 
 /* #Desktop / Tablet landscape Layout
 ================================================== */
 /* Note: Design for a width of greater than $desktopMin */
 
-@media screen and (min-width: $desktopMin) {
-  .not-desktop,
-  .tablet,
-  .tablet-portrait,
-  .tablet-landscape,
-  .mobile,
-  .mobile-portrait,
-  .mobile-landscape {
-    display: none;
+@media (min-width: $desktopMin) {
+
+  .not-d,
+  .not-tl,
+  .tp,
+  .t,
+  .m,
+  .mp,
+  .ml {
+	display: none;
   }
 
   @include colSizes($pre: "d");
   @include colSizes($pre: "tl");
   @include colSizes($pre: "tp");
+  @include targetedProperties($pre: "d");
+  @include targetedProperties($pre: "tl");
+  @include targetedProperties($pre: "tp");
 
   .tablet-clear, .tablet-landscape-clear { clear: left; }
   .tablet-center, .tablet-landscape-center { text-align: center; }
+}
+
+
+/* #Tablet
+================================================== */
+@media (min-width: $tabletPortraitMin) and (max-width: $desktopMin) {
+
+  .not-t,
+  .m,
+  .d {
+    display: none !important;
+  }
+
+  @include colSizes($pre: "t");
+  @include targetedProperties($pre: "t");
 }
 
 
@@ -262,155 +343,99 @@ img {
 ================================================== */
 /* Note: Design for a width of $tabletPortraitMin */
 
-@media screen and (min-width: $tabletPortraitMin) and (max-width: $desktopMin - 1) {
-  .not-tablet-portrait,
-  .not-tablet,
-  .desktop,
-  .tablet-landscape,
-  .mobile,
-  .mobile-landscape,
-  .mobile-portrait {
-    display: none !important;
+@media (min-width: $tabletPortraitMin) and (max-width: $desktopMin - 1) {
+
+  .tl,
+  .m,
+  .ml,
+  .mp,
+  .not-tp {
+	display: none !important;
+  }
+
+  .container {
+	width: $tabletPortraitMin;
+  }
+  .debug .container {
+	background-color: #DBB;
   }
 
   @include colSizes($pre: "tp");
-  @include colSizes($pre: "t");
-
-  .container {
-    width: $tabletPortraitMin;
-  }
-  .debug .container {
-    background-color: #DBB;
-  }
-
-  .tablet-clear, .tablet-portrait-clear { clear: left; }
-  .tablet-center, .tablet-portrait-center { text-align: center; }
-
-  .fixed.tablet-px100 { width: 100px; }
-  .fluid-right.tablet-px100 .fluid { margin-left: 100px; }
-  .fluid-left.tablet-px100 .fluid { margin-right: 100px; }
-
-  .fixed.tablet-px200 { width: 200px; }
-  .fluid-right.tablet-px200 .fluid { margin-left: 200px; }
-  .fluid-left.tablet-px200 .fluid { margin-right: 200px; }
-
-  .fixed.tablet-px300 { width: 300px; }
-  .fluid-right.tablet-px300 .fluid { margin-left: 300px; }
-  .fluid-left.tablet-px300 .fluid { margin-right: 300px; }
-
-  .fixed.tablet-full, .fixed.tablet-portrait-full { width: 100%;  clear: left; margin-right: 0; margin-left: 0; }
-  .fluid-right.tablet-full, .fluid-right.tablet-portrait-full { clear: left }
-  .fluid-right.tablet-full .fluid, .fluid-right.tablet-portrait-full .fluid { margin-left: 0; }
-  .fluid-left.tablet-full .fluid, .fluid-left.tablet-portrait-full .fluid { margin-right: 0; }
+  @include targetedProperties($pre: "tp");
 }
 
 
-/* #Mobile (Landscape) Layout
+/* #Mobile
+================================================== */
+@media (max-width: $tabletPortraitMin - 1) {
+
+  .d,
+  .t,
+  .tl,
+  .tp,
+  .not-m {
+    display: none !important;
+  }
+
+  @include colSizes($pre: "m");
+  @include targetedProperties($pre: "m");
+}
+
+/* Mobile (Landscape) Layout
 ================================================== */
 /* Note: Design for a width of $mobileLandscapeMin */
 
-@media screen and (min-width: $mobileLandscapeMin) and (max-width: $tabletPortraitMin - 1) {
-  .not-mobile,
-  .not-mobile-landscape,
-  .desktop,
-  .tablet,
-  .tablet-landscape,
-  .tablet-portrait,
-  .mobile-portrait {
-    display: none !important;
+@media (min-width: $mobileLandscapeMin) and (max-width: $tabletPortraitMin - 1) {
+
+  .not-ml,
+  .mp {
+	display: none !important;
+  }
+
+  .container {
+	width: 100%;
+  }
+  .debug .container {
+	background-color: #BDB;
   }
 
   @include colSizes($pre: "ml");
-  @include colSizes($pre: "m");
-
-  .container {
-    width: 100%;
-  }
-  .debug .container {
-    background-color: #BDB;
-  }
-
-  .mobile-clear, .mobile-landscape-clear { clear: left; }
-  .mobile-center, .mobile-landscape-center { text-align: center; }
-  .mobile-absolute, .mobile-landscape-absolute { position: absolute; }
-  .mobile-relative, .mobile-landscape-relative { position: relative; }
-
-  .fixed.mobile-px100 { width: 100px; }
-  .fluid-right.mobile-px100 .fluid { margin-left: 100px; }
-  .fluid-left.mobile-px100 .fluid { margin-right: 100px; }
-
-  .fixed.mobile-px200 { width: 200px; }
-  .fluid-right.mobile-px200 .fluid { margin-left: 200px; }
-  .fluid-left.mobile-px200 .fluid { margin-right: 200px; }
-
-  .fixed.mobile-px300 { width: 300px; }
-  .fluid-right.mobile-px300 .fluid { margin-left: 300px; }
-  .fluid-left.mobile-px300 .fluid { margin-right: 300px; }
-
-  .fixed.mobile-full, .fixed.mobile-landscape-full { width: 100%;  clear: left; margin-right: 0; margin-left: 0; }
-  .fluid-right.mobile-full, .fluid-right.mobile-landscape-full { clear: left }
-  .fluid-right.mobile-full .fluid, .fluid-right.mobile-landscape-full .fluid { margin-left: 0; }
-  .fluid-left.mobile-full .fluid, .fluid-left.mobile-landscape-full .fluid { margin-right: 0; }
+  @include targetedProperties($pre: "ml");
 }
 
 
-/*  #Mobile (Portrait) Layout
+/*  Mobile (Portrait) Layout
 ================================================== */
 /* Note: Design for a width of 320px */
 
-@media screen and (max-width:$mobileLandscapeMin - 1) {
-  .not-mobile,
-  .not-mobile-portrait,
-  .desktop
-    .tablet,
-  .tablet-landscape,
-  .tablet-portrait,
-  .mobile-landscape {
-    display: none !important;
+@media (max-width:$mobileLandscapeMin - 1) {
+  .not-mp,
+  .ml {
+	display: none !important;
+  }
+
+  .container {
+	width: 100%;
+  }
+  .debug .container {
+	background-color: #BBD;
   }
 
   @include colSizes($pre: "mp");
-  @include colSizes($pre: "m");
-
-  .container {
-    width: 100%;
-  }
-  .debug .container {
-    background-color: #BBD;
-  }
-
-  .mobile-clear, .mobile-portrait-clear { clear: left; }
-  .mobile-center, .mobile-portrait-center { text-align: center; }
-  .mobile-absolute, .mobile-portrait-absolute { position: absolute; }
-  .mobile-relative, .mobile-portrait-relative { position: relative; }
-
-  .fixed.mobile-px100 { width: 100px; }
-  .fluid-right.mobile-px100 .fluid { margin-left: 100px; }
-  .fluid-left.mobile-px100 .fluid { margin-right: 100px; }
-
-  .fixed.mobile-px200 { width: 200px; }
-  .fluid-right.mobile-px200 .fluid { margin-left: 200px; }
-  .fluid-left.mobile-px200 .fluid { margin-right: 200px; }
-
-  .fixed.mobile-px300 { width: 300px; }
-  .fluid-right.mobile-px300 .fluid { margin-left: 300px; }
-  .fluid-left.mobile-px300 .fluid { margin-right: 300px; }
-
-  .fixed.mobile-full, .fixed.mobile-portrait-full { width: 100%;  clear: left; margin-right: 0; margin-left: 0; }
-  .fluid-right.mobile-full, .fluid-right.mobile-portrait-full { clear: left }
-  .fluid-right.mobile-full .fluid, .fluid-right.mobile-portrait-full .fluid { margin-left: 0; }
-  .fluid-left.mobile-full .fluid, .fluid-left.mobile-portrait-full .fluid { margin-right: 0; }
+  @include targetedProperties($pre: "mp");
 }
 
 
 @media screen {
-  .print {
-    display: none;
+  .not-s,
+  .p {
+	display: none;
   }
 }
 
 @media print {
-  .screen {
-    display: none;
+  .not-p,
+  .s {
+	display: none;
   }
 }
