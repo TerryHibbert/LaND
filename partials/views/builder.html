@@ -1,1 +1,44 @@
-builder
+<div class="a-margin-1 m-margin-0">
+    <div class="col clear">
+        <h2>Builder</h2>
+    </div>
+
+    <div class="col clear">
+        <h3>Layout</h3>
+        <div id="builder" class="col a-clear">
+            <div ld-col="layout.root" class="a-text-center"></div>
+        </div>
+    </div>
+
+    <div class="col a-clear">
+        <h3>Inspector</h3>
+        <div class="col a-clear">
+            <button ng-click="addChild()">Add Child</button>
+            <button ng-click="removeCol()">Remove Child</button>
+            <div class="col a-1-3 a-text-right">classes</div>
+            <div class="col a-2-3">
+                <ul>
+                    <li ng-repeat="class in selectedCol.classes">
+                        <select ng-model="class[0]" ng-options="layout.id as layout.label for layout in layoutOptions"></select>
+                        <select ng-model="class[1]" ng-options="numerator for numerator in numerators"></select>
+                        <select ng-model="class[2]" ng-options="denominator for denominator in denominators"></select>
+                        <button ng-click="removeClass($index)">X</button>
+                    </li>
+                    <li>
+                        New class:
+                        <select ng-model="newClass[0]" ng-options="layout.id as layout.label for layout in layoutOptions"></select>
+                        <select ng-model="newClass[1]" ng-options="numerator for numerator in numerators"></select>
+                        <select ng-model="newClass[2]" ng-options="denominator for denominator in denominators"></select>
+                        <button ng-click="addClass()">Add class</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="col clear">
+        <h3>Structure</h3>
+        <div class="a-margin-1">
+        </div>
+    </div>
+</div>

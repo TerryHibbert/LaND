@@ -29,6 +29,16 @@ $largestDenominator: 16;
 /* General
 ================================================== */
 
+@mixin borderBoxSizing() {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+* {
+  @include borderBoxSizing();
+}
+
 body {
   margin: 0;
   font-family: Helvetica;
@@ -42,17 +52,16 @@ img {
 .debug-only { display: none; }
 .debug .debug-only { display: block; }
 
-
 /* Columns
 ================================================== */
 
 .col {
-  position: relative;
   float: left;
-  width: 100%;
-  overflow: hidden;
   margin: 0;
+  overflow: hidden;
   padding: 0;
+  position: relative;
+  width: 100%;
 
   .right { float: right; }
   .overflowVisible { overflow: visible; }
@@ -95,6 +104,29 @@ img {
   }
 }
 
+@mixin fixedWithFluid($pre, $width) {
+  .a-fixed-left.#{$pre}-px#{$width},
+  .a-fixed-right.#{$pre}-px#{$width},
+  .#{$pre}-fixed-left.#{$pre}-px#{$width},
+  .#{$pre}-fixed-right.#{$pre}-px#{$width} {
+    width: #{$width}px;
+  }
+
+  .a-fluid-left.#{$pre}-px#{$width} .a-fluid,
+  .#{$pre}-fluid-left.#{$pre}-px#{$width} .a-fluid,
+  .a-fluid-left.#{$pre}-px#{$width} .#{$pre}-fluid,
+  .#{$pre}-fluid-left.#{$pre}-px#{$width} .#{$pre}-fluid {
+    margin-right: #{$width}px;
+  }
+
+  .a-fluid-right.#{$pre}-px#{$width} .a-fluid,
+  .#{$pre}-fluid-right.#{$pre}-px#{$width} .a-fluid,
+  .a-fluid-right.#{$pre}-px#{$width} .#{$pre}-fluid,
+  .#{$pre}-fluid-right.#{$pre}-px#{$width} .#{$pre}-fluid {
+    margin-left: #{$width}px;
+  }
+}
+
 
 /* Layout targeted properties
 ================================================== */
@@ -119,6 +151,9 @@ img {
   /* #Fixed with fluid columns
   ================================================== */
 
+  .#{$pre}-fluid-left .#{$pre}-fluid-right .#{$pre}-fluid { margin-right: 0}
+  .#{$pre}-fluid-right .#{$pre}-fluid-left .#{$pre}-fluid { margin-left: 0}
+
   .#{$pre}-fluid-right {
     float: left;
     width: 100%;
@@ -141,28 +176,10 @@ img {
     margin-right: -100%;
   }
 
-  .#{$pre}-fluid-left .#{$pre}-fluid-right .#{$pre}-fluid { margin-right: 0}
-  .#{$pre}-fluid-right .#{$pre}-fluid-left .#{$pre}-fluid { margin-left: 0}
-
-  .#{$pre}-fixed-left.#{$pre}-px400,
-  .#{$pre}-fixed-right.#{$pre}-px400 { width: 400px; }
-  .#{$pre}-fluid-left.#{$pre}-px400 .#{$pre}-fluid { margin-right: 400px; }
-  .#{$pre}-fluid-right.#{$pre}-px400 .#{$pre}-fluid { margin-left: 400px; }
-
-  .#{$pre}-fixed-left.#{$pre}-px300,
-  .#{$pre}-fixed-right.#{$pre}-px300 { width: 300px; }
-  .#{$pre}-fluid-left.#{$pre}-px300 .#{$pre}-fluid { margin-right: 300px; }
-  .#{$pre}-fluid-right.#{$pre}-px300 .#{$pre}-fluid { margin-left: 300px; }
-
-  .#{$pre}-fixed-left.#{$pre}-px200,
-  .#{$pre}-fixed-right.#{$pre}-px200 { width: 200px; }
-  .#{$pre}-fluid-left.#{$pre}-px200 .#{$pre}-fluid { margin-right: 200px; }
-  .#{$pre}-fluid-right.#{$pre}-px200 .#{$pre}-fluid { margin-left: 200px; }
-
-  .#{$pre}-fixed-left.#{$pre}-px100,
-  .#{$pre}-fixed-right.#{$pre}-px100 { width: 100px; }
-  .#{$pre}-fluid-left.#{$pre}-px100 .#{$pre}-fluid { margin-right: 100px; }
-  .#{$pre}-fluid-right.#{$pre}-px100 .#{$pre}-fluid { margin-left: 100px; }
+  @include fixedWithFluid($pre: $pre, $width: 400);
+  @include fixedWithFluid($pre: $pre, $width: 300);
+  @include fixedWithFluid($pre: $pre, $width: 200);
+  @include fixedWithFluid($pre: $pre, $width: 100);
 
 
   /* #Absolute positioning
@@ -176,6 +193,7 @@ img {
   .#{$pre}-position-absolute.top, .#{$pre}-position-static.top, .#{$pre}-position-fixed.top { top: 0; }
   .#{$pre}-position-absolute.bottom , .#{$pre}-position-static.bottom, .#{$pre}-position-fixed.bottom{ bottom: 0; }
 
+
   /* Depth
   ================================================== */
 
@@ -187,6 +205,13 @@ img {
   .#{$pre}-z999999 { z-index: 999999; }
 
 
+  /* Margin
+  ================================================== */
+  .#{$pre}-margin-0 { margin:0; }
+  .#{$pre}-margin-1-2 { margin:0.5em; }
+  .#{$pre}-margin-1 { margin:1em; }
+  .#{$pre}-margin-2 { margin:2em; }
+
   /* Misc
   ================================================== */
   .#{$pre}-cursor-pointer { cursor: pointer; }
@@ -194,47 +219,6 @@ img {
   .#{$pre}-display-table { display: table; }
   .#{$pre}-cell-vertical-middle { display: table-cell; vertical-align: middle; float: none; }
 
-}
-
-
-/* Sticky
-================================================== */
-
-.sticky {
-  .sticky-content {
-    position: fixed;
-    z-index: 99;
-    left: 0;
-    right: 0;
-  }
-}
-
-.sticky.top .sticky-content {
-  position: fixed;
-  top: 0;
-}
-
-.sticky.flow .sticky-content,
-.sticky.top.flow .sticky-content {
-  position: relative;
-}
-
-.sticky.bottom .sticky-content {
-  bottom: 0;
-}
-
-.sticky-top {
-  position: fixed;
-  top: 0;
-}
-
-.sticky-bottom {
-  position: fixed;
-  bottom: 0;
-}
-
-.sticky.reserve {
-  clear: left;
 }
 
 
@@ -294,7 +278,7 @@ img {
 }
 
 /* Less than ie9 is fixed. Upgrade your browser please... */
-.lt-ie9 .container {
+.lt-ie8 .container {
   width: $desktopMin !important;
 }
 
