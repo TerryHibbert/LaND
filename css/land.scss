@@ -17,7 +17,6 @@
  *  e.g.  'col a-1-2 mp-1-1' will be a half column that changes to full width on mobile portrait
  */
 
-
 $desktopMin: 960px;
 $tabletLandscapeMin: 960px;
 $tabletPortraitMin: 768px;
@@ -70,6 +69,7 @@ img {
   padding: 0;
   position: relative;
   width: 100%;
+  border: 0 solid #999;
 
   .right { float: right; }
   .overflow-visible { overflow: visible; }
@@ -276,6 +276,16 @@ img {
 
   .col.#{$pre}-pad-0 { padding: 0; }
   .col.#{$pre}-margin-0 { margin: 0; }
+
+
+  /* Borders
+  ================================================== */
+  .#{$pre}-border-0 { border-width: 0; }
+  .#{$pre}-border-1 { border-width: 1px; }
+  .#{$pre}-border-2 { border-width: 2px; }
+  .#{$pre}-border-3 { border-width: 3px; }
+  .#{$pre}-border-4 { border-width: 4px; }
+  .#{$pre}-border-5 { border-width: 5px; }
 }
 
 

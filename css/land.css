@@ -49,7 +49,8 @@ img {
   overflow: hidden;
   padding: 0;
   position: relative;
-  width: 100%; }
+  width: 100%;
+  border: 0 solid #999999; }
   .col .right {
     float: right; }
   .col .overflow-visible {
@@ -619,6 +620,26 @@ img {
 
 .col.a-margin-0 {
   margin: 0; }
+
+/* Borders
+================================================== */
+.a-border-0 {
+  border-width: 0; }
+
+.a-border-1 {
+  border-width: 1px; }
+
+.a-border-2 {
+  border-width: 2px; }
+
+.a-border-3 {
+  border-width: 3px; }
+
+.a-border-4 {
+  border-width: 4px; }
+
+.a-border-5 {
+  border-width: 5px; }
 
 /* #Desktop / Tablet landscape Layout
 ================================================== */
@@ -1352,6 +1373,26 @@ img {
   .col.d-margin-0 {
     margin: 0; }
 
+  /* Borders
+  ================================================== */
+  .d-border-0 {
+    border-width: 0; }
+
+  .d-border-1 {
+    border-width: 1px; }
+
+  .d-border-2 {
+    border-width: 2px; }
+
+  .d-border-3 {
+    border-width: 3px; }
+
+  .d-border-4 {
+    border-width: 4px; }
+
+  .d-border-5 {
+    border-width: 5px; }
+
   .tl-float-left {
     float: left; }
 
@@ -1747,6 +1788,26 @@ img {
   .col.tl-margin-0 {
     margin: 0; }
 
+  /* Borders
+  ================================================== */
+  .tl-border-0 {
+    border-width: 0; }
+
+  .tl-border-1 {
+    border-width: 1px; }
+
+  .tl-border-2 {
+    border-width: 2px; }
+
+  .tl-border-3 {
+    border-width: 3px; }
+
+  .tl-border-4 {
+    border-width: 4px; }
+
+  .tl-border-5 {
+    border-width: 5px; }
+
   .tp-float-left {
     float: left; }
 
@@ -2141,6 +2202,26 @@ img {
 
   .col.tp-margin-0 {
     margin: 0; }
+
+  /* Borders
+  ================================================== */
+  .tp-border-0 {
+    border-width: 0; }
+
+  .tp-border-1 {
+    border-width: 1px; }
+
+  .tp-border-2 {
+    border-width: 2px; }
+
+  .tp-border-3 {
+    border-width: 3px; }
+
+  .tp-border-4 {
+    border-width: 4px; }
+
+  .tp-border-5 {
+    border-width: 5px; }
 
   .tablet-clear, .tablet-landscape-clear {
     clear: left; }
@@ -2656,7 +2737,27 @@ img {
     padding: 0; }
 
   .col.t-margin-0 {
-    margin: 0; } }
+    margin: 0; }
+
+  /* Borders
+  ================================================== */
+  .t-border-0 {
+    border-width: 0; }
+
+  .t-border-1 {
+    border-width: 1px; }
+
+  .t-border-2 {
+    border-width: 2px; }
+
+  .t-border-3 {
+    border-width: 3px; }
+
+  .t-border-4 {
+    border-width: 4px; }
+
+  .t-border-5 {
+    border-width: 5px; } }
 /* #Tablet (Portrait) Layout
 ================================================== */
 /* Note: Design for a width of $tabletPortraitMin */
@@ -3175,7 +3276,27 @@ img {
     padding: 0; }
 
   .col.tp-margin-0 {
-    margin: 0; } }
+    margin: 0; }
+
+  /* Borders
+  ================================================== */
+  .tp-border-0 {
+    border-width: 0; }
+
+  .tp-border-1 {
+    border-width: 1px; }
+
+  .tp-border-2 {
+    border-width: 2px; }
+
+  .tp-border-3 {
+    border-width: 3px; }
+
+  .tp-border-4 {
+    border-width: 4px; }
+
+  .tp-border-5 {
+    border-width: 5px; } }
 /* #Mobile
 ================================================== */
 @media (max-width: 767px) {
@@ -3687,7 +3808,27 @@ img {
     padding: 0; }
 
   .col.m-margin-0 {
-    margin: 0; } }
+    margin: 0; }
+
+  /* Borders
+  ================================================== */
+  .m-border-0 {
+    border-width: 0; }
+
+  .m-border-1 {
+    border-width: 1px; }
+
+  .m-border-2 {
+    border-width: 2px; }
+
+  .m-border-3 {
+    border-width: 3px; }
+
+  .m-border-4 {
+    border-width: 4px; }
+
+  .m-border-5 {
+    border-width: 5px; } }
 /* Mobile (Landscape) Layout
 ================================================== */
 /* Note: Design for a width of $mobileLandscapeMin */
@@ -4203,7 +4344,27 @@ img {
     padding: 0; }
 
   .col.ml-margin-0 {
-    margin: 0; } }
+    margin: 0; }
+
+  /* Borders
+  ================================================== */
+  .ml-border-0 {
+    border-width: 0; }
+
+  .ml-border-1 {
+    border-width: 1px; }
+
+  .ml-border-2 {
+    border-width: 2px; }
+
+  .ml-border-3 {
+    border-width: 3px; }
+
+  .ml-border-4 {
+    border-width: 4px; }
+
+  .ml-border-5 {
+    border-width: 5px; } }
 /*  Mobile (Portrait) Layout
 ================================================== */
 /* Note: Design for a width of 320px */
@@ -4719,7 +4880,27 @@ img {
     padding: 0; }
 
   .col.mp-margin-0 {
-    margin: 0; } }
+    margin: 0; }
+
+  /* Borders
+  ================================================== */
+  .mp-border-0 {
+    border-width: 0; }
+
+  .mp-border-1 {
+    border-width: 1px; }
+
+  .mp-border-2 {
+    border-width: 2px; }
+
+  .mp-border-3 {
+    border-width: 3px; }
+
+  .mp-border-4 {
+    border-width: 4px; }
+
+  .mp-border-5 {
+    border-width: 5px; } }
 @media screen {
   .not-s,
   .p {

@@ -4,6 +4,8 @@ var LandCtrl = function($scope) {
     console.log("LandCtrl");
 
     $scope.sub = "A fraction based, responsive CSS layout framework.";
+
+    $scope.$root.debug = true;
 }
 
 var IntroCtrl = function($scope) {
@@ -118,7 +120,6 @@ var BuilderCtrl = function($scope) {
     $scope.addParent = function() {
         console.log("removeCol");
         var parent = $scope.selectedCol.getParent();
-
     }
 
     $scope.addClass = function() {
