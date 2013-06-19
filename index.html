@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 ]><html class="ie ie6 lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if IE 7 ]><html class="ie ie7 lt-ie9 lt-ie8" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="ie ie8 lt-ie9" lang="en"> <![endif]-->
-<!--[if IE 9 ]><html class="ie ie9 lt-ie10" lang="en"> <![endif]-->
+<!--[if lt IE 7 ]><html class="ie ie6 lt-ie9 lt-ie8 lt-ie7" lang="en" xmlns:ng="http://angularjs.org"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7 lt-ie9 lt-ie8" lang="en" xmlns:ng="http://angularjs.org"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8 lt-ie9" lang="en" xmlns:ng="http://angularjs.org"> <![endif]-->
+<!--[if IE 9 ]><html class="ie ie9 lt-ie10" lang="en" xmlns:ng="http://angularjs.org"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
@@ -17,13 +17,31 @@
 
     <script src="http://maps.googleapis.com/maps/api/js?sensor=false&language=en"></script>
 
+    <script type="text/javascript">var console = typeof console !== 'undefined' ? console : {log:function(){}};</script>
+
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <script type="text/javascript" src="js/css3-mediaqueries.js"></script>
     <![endif]-->
+    <!--[if lte IE 8]>
+    <script>
+        document.createElement('ng-include');
+        document.createElement('ng-pluralize');
+        document.createElement('ng-view');
+        document.createElement('ng:include');
+        document.createElement('ng:pluralize');
+        document.createElement('ng:view');
+    </script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <script src="/js/lib/json2.js"></script>
+    <![endif]-->
+    <!--[if lt IE 7]>
+    <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE7.js"></script>
+    <![endif]-->
 
 </head>
-<body class="debug" ng-app="land" ng-controller="LandCtrl">
+<body id="ng-app" class="ng-app:land" ng-app="land" ng-controller="LandCtrl" ng-class="{true:'debug'}[$root.debug]">
     <article class="container">
         <div class="a-margin-1 m-margin-0">
             <h1>LaND</h1>
@@ -35,7 +53,7 @@
             <a href="#/tests">tests</a>
             <a href="#/builder">builder</a>
         </nav>
-        <div ng-view class="col a-clear"></div>
+        <div ng-view class="col a-clear a-pad-0"></div>
     </article>
 
     <footer class="container a-text-center">

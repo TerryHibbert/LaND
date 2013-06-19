@@ -23,7 +23,10 @@ $tabletLandscapeMin: 960px;
 $tabletPortraitMin: 768px;
 $mobileLandscapeMin: 480px;
 
-$largestDenominator: 16;
+$largestDenominator: 8;
+
+$padSizes: 8 16 24 32 64;
+$padColDefaultSize: 2;
 
 
 /* General
@@ -33,6 +36,7 @@ $largestDenominator: 16;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  *behavior: url(/css/boxsizing.htc);
 }
 
 * {
@@ -52,6 +56,10 @@ img {
 .debug-only { display: none; }
 .debug .debug-only { display: block; }
 
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none;
+}
+
 /* Columns
 ================================================== */
 
@@ -64,7 +72,7 @@ img {
   width: 100%;
 
   .right { float: right; }
-  .overflowVisible { overflow: visible; }
+  .overflow-visible { overflow: visible; }
 }
 
 @function fraction_percent($parts, $whole) {
@@ -73,34 +81,36 @@ img {
 
 @mixin colSize($pre, $numerator, $denominator) {
   .#{$pre}-#{$numerator}-#{$denominator} {
-	width: fraction_percent($numerator, $denominator);
+    width: fraction_percent($numerator, $denominator);
   }
 }
 
 @mixin colSizes($pre) {
   @for $i from 1 through $largestDenominator {
-	@for $j from 1 through $i {
-	  @if $j <= $i {
-		@include colSize(#{$pre}, $j, $i);
-	  }
-	}
+    @for $j from 1 through $i {
+      @if $j <= $i {
+        @include colSize(#{$pre}, $j, $i);
+      }
+    }
   }
 }
 
 /* Column debug */
 .debug {
-  .col {
-    background: -moz-linear-gradient(-45deg, rgba(255,127,127,0.5) 0%, rgba(131,255,127,0.5) 100%);
-    background: -webkit-linear-gradient(-45deg, rgba(255,127,127,0.5) 0%, rgba(131,255,127,0.5) 100%);
-    background: -ms-linear-gradient(-45deg, rgba(255,127,127,0.5) 0%, rgba(131,255,127,0.5) 100%); /* IE10+ */
-    background: linear-gradient(135deg, rgba(255,127,127,0.5) 0%, rgba(131,255,127,0.5) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FF7F7F', endColorstr='#83FF7F', GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-  }
+  .debuggable {
+    .col {
+      background: -moz-linear-gradient(-45deg, rgba(255,127,127,0.5) 0%, rgba(131,255,127,0.5) 100%);
+      background: -webkit-linear-gradient(-45deg, rgba(255,127,127,0.5) 0%, rgba(131,255,127,0.5) 100%);
+      background: -ms-linear-gradient(-45deg, rgba(255,127,127,0.5) 0%, rgba(131,255,127,0.5) 100%); /* IE10+ */
+      background: linear-gradient(135deg, rgba(255,127,127,0.5) 0%, rgba(131,255,127,0.5) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FF7F7F', endColorstr='#83FF7F', GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    }
 
-  .col.one,
-  .col.full,
-  .col.fullWidth {
-    background-color: #FF00FF;
+    .col.one,
+    .col.full,
+    .col.fullWidth {
+      background-color: #FF00FF;
+    }
   }
 }
 
@@ -132,6 +142,10 @@ img {
 ================================================== */
 
 @mixin targetedProperties($pre) {
+
+  .#{$pre}-float-left { float: left; }
+  .#{$pre}-float-right { float: right; }
+
   .#{$pre}-opacity-100 { opacity: 0; }
   .#{$pre}-opacity-75 { opacity: 0.75; }
   .#{$pre}-opacity-50 { opacity: 0.5; }
@@ -142,10 +156,21 @@ img {
   .#{$pre}-clear, .#{$pre}-clearLeft { clear: left; }
   .#{$pre}-clear-right { clear: right; }
   .#{$pre}-clear-both { clear: both; }
+
   .#{$pre}-text-center { text-align: center; }
   .#{$pre}-text-right { text-align: right; }
   .#{$pre}-text-left { text-align: left; }
+
   .#{$pre}-margin-auto { margin: auto !important; float: none !important; }
+
+  .#{$pre}-no-select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
 
 
   /* #Fixed with fluid columns
@@ -205,13 +230,6 @@ img {
   .#{$pre}-z999999 { z-index: 999999; }
 
 
-  /* Margin
-  ================================================== */
-  .#{$pre}-margin-0 { margin:0; }
-  .#{$pre}-margin-1-2 { margin:0.5em; }
-  .#{$pre}-margin-1 { margin:1em; }
-  .#{$pre}-margin-2 { margin:2em; }
-
   /* Misc
   ================================================== */
   .#{$pre}-cursor-pointer { cursor: pointer; }
@@ -219,6 +237,45 @@ img {
   .#{$pre}-display-table { display: table; }
   .#{$pre}-cell-vertical-middle { display: table-cell; vertical-align: middle; float: none; }
 
+
+  /* Padding and margin
+  ================================================== */
+
+  @if $padColDefaultSize > 0 {
+    .col {
+      padding: #{nth($padSizes, $padColDefaultSize)}px;
+    }
+  }
+
+  $i:1;
+  @each $padSize in $padSizes {
+    .col.#{$pre}-pad-#{$i} { padding: #{$padSize}px; }
+    .col.#{$pre}-pad-top-#{$i} { padding-top: #{$padSize}px; }
+    .col.#{$pre}-pad-right-#{$i} { padding-right: #{$padSize}px; }
+    .col.#{$pre}-pad-bottom-#{$i} { padding-bottom: #{$padSize}px; }
+    .col.#{$pre}-pad-left-#{$i} { padding-left: #{$padSize}px; }
+
+    .col.#{$pre}-margin-#{$i} { margin: #{$padSize}px; }
+    .col.#{$pre}-margin-top-#{$i} { margin-top: #{$padSize}px; }
+    .col.#{$pre}-margin-right-#{$i} { margin-right: #{$padSize}px; }
+    .col.#{$pre}-margin-bottom-#{$i} { margin-bottom: #{$padSize}px; }
+    .col.#{$pre}-margin-left-#{$i} { margin-left: #{$padSize}px; }
+
+    $i:$i+1;
+  }
+
+  .col.#{$pre}-pad-top-0 { padding-top: 0; }
+  .col.#{$pre}-pad-right-0 { padding-right: 0; }
+  .col.#{$pre}-pad-bottom-0 { padding-bottom: 0; }
+  .col.#{$pre}-pad-left-0 { padding-left: 0; }
+
+  .col.#{$pre}-margin-top-0 { margin-top: 0; }
+  .col.#{$pre}-margin-right-0 { margin-right: 0; }
+  .col.#{$pre}-margin-bottom-0 { margin-bottom: 0; }
+  .col.#{$pre}-margin-left-0 { margin-left: 0; }
+
+  .col.#{$pre}-pad-0 { padding: 0; }
+  .col.#{$pre}-margin-0 { margin: 0; }
 }
 
 
@@ -275,6 +332,7 @@ img {
   margin: 0 auto;
   overflow: hidden;
   width: $desktopMin;
+  clear: left;
 }
 
 /* Less than ie9 is fixed. Upgrade your browser please... */
@@ -300,7 +358,7 @@ img {
   .m,
   .mp,
   .ml {
-	display: none;
+    display: none;
   }
 
   @include colSizes($pre: "d");
@@ -341,14 +399,14 @@ img {
   .ml,
   .mp,
   .not-tp {
-	display: none !important;
+    display: none !important;
   }
 
   .container {
-	width: $tabletPortraitMin;
+    width: $tabletPortraitMin;
   }
   .debug .container {
-	background-color: #DBB;
+    background-color: #DBB;
   }
 
   @include colSizes($pre: "tp");
@@ -380,14 +438,14 @@ img {
 
   .not-ml,
   .mp {
-	display: none !important;
+    display: none !important;
   }
 
   .container {
-	width: 100%;
+    width: 100%;
   }
   .debug .container {
-	background-color: #BDB;
+    background-color: #BDB;
   }
 
   @include colSizes($pre: "ml");
@@ -402,14 +460,14 @@ img {
 @media (max-width:$mobileLandscapeMin - 1) {
   .not-mp,
   .ml {
-	display: none !important;
+    display: none !important;
   }
 
   .container {
-	width: 100%;
+    width: 100%;
   }
   .debug .container {
-	background-color: #BBD;
+    background-color: #BBD;
   }
 
   @include colSizes($pre: "mp");
@@ -420,13 +478,13 @@ img {
 @media screen {
   .not-s,
   .p {
-	display: none;
+    display: none;
   }
 }
 
 @media print {
   .not-p,
   .s {
-	display: none;
+    display: none;
   }
 }
