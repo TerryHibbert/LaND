@@ -14,6 +14,7 @@
 
     <link rel="stylesheet" type="text/css" media="all" href="css/land.css">
     <link rel="stylesheet" type="text/css" media="all" href="css/builder.css">
+    <link rel="stylesheet" type="text/css" media="all" href="css/site.css">
 
     <script src="http://maps.googleapis.com/maps/api/js?sensor=false&language=en"></script>
 
@@ -42,12 +43,12 @@
 
 </head>
 <body id="ng-app" class="ng-app:land" ng-app="land" ng-controller="LandCtrl" ng-class="{true:'debug'}[$root.debug]">
-    <article class="container">
-        <div class="col a-pad-0 m-pad-1">
+    <article class="container animate">
+        <div class="col a-pad-0 m-pad-left-1 m-pad-right-1">
             <h1>LaND</h1>
             <h2>{{sub}}</h2>
         </div>
-        <nav>
+        <nav class="col a-pad-left-0 m-pad-left-1">
             <a href="#/intro">intro</a>
             <a href="#/docs">docs</a>
             <a href="#/tests">tests</a>

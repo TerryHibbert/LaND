@@ -12,8 +12,9 @@
  *      mp  :   mobile portrait
  *      s   :   screen
  *      p   :   print
- *  'N' is the numerator
- *  'D' is the denominator
+ *  Then 'N-D' to represent the fraction: N/D
+ *  'N' is the numerator (top of the fraction)
+ *  'D' is the denominator (bottom of the fraction)
  *  e.g.  'col a-1-2 mp-1-1' will be a half column that changes to full width on mobile portrait
  */
 
@@ -24,8 +25,12 @@ $mobileLandscapeMin: 480px;
 
 $largestDenominator: 8;
 
-$padSizes: 8 16 24 32 64;
+$padSizes: 0 10 20 30 40 50;
 $padColDefaultSize: 2;
+
+$borderSizes: 0 1 2 3 4 5;
+
+$transitionDuration: '0.5s';
 
 
 /* General
@@ -42,12 +47,6 @@ $padColDefaultSize: 2;
   @include borderBoxSizing();
 }
 
-body {
-  margin: 0;
-  font-family: Helvetica;
-  overflow-x: hidden;
-}
-
 img {
   border: 0;
 }
@@ -57,6 +56,13 @@ img {
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none;
+}
+
+@mixin animate($duration, $properties) {
+  transition-property: #{$properties};
+  -webkit-transition-property: #{$properties};
+  transition-duration: #{$transitionDuration};
+  -webkit-transition-duration: #{$transitionDuration};
 }
 
 /* Columns
@@ -73,6 +79,8 @@ img {
 
   .right { float: right; }
   .overflow-visible { overflow: visible; }
+
+  @include animate($transitionDuration, 'padding, border');
 }
 
 @function fraction_percent($parts, $whole) {
@@ -247,7 +255,7 @@ img {
     }
   }
 
-  $i:1;
+  $i:0;
   @each $padSize in $padSizes {
     .col.#{$pre}-pad-#{$i} { padding: #{$padSize}px; }
     .col.#{$pre}-pad-top-#{$i} { padding-top: #{$padSize}px; }
@@ -280,12 +288,17 @@ img {
 
   /* Borders
   ================================================== */
-  .#{$pre}-border-0 { border-width: 0; }
-  .#{$pre}-border-1 { border-width: 1px; }
-  .#{$pre}-border-2 { border-width: 2px; }
-  .#{$pre}-border-3 { border-width: 3px; }
-  .#{$pre}-border-4 { border-width: 4px; }
-  .#{$pre}-border-5 { border-width: 5px; }
+
+  $i:0;
+  @each $borderSize in $borderSizes {
+    .col.#{$pre}-border-#{$i} { border-width: #{$borderSize}px; }
+    .col.#{$pre}-border-top-#{$i} { border-top-width: #{$borderSize}px; }
+    .col.#{$pre}-border-right-#{$i} { border-right-width: #{$borderSize}px; }
+    .col.#{$pre}-border-left-#{$i} { border-left-width: #{$borderSize}px; }
+    .col.#{$pre}-border-bottom-#{$i} { border-bottom-width: #{$borderSize}px; }
+
+    $i:$i+1;
+  }
 }
 
 
@@ -343,6 +356,10 @@ img {
   overflow: hidden;
   width: $desktopMin;
   clear: left;
+}
+
+.container.animate {
+  @include animate($transitionDuration, 'all');
 }
 
 /* Less than ie9 is fixed. Upgrade your browser please... */
