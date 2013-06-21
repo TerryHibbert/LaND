@@ -1,4 +1,7 @@
-/* LaND - A fluid responsive layout framework by Terry Hibbert
+/* LaND - A fluid responsive layout framework by Terry Hibbert.
+ *
+ * TIPS:  Edit the SCSS and not the CSS.
+ *        Add non-layout styles to a different CSS file loaded after LaND.
  *
  * Usage 'col La-N-D' where:
  *  'La' is replaced by the shorthand of the layout:
@@ -12,11 +15,12 @@
  *      mp  :   mobile portrait
  *      s   :   screen
  *      p   :   print
- *  Then 'N-D' to represent the fraction: N/D
+ *  Then '-N-D' to represent the fraction: N/D
  *  'N' is the numerator (top of the fraction)
  *  'D' is the denominator (bottom of the fraction)
  *  e.g.  'col a-1-2 mp-1-1' will be a half column that changes to full width on mobile portrait
  */
+/* Start at one, no zero */
 /* General
 ================================================== */
 * {
@@ -56,6 +60,9 @@ img {
   .col .overflow-visible {
     overflow: visible; }
 
+.col img {
+  max-width: 100%; }
+
 /* Column debug */
 .debug .debuggable .col {
   background: -moz-linear-gradient(-45deg, rgba(255, 127, 127, 0.5) 0%, rgba(131, 255, 127, 0.5) 100%);
@@ -72,39 +79,6 @@ img {
 
 /* Layout targeted properties
 ================================================== */
-/* #Sticky
-================================================== */
-.sticky .sticky-content {
-  position: fixed;
-  z-index: 99;
-  left: 0;
-  right: 0; }
-
-.sticky.top .sticky-content {
-  position: fixed; }
-
-.sticky.flow .sticky-content,
-.sticky.top.flow .sticky-content {
-  position: relative; }
-
-.sticky.bottom .sticky-content {
-  bottom: 0; }
-
-.sticky.top .sticky-content {
-  top: 0; }
-
-.sticky-top {
-  position: fixed;
-  top: 0; }
-
-.sticky-bottom {
-  position: fixed;
-  bottom: 0; }
-
-.sticky.reserve {
-  clear: left;
-  /* background-color: #F00;*/ }
-
 /* #Default Layout
 ================================================== */
 .container {
@@ -445,7 +419,7 @@ img {
 /* Padding and margin
 ================================================== */
 .col {
-  padding: 10px; }
+  padding: 20px; }
 
 .col.a-pad-0 {
   padding: 0px; }
@@ -753,6 +727,9 @@ img {
 ================================================== */
 /* Note: Design for a width of greater than $desktopMin */
 @media (min-width: 960px) {
+  land-d-tl {
+    cue: none; }
+
   .not-d,
   .not-tl,
   .tp,
@@ -1299,7 +1276,7 @@ img {
   /* Padding and margin
   ================================================== */
   .col {
-    padding: 10px; }
+    padding: 20px; }
 
   .col.d-pad-0 {
     padding: 0px; }
@@ -1816,7 +1793,7 @@ img {
   /* Padding and margin
   ================================================== */
   .col {
-    padding: 10px; }
+    padding: 20px; }
 
   .col.tl-pad-0 {
     padding: 0px; }
@@ -2333,7 +2310,7 @@ img {
   /* Padding and margin
   ================================================== */
   .col {
-    padding: 10px; }
+    padding: 20px; }
 
   .col.tp-pad-0 {
     padding: 0px; }
@@ -2641,10 +2618,16 @@ img {
     clear: left; }
 
   .tablet-center, .tablet-landscape-center {
-    text-align: center; } }
+    text-align: center; }
+
+  html {
+    animation-name: LaND-d; } }
 /* #Tablet
 ================================================== */
 @media (min-width: 768px) and (max-width: 960px) {
+  land-t-tl {
+    cue: none; }
+
   .not-t,
   .m,
   .d {
@@ -2971,7 +2954,7 @@ img {
   /* Padding and margin
   ================================================== */
   .col {
-    padding: 10px; }
+    padding: 20px; }
 
   .col.t-pad-0 {
     padding: 0px; }
@@ -3273,11 +3256,17 @@ img {
     border-left-width: 5px; }
 
   .col.t-border-bottom-5 {
-    border-bottom-width: 5px; } }
+    border-bottom-width: 5px; }
+
+  html {
+    animation-name: LaND-t; } }
 /* #Tablet (Portrait) Layout
 ================================================== */
 /* Note: Design for a width of $tabletPortraitMin */
 @media (min-width: 768px) and (max-width: 959px) {
+  land-t-tp {
+    cue: none; }
+
   .tl,
   .m,
   .ml,
@@ -3612,7 +3601,7 @@ img {
   /* Padding and margin
   ================================================== */
   .col {
-    padding: 10px; }
+    padding: 20px; }
 
   .col.tp-pad-0 {
     padding: 0px; }
@@ -3918,6 +3907,9 @@ img {
 /* #Mobile
 ================================================== */
 @media (max-width: 767px) {
+  land-m {
+    cue: none; }
+
   .d,
   .t,
   .tl,
@@ -4246,7 +4238,7 @@ img {
   /* Padding and margin
   ================================================== */
   .col {
-    padding: 10px; }
+    padding: 20px; }
 
   .col.m-pad-0 {
     padding: 0px; }
@@ -4548,11 +4540,17 @@ img {
     border-left-width: 5px; }
 
   .col.m-border-bottom-5 {
-    border-bottom-width: 5px; } }
+    border-bottom-width: 5px; }
+
+  html {
+    animation-name: LaND-m; } }
 /* Mobile (Landscape) Layout
 ================================================== */
 /* Note: Design for a width of $mobileLandscapeMin */
 @media (min-width: 480px) and (max-width: 767px) {
+  land-m-ml {
+    cue: none; }
+
   .not-ml,
   .mp {
     display: none !important; }
@@ -4884,7 +4882,7 @@ img {
   /* Padding and margin
   ================================================== */
   .col {
-    padding: 10px; }
+    padding: 20px; }
 
   .col.ml-pad-0 {
     padding: 0px; }
@@ -5191,6 +5189,9 @@ img {
 ================================================== */
 /* Note: Design for a width of 320px */
 @media (max-width: 479px) {
+  land-m-mp {
+    cue: none; }
+
   .not-mp,
   .ml {
     display: none !important; }
@@ -5522,7 +5523,7 @@ img {
   /* Padding and margin
   ================================================== */
   .col {
-    padding: 10px; }
+    padding: 20px; }
 
   .col.mp-pad-0 {
     padding: 0px; }
@@ -5824,12 +5825,21 @@ img {
     border-left-width: 5px; }
 
   .col.mp-border-bottom-5 {
-    border-bottom-width: 5px; } }
+    border-bottom-width: 5px; }
+
+  html {
+    animation-name: LaND-mp; } }
 @media screen {
+  land-s {
+    cue: none; }
+
   .not-s,
   .p {
     display: none; } }
 @media print {
+  land-p {
+    cue: none; }
+
   .not-p,
   .s {
     display: none; } }

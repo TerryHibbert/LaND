@@ -1,4 +1,7 @@
-/* LaND - A fluid responsive layout framework by Terry Hibbert
+/* LaND - A fluid responsive layout framework by Terry Hibbert.
+ *
+ * TIPS:  Edit the SCSS and not the CSS.
+ *        Add non-layout styles to a different CSS file loaded after LaND.
  *
  * Usage 'col La-N-D' where:
  *  'La' is replaced by the shorthand of the layout:
@@ -12,7 +15,7 @@
  *      mp  :   mobile portrait
  *      s   :   screen
  *      p   :   print
- *  Then 'N-D' to represent the fraction: N/D
+ *  Then '-N-D' to represent the fraction: N/D
  *  'N' is the numerator (top of the fraction)
  *  'D' is the denominator (bottom of the fraction)
  *  e.g.  'col a-1-2 mp-1-1' will be a half column that changes to full width on mobile portrait
@@ -26,7 +29,7 @@ $mobileLandscapeMin: 480px;
 $largestDenominator: 8;
 
 $padSizes: 0 10 20 30 40 50;
-$padColDefaultSize: 2;
+$padColDefaultSize: 3; /* Start at one, no zero */
 
 $borderSizes: 0 1 2 3 4 5;
 
@@ -81,6 +84,10 @@ img {
   .overflow-visible { overflow: visible; }
 
   @include animate($transitionDuration, 'padding, border');
+}
+
+.col img {
+  max-width: 100%;
 }
 
 @function fraction_percent($parts, $whole) {
@@ -302,52 +309,6 @@ img {
 }
 
 
-/* #Sticky
-================================================== */
-
-.sticky {
-}
-
-.sticky .sticky-content {
-  position: fixed;
-  z-index: 99;
-  left: 0;
-  right: 0;
-}
-
-.sticky.top .sticky-content {
-  position: fixed;
-}
-
-.sticky.flow .sticky-content,
-.sticky.top.flow .sticky-content {
-  position: relative;
-}
-
-.sticky.bottom .sticky-content {
-  bottom: 0;
-}
-
-.sticky.top .sticky-content {
-  top: 0;
-}
-
-.sticky-top {
-  position: fixed;
-  top: 0;
-}
-
-.sticky-bottom {
-  position: fixed;
-  bottom: 0;
-}
-
-.sticky.reserve {
-  clear: left;
-  /* background-color: #F00;*/
-}
-
-
 /* #Default Layout
 ================================================== */
 
@@ -377,6 +338,7 @@ img {
 /* Note: Design for a width of greater than $desktopMin */
 
 @media (min-width: $desktopMin) {
+  land-d-tl {cue:none}
 
   .not-d,
   .not-tl,
@@ -397,12 +359,15 @@ img {
 
   .tablet-clear, .tablet-landscape-clear { clear: left; }
   .tablet-center, .tablet-landscape-center { text-align: center; }
+
+  html { animation-name: LaND-d; }
 }
 
 
 /* #Tablet
 ================================================== */
 @media (min-width: $tabletPortraitMin) and (max-width: $desktopMin) {
+  land-t-tl {cue:none}
 
   .not-t,
   .m,
@@ -412,6 +377,8 @@ img {
 
   @include colSizes($pre: "t");
   @include targetedProperties($pre: "t");
+
+  html { animation-name: LaND-t; }
 }
 
 
@@ -420,6 +387,7 @@ img {
 /* Note: Design for a width of $tabletPortraitMin */
 
 @media (min-width: $tabletPortraitMin) and (max-width: $desktopMin - 1) {
+  land-t-tp {cue:none}
 
   .tl,
   .m,
@@ -444,6 +412,7 @@ img {
 /* #Mobile
 ================================================== */
 @media (max-width: $tabletPortraitMin - 1) {
+  land-m {cue:none}
 
   .d,
   .t,
@@ -455,6 +424,8 @@ img {
 
   @include colSizes($pre: "m");
   @include targetedProperties($pre: "m");
+
+  html { animation-name: LaND-m; }
 }
 
 /* Mobile (Landscape) Layout
@@ -462,6 +433,7 @@ img {
 /* Note: Design for a width of $mobileLandscapeMin */
 
 @media (min-width: $mobileLandscapeMin) and (max-width: $tabletPortraitMin - 1) {
+  land-m-ml {cue:none}
 
   .not-ml,
   .mp {
@@ -485,6 +457,8 @@ img {
 /* Note: Design for a width of 320px */
 
 @media (max-width:$mobileLandscapeMin - 1) {
+  land-m-mp {cue:none}
+
   .not-mp,
   .ml {
     display: none !important;
@@ -499,10 +473,14 @@ img {
 
   @include colSizes($pre: "mp");
   @include targetedProperties($pre: "mp");
+
+  html { animation-name: LaND-mp; }
 }
 
 
 @media screen {
+  land-s {cue:none}
+
   .not-s,
   .p {
     display: none;
@@ -510,6 +488,8 @@ img {
 }
 
 @media print {
+  land-p {cue:none}
+
   .not-p,
   .s {
     display: none;
