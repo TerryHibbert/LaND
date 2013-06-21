@@ -18,7 +18,13 @@
 
     <script type="text/javascript" src="/js/land/land.js"></script>
     <script type="text/javascript">
-        window.l = new LaND().init();
+        var land = new LaND()
+        land.addListener(LaND.events.CHANGE, function() {
+           console.log('Change event caught:');
+           console.log(land.layouts);
+        });
+        land.init();
+
     </script>
 
     <script type="text/javascript">var console = typeof console !== 'undefined' ? console : {log:function(){}};</script>
@@ -45,7 +51,7 @@
     <![endif]-->
 
 </head>
-<body id="ng-app" class="ng-app:land" ng-app="land" ng-controller="LandCtrl" ng-class="{true:'debug'}[$root.debug]">
+<body id="ng-app" class="ng-app:landApp" ng-app="landApp" ng-controller="LandCtrl" ng-class="{true:'debug'}[$root.debug]">
     <article class="container animate">
         <div class="col a-pad-0 m-pad-left-1 m-pad-right-1">
             <h1>LaND</h1>

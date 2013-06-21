@@ -1,6 +1,6 @@
 'use strict';
 
-var landFilters = angular.module('land.filters', []);
+var landFilters = angular.module('landApp.filters', []);
 
 landFilters.filter('join', [function() {
     return function(input, glue) {

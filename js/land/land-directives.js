@@ -1,6 +1,6 @@
 'use strict';
 
-var landDirectives = angular.module('land.directives', []);
+var landDirectives = angular.module('landApp.directives', []);
 
 landDirectives.directive('ldCol', function factory($compile) {
     return {

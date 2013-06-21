@@ -1,7 +1,11 @@
 var LaND = function() {
     var that = this;
 
-    this.layouts = {};
+    this.layouts = {}
+    ;
+    var listeners = {
+        change: {}
+    };
 
     this.init = function() {
         console.log("LaND init...");
@@ -10,7 +14,9 @@ var LaND = function() {
         var sheet;
 
         for (var i=0; i<sheetsLength; ++i) {
+
             sheet = document.styleSheets[i];
+
             if (sheet.href.indexOf('/land.') > -1) {
                 //console.log(sheet);
 
@@ -26,6 +32,8 @@ var LaND = function() {
                     for (var i=0; i<layoutLength; ++i) {
                         that.layouts[layouts[i]] = active;
                     }
+
+                    dispatch('change', []);
                 };
 
                 for (var j = 0; j < numRules; j += 1) {
@@ -55,4 +63,28 @@ var LaND = function() {
         return this;
     }
 
+    this.addListener = function(name, handler) {
+        if (!listeners.hasOwnProperty(name)) {
+            throw "Land doesn't have an event called '" + name + "'";
+            return false;
+        }
+
+        listeners[name][handler] = handler;
+
+        return that;
+    }
+
+    function dispatch(name, args) {
+        var list = listeners[name];
+
+        for (var prop in list) {
+            if(list.hasOwnProperty(prop)){
+                list[prop].apply(this, args);
+            }
+        }
+    }
 }
+
+LaND.events = {
+    CHANGE: 'change'
+};

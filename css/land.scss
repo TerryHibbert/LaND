@@ -424,8 +424,6 @@ img {
 
   @include colSizes($pre: "m");
   @include targetedProperties($pre: "m");
-
-  html { animation-name: LaND-m; }
 }
 
 /* Mobile (Landscape) Layout

@@ -1,8 +1,8 @@
 'use strict';
 
-var land = angular.module('land', ['land.filters', 'land.services', 'land.directives']);
+var landApp = angular.module('landApp', ['landApp.filters', 'landApp.services', 'landApp.directives']);
 
-land.config(['$routeProvider', function($routeProvider) {
+landApp.config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/intro', {
         templateUrl: '/partials/views/intro.html',
         controller: IntroCtrl
