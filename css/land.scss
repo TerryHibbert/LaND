@@ -8,8 +8,6 @@
  *      a   :   any
  *      d   :   desktop
  *      t   :   tablet
- *      tl  :   tablet landscape
- *      tp  :   tablet portrait
  *      m   :   mobile
  *      ml  :   mobile landscape
  *      mp  :   mobile portrait
@@ -20,6 +18,15 @@
  *  'D' is the denominator (bottom of the fraction)
  *  e.g.  'col a-1-2 mp-1-1' will be a half column that changes to full width on mobile portrait
  */
+
+/*                .       .       .       .       .       */
+$layouts:         d       t       m       m       m;
+$subLayouts:      d       t       m       ml      mp;
+$max:             99999   1024    960     960     640;
+$min:             1024    960     0       640     0;
+$containerMax:    960px   960px   940px   100%   100%;
+
+$layoutCount: length($layouts);
 
 $desktopMin: 960px;
 $tabletLandscapeMin: 960px;
@@ -352,7 +359,7 @@ ul.plain {
 /* #Desktop / Tablet landscape Layout
 ================================================== */
 /* Note: Design for a width of greater than $desktopMin */
-
+/*
 @media (min-width: $desktopMin) {
   land-d-tl {cue:none}
 
@@ -378,10 +385,11 @@ ul.plain {
 
   html { animation-name: LaND-d; }
 }
-
+*/
 
 /* #Tablet
 ================================================== */
+/*
 @media (min-width: $tabletPortraitMin) and (max-width: $desktopMin) {
   land-t-tl {cue:none}
 
@@ -396,12 +404,12 @@ ul.plain {
 
   html { animation-name: LaND-t; }
 }
-
+*/
 
 /* #Tablet (Portrait) Layout
 ================================================== */
 /* Note: Design for a width of $tabletPortraitMin */
-
+/*
 @media (min-width: $tabletPortraitMin) and (max-width: $desktopMin - 1) {
   land-t-tp {cue:none}
 
@@ -423,10 +431,11 @@ ul.plain {
   @include colSizes($pre: "tp");
   @include targetedProperties($pre: "tp");
 }
-
+*/
 
 /* #Mobile
 ================================================== */
+/*
 @media (max-width: $tabletPortraitMin - 1) {
   land-m {cue:none}
 
@@ -441,11 +450,12 @@ ul.plain {
   @include colSizes($pre: "m");
   @include targetedProperties($pre: "m");
 }
+*/
 
 /* Mobile (Landscape) Layout
 ================================================== */
 /* Note: Design for a width of $mobileLandscapeMin */
-
+/*
 @media (min-width: $mobileLandscapeMin) and (max-width: $tabletPortraitMin - 1) {
   land-m-ml {cue:none}
 
@@ -464,12 +474,12 @@ ul.plain {
   @include colSizes($pre: "ml");
   @include targetedProperties($pre: "ml");
 }
-
+*/
 
 /*  Mobile (Portrait) Layout
 ================================================== */
 /* Note: Design for a width of 320px */
-
+/*
 @media (max-width:$mobileLandscapeMin - 1) {
   land-m-mp {cue:none}
 
@@ -487,9 +497,8 @@ ul.plain {
 
   @include colSizes($pre: "mp");
   @include targetedProperties($pre: "mp");
-
-  html { animation-name: LaND-mp; }
 }
+*/
 
 
 @media screen {
@@ -507,5 +516,41 @@ ul.plain {
   .not-p,
   .s {
     display: none;
+  }
+}
+
+
+/* TESTS */
+@for $i from 1 through $layoutCount {
+
+  $la: nth($layouts,$i);
+  $subLa: nth($subLayouts,$i);
+
+  $nots: '';
+  @for $j from 1 through $layoutCount {
+    $nla: nth($subLayouts, $j);
+    @if $nla != $la and $nla != $subLa {
+      $nots: $nots + '.#{nth($subLayouts, $j)}';
+      @if $j < $layoutCount {
+        $nots: $nots + ',';
+      }
+    }
+  }
+
+  @media (min-width: #{nth($min,$i)}px) and (max-width: #{nth($max,$i)}px) {
+    land-#{$subLa} {cue:none}
+
+    .#{$la}, .#{$subLa} { display: block; }
+
+    #{$nots}, .not-#{$subLa} {
+      display: none;
+    }
+
+    .container {
+      width: #{nth($containerMax,$i)};
+    }
+
+    @include colSizes($pre: $subLa);
+    @include targetedProperties($pre: $subLa);
   }
 }
