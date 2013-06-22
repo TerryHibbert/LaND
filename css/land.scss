@@ -11,6 +11,7 @@
  *      m   :   mobile
  *      ml  :   mobile landscape
  *      mp  :   mobile portrait
+ *
  *      s   :   screen
  *      p   :   print
  *  Then '-N-D' to represent the fraction: N/D
@@ -24,7 +25,7 @@ $layouts:         d       t       m       m       m;
 $subLayouts:      d       t       m       ml      mp;
 $max:             99999   1024    960     960     640;
 $min:             1024    960     0       640     0;
-$containerMax:    960px   960px   940px   100%   100%;
+$containerMax:    1000px  940px   940px   100%    100%;
 
 $layoutCount: length($layouts);
 

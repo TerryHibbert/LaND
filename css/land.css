@@ -11,6 +11,7 @@
  *      m   :   mobile
  *      ml  :   mobile landscape
  *      mp  :   mobile portrait
+ *
  *      s   :   screen
  *      p   :   print
  *  Then '-N-D' to represent the fraction: N/D
@@ -899,7 +900,7 @@ ul.plain {
     display: none; }
 
   .container {
-    width: 960px; }
+    width: 1000px; }
 
   .d-1-1 {
     width: 100%; }
@@ -1544,7 +1545,7 @@ ul.plain {
     display: none; }
 
   .container {
-    width: 960px; }
+    width: 940px; }
 
   .t-1-1 {
     width: 100%; }
