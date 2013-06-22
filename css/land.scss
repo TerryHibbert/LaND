@@ -35,6 +35,8 @@ $borderSizes: 0 1 2 3 4 5;
 
 $transitionDuration: '0.5s';
 
+$fixedSizes: 100 200 300 400;
+
 
 /* General
 ================================================== */
@@ -52,6 +54,10 @@ $transitionDuration: '0.5s';
 
 img {
   border: 0;
+}
+
+ul.plain {
+  list-style: none;
 }
 
 .debug-only { display: none; }
@@ -158,6 +164,8 @@ img {
 
 @mixin targetedProperties($pre) {
 
+  .#{$pre}-auto { width: auto; }
+
   .#{$pre}-float-left { float: left; }
   .#{$pre}-float-right { float: right; }
 
@@ -216,11 +224,10 @@ img {
     margin-right: -100%;
   }
 
-  @include fixedWithFluid($pre: $pre, $width: 400);
-  @include fixedWithFluid($pre: $pre, $width: 300);
-  @include fixedWithFluid($pre: $pre, $width: 200);
-  @include fixedWithFluid($pre: $pre, $width: 100);
-
+  $i:0;
+  @each $fixedSize in $fixedSizes {
+    @include fixedWithFluid($pre: $pre, $width: $fixedSize);
+  }
 
   /* #Absolute positioning
   ================================================== */
@@ -262,6 +269,9 @@ img {
     }
   }
 
+  .col.#{$pre}-pad-0 { padding: 0; }
+  .col.#{$pre}-margin-0 { margin: 0; }
+
   $i:0;
   @each $padSize in $padSizes {
     .col.#{$pre}-pad-#{$i} { padding: #{$padSize}px; }
@@ -289,9 +299,6 @@ img {
   .col.#{$pre}-margin-bottom-0 { margin-bottom: 0; }
   .col.#{$pre}-margin-left-0 { margin-left: 0; }
 
-  .col.#{$pre}-pad-0 { padding: 0; }
-  .col.#{$pre}-margin-0 { margin: 0; }
-
 
   /* Borders
   ================================================== */
@@ -306,6 +313,13 @@ img {
 
     $i:$i+1;
   }
+
+
+  /* Borders
+  ================================================== */
+  .col img.#{$pre}-fill {
+    width: 100%;
+  }
 }
 
 
@@ -313,10 +327,12 @@ img {
 ================================================== */
 
 .container {
-  margin: 0 auto;
   overflow: hidden;
   width: $desktopMin;
-  clear: left;
+  clear: both;
+}
+.container.center {
+  margin: 0 auto;
 }
 
 .container.animate {

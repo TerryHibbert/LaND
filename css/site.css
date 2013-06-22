@@ -3,3 +3,11 @@ body {
     font-family: Helvetica;
     overflow-x: hidden;
 }
+
+.page {
+    background-color: #FFF;
+}
+
+ul.plain {
+    list-style: none;
+}
