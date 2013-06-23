@@ -14,13 +14,16 @@
  *
  *      s   :   screen
  *      p   :   print
+ *
  *  Then '-N-D' to represent the fraction: N/D
  *  'N' is the numerator (top of the fraction)
  *  'D' is the denominator (bottom of the fraction)
  *  e.g.  'col a-1-2 mp-1-1' will be a half column that changes to full width on mobile portrait
  */
 
-/*                .       .       .       .       .       */
+$defaultContainerMax: 960px;
+
+/*                |       |       |       |       |       */
 $layouts:         d       t       m       m       m;
 $subLayouts:      d       t       m       ml      mp;
 $max:             99999   1024    960     960     640;
@@ -29,10 +32,6 @@ $containerMax:    1000px  940px   940px   100%    100%;
 
 $layoutCount: length($layouts);
 
-$desktopMin: 960px;
-$tabletLandscapeMin: 960px;
-$tabletPortraitMin: 768px;
-$mobileLandscapeMin: 480px;
 
 $largestDenominator: 8;
 
@@ -336,7 +335,7 @@ ul.plain {
 
 .container {
   overflow: hidden;
-  width: $desktopMin;
+  width: $defaultContainerMax;
   clear: both;
 }
 .container.center {
@@ -349,158 +348,12 @@ ul.plain {
 
 /* Less than ie9 is fixed. Upgrade your browser please... */
 .lt-ie8 .container {
-  width: $desktopMin !important;
+  width: $defaultContainerMax !important;
 }
 
 /* Col sizes for any layout - to override with more specific layouts */
 @include colSizes($pre: "a");
 @include targetedProperties($pre: "a");
-
-
-/* #Desktop / Tablet landscape Layout
-================================================== */
-/* Note: Design for a width of greater than $desktopMin */
-/*
-@media (min-width: $desktopMin) {
-  land-d-tl {cue:none}
-
-  .not-d,
-  .not-tl,
-  .tp,
-  .t,
-  .m,
-  .mp,
-  .ml {
-    display: none;
-  }
-
-  @include colSizes($pre: "d");
-  @include colSizes($pre: "tl");
-  @include colSizes($pre: "tp");
-  @include targetedProperties($pre: "d");
-  @include targetedProperties($pre: "tl");
-  @include targetedProperties($pre: "tp");
-
-  .tablet-clear, .tablet-landscape-clear { clear: left; }
-  .tablet-center, .tablet-landscape-center { text-align: center; }
-
-  html { animation-name: LaND-d; }
-}
-*/
-
-/* #Tablet
-================================================== */
-/*
-@media (min-width: $tabletPortraitMin) and (max-width: $desktopMin) {
-  land-t-tl {cue:none}
-
-  .not-t,
-  .m,
-  .d {
-    display: none !important;
-  }
-
-  @include colSizes($pre: "t");
-  @include targetedProperties($pre: "t");
-
-  html { animation-name: LaND-t; }
-}
-*/
-
-/* #Tablet (Portrait) Layout
-================================================== */
-/* Note: Design for a width of $tabletPortraitMin */
-/*
-@media (min-width: $tabletPortraitMin) and (max-width: $desktopMin - 1) {
-  land-t-tp {cue:none}
-
-  .tl,
-  .m,
-  .ml,
-  .mp,
-  .not-tp {
-    display: none !important;
-  }
-
-  .container {
-    width: $tabletPortraitMin;
-  }
-  .debug .container {
-    background-color: #DBB;
-  }
-
-  @include colSizes($pre: "tp");
-  @include targetedProperties($pre: "tp");
-}
-*/
-
-/* #Mobile
-================================================== */
-/*
-@media (max-width: $tabletPortraitMin - 1) {
-  land-m {cue:none}
-
-  .d,
-  .t,
-  .tl,
-  .tp,
-  .not-m {
-    display: none !important;
-  }
-
-  @include colSizes($pre: "m");
-  @include targetedProperties($pre: "m");
-}
-*/
-
-/* Mobile (Landscape) Layout
-================================================== */
-/* Note: Design for a width of $mobileLandscapeMin */
-/*
-@media (min-width: $mobileLandscapeMin) and (max-width: $tabletPortraitMin - 1) {
-  land-m-ml {cue:none}
-
-  .not-ml,
-  .mp {
-    display: none !important;
-  }
-
-  .container {
-    width: 100%;
-  }
-  .debug .container {
-    background-color: #BDB;
-  }
-
-  @include colSizes($pre: "ml");
-  @include targetedProperties($pre: "ml");
-}
-*/
-
-/*  Mobile (Portrait) Layout
-================================================== */
-/* Note: Design for a width of 320px */
-/*
-@media (max-width:$mobileLandscapeMin - 1) {
-  land-m-mp {cue:none}
-
-  .not-mp,
-  .ml {
-    display: none !important;
-  }
-
-  .container {
-    width: 100%;
-  }
-  .debug .container {
-    background-color: #BBD;
-  }
-
-  @include colSizes($pre: "mp");
-  @include targetedProperties($pre: "mp");
-}
-*/
-
 
 @media screen {
   land-s {cue:none}
@@ -520,8 +373,7 @@ ul.plain {
   }
 }
 
-
-/* TESTS */
+/* BUILD LAYOUTS */
 @for $i from 1 through $layoutCount {
 
   $la: nth($layouts,$i);
