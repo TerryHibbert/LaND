@@ -1,0 +1,206 @@
+@function fraction_percent($parts, $whole) {
+  @return ($parts / $whole) * 100%;
+}
+
+@mixin colSize($la, $numerator, $denominator) {
+  .#{$la}-#{$numerator}-#{$denominator} {
+    width: fraction_percent($numerator, $denominator);
+  }
+}
+
+@mixin colSizes($la) {
+  @for $i from 1 through $largestDenominator {
+    @for $j from 1 through $i {
+      @if $j <= $i {
+        @include colSize(#{$la}, $j, $i);
+      }
+    }
+  }
+}
+
+@mixin fixedWithFluid($la, $width) {
+  .a-fixed-left.#{$la}-px#{$width},
+  .a-fixed-right.#{$la}-px#{$width},
+  .#{$la}-fixed-left.#{$la}-px#{$width},
+  .#{$la}-fixed-right.#{$la}-px#{$width} {
+    width: #{$width}px;
+  }
+
+  .a-fluid-left.#{$la}-px#{$width} .a-fluid,
+  .#{$la}-fluid-left.#{$la}-px#{$width} .a-fluid,
+  .a-fluid-left.#{$la}-px#{$width} .#{$la}-fluid,
+  .#{$la}-fluid-left.#{$la}-px#{$width} .#{$la}-fluid {
+    margin-right: #{$width}px;
+  }
+
+  .a-fluid-right.#{$la}-px#{$width} .a-fluid,
+  .#{$la}-fluid-right.#{$la}-px#{$width} .a-fluid,
+  .a-fluid-right.#{$la}-px#{$width} .#{$la}-fluid,
+  .#{$la}-fluid-right.#{$la}-px#{$width} .#{$la}-fluid {
+    margin-left: #{$width}px;
+  }
+}
+
+/* Layout targeted properties
+================================================== */
+
+@mixin targetedProperties($la) {
+
+  .#{$la}-auto { width: auto; }
+
+  .#{$la}-float-left { float: left; }
+  .#{$la}-float-right { float: right; }
+
+  .#{$la}-opacity-100 { opacity: 0; }
+  .#{$la}-opacity-75 { opacity: 0.75; }
+  .#{$la}-opacity-50 { opacity: 0.5; }
+  .#{$la}-opacity-25 { opacity: 0.25; }
+
+  .#{$la}-clear, .#{$la}-clearLeft { clear: left; }
+  .#{$la}-clear-right { clear: right; }
+  .#{$la}-clear-both { clear: both; }
+
+  .#{$la}-text-center { text-align: center; }
+  .#{$la}-text-right { text-align: right; }
+  .#{$la}-text-left { text-align: left; }
+
+  .#{$la}-margin-auto { margin: auto !important; float: none !important; }
+
+  .#{$la}-no-select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+
+/* #Fixed with fluid columns
+================================================== */
+
+  .#{$la}-fluid-left .#{$la}-fluid-right .#{$la}-fluid { margin-right: 0}
+  .#{$la}-fluid-right .#{$la}-fluid-left .#{$la}-fluid { margin-left: 0}
+
+  .#{$la}-fluid-right {
+    float: left;
+    width: 100%;
+  }
+  .#{$la}-fluid-left {
+    float: right;
+    width: 100%;
+  }
+
+  .#{$la}-fixed-left,
+  .#{$la}-fixed-right {
+    background: #C8FC98;
+  }
+  .#{$la}-fixed-left {
+    float: left;
+    margin-left: -100%;
+  }
+  .#{$la}-fixed-right {
+    float: right;
+    margin-right: -100%;
+  }
+
+  $i:0;
+  @each $fixedSize in $fixedSizes {
+    @include fixedWithFluid($la: $la, $width: $fixedSize);
+  }
+
+/* #Absolute positioning
+================================================== */
+  .#{$la}-position-absolute { position: absolute; }
+  .#{$la}-position-static { position: static; }
+  .#{$la}-position-fixed { position: fixed;}
+
+  .#{$la}-position-absolute.left, .#{$la}-position-static.left, .#{$la}-position-fixed.left { left: 0; }
+  .#{$la}-position-absolute.right, .#{$la}-position-static.right, .#{$la}-position-fixed.right { right: 0; }
+  .#{$la}-position-absolute.top, .#{$la}-position-static.top, .#{$la}-position-fixed.top { top: 0; }
+  .#{$la}-position-absolute.bottom , .#{$la}-position-static.bottom, .#{$la}-position-fixed.bottom{ bottom: 0; }
+
+
+/* Depth
+================================================== */
+
+  .#{$la}-z9 { z-index: 9; }
+  .#{$la}-z99 { z-index: 99; }
+  .#{$la}-z999 { z-index: 999; }
+  .#{$la}-z9999 { z-index: 9999; }
+  .#{$la}-z99999 { z-index: 99999; }
+  .#{$la}-z999999 { z-index: 999999; }
+
+
+/* Misc
+================================================== */
+  .#{$la}-cursor-pointer { cursor: pointer; }
+  .#{$la}-full-height { height: 100%; }
+  .#{$la}-display-table { display: table; }
+  .#{$la}-cell-vertical-middle { display: table-cell; vertical-align: middle; float: none; }
+
+
+/* Padding and margin
+================================================== */
+
+  @if $padColDefaultSize > 0 {
+    .col {
+      padding: #{nth($padSizes, $padColDefaultSize)}px;
+    }
+  }
+
+  .col.#{$la}-pad-0 { padding: 0; }
+  .col.#{$la}-margin-0 { margin: 0; }
+
+  $i:0;
+  @each $padSize in $padSizes {
+    .col.#{$la}-pad-#{$i} { padding: #{$padSize}px; }
+    .col.#{$la}-pad-top-#{$i} { padding-top: #{$padSize}px; }
+    .col.#{$la}-pad-right-#{$i} { padding-right: #{$padSize}px; }
+    .col.#{$la}-pad-bottom-#{$i} { padding-bottom: #{$padSize}px; }
+    .col.#{$la}-pad-left-#{$i} { padding-left: #{$padSize}px; }
+
+    .col.#{$la}-margin-#{$i} { margin: #{$padSize}px; }
+    .col.#{$la}-margin-top-#{$i} { margin-top: #{$padSize}px; }
+    .col.#{$la}-margin-right-#{$i} { margin-right: #{$padSize}px; }
+    .col.#{$la}-margin-bottom-#{$i} { margin-bottom: #{$padSize}px; }
+    .col.#{$la}-margin-left-#{$i} { margin-left: #{$padSize}px; }
+
+    $i:$i+1;
+  }
+
+  .col.#{$la}-pad-top-0 { padding-top: 0; }
+  .col.#{$la}-pad-right-0 { padding-right: 0; }
+  .col.#{$la}-pad-bottom-0 { padding-bottom: 0; }
+  .col.#{$la}-pad-left-0 { padding-left: 0; }
+
+  .col.#{$la}-margin-top-0 { margin-top: 0; }
+  .col.#{$la}-margin-right-0 { margin-right: 0; }
+  .col.#{$la}-margin-bottom-0 { margin-bottom: 0; }
+  .col.#{$la}-margin-left-0 { margin-left: 0; }
+
+
+/* Borders
+================================================== */
+
+  $i:0;
+  @each $borderSize in $borderSizes {
+    .col.#{$la}-border-#{$i} { border-width: #{$borderSize}px; }
+    .col.#{$la}-border-top-#{$i} { border-top-width: #{$borderSize}px; }
+    .col.#{$la}-border-right-#{$i} { border-right-width: #{$borderSize}px; }
+    .col.#{$la}-border-left-#{$i} { border-left-width: #{$borderSize}px; }
+    .col.#{$la}-border-bottom-#{$i} { border-bottom-width: #{$borderSize}px; }
+
+    $i:$i+1;
+  }
+
+
+/* Image
+================================================== */
+  .col img.#{$la}-fill {
+    width: 100%;
+  }
+  .col img.#{$la}-auto {
+    width: auto;
+  }
+}

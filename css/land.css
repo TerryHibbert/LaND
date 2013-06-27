@@ -20,8 +20,8 @@
  *  'D' is the denominator (bottom of the fraction)
  *  e.g.  'col a-1-2 mp-1-1' will be a half column that changes to full width on mobile portrait
  */
-/*                |       |       |       |       |       */
-/* Start at one, no zero */
+/* Layout targeted properties
+================================================== */
 /* General
 ================================================== */
 * {
@@ -81,8 +81,6 @@ ul.plain {
 .debug .debuggable .col.fullWidth {
   background-color: #FF00FF; }
 
-/* Layout targeted properties
-================================================== */
 /* #Default Layout
 ================================================== */
 .container {
@@ -232,9 +230,6 @@ ul.plain {
 
 .a-opacity-25 {
   opacity: 0.25; }
-
-.a-inline {
-  display: inline; }
 
 .a-clear, .a-clearLeft {
   clear: left; }
@@ -732,10 +727,13 @@ ul.plain {
 .col.a-border-bottom-5 {
   border-bottom-width: 5px; }
 
-/* Borders
+/* Image
 ================================================== */
 .col img.a-fill {
   width: 100%; }
+
+.col img.a-auto {
+  width: auto; }
 
 @media screen {
   land-s {
@@ -759,11 +757,20 @@ ul.plain {
   .d, .d {
     display: block; }
 
-  .t, .m, .ml, .mp, .not-d {
+  .d, .d-block {
+    display: block; }
+
+  .d, .d-inline {
+    display: block; }
+
+  .t, .t-block, .t-inline, .m, .m-block, .m-inline, .ml, .ml-block, .ml-inline, .mp, .mp-block, .mp-inline, .not-d {
+    display: none; }
+
+  .t, .t-block, .t-inline, .m, .m-block, .m-inline, .ml, .ml-block, .ml-inline, .mp, .mp-block, .mp-inline, .not-d {
     display: none; }
 
   .container {
-    width: 1000px; }
+    width: 940px; }
 
   .d-1-1 {
     width: 100%; }
@@ -893,9 +900,6 @@ ul.plain {
 
   .d-opacity-25 {
     opacity: 0.25; }
-
-  .d-inline {
-    display: inline; }
 
   .d-clear, .d-clearLeft {
     clear: left; }
@@ -1393,10 +1397,13 @@ ul.plain {
   .col.d-border-bottom-5 {
     border-bottom-width: 5px; }
 
-  /* Borders
+  /* Image
   ================================================== */
   .col img.d-fill {
-    width: 100%; } }
+    width: 100%; }
+
+  .col img.d-auto {
+    width: auto; } }
 @media (min-width: 960px) and (max-width: 1024px) {
   land-t {
     cue: none; }
@@ -1404,7 +1411,16 @@ ul.plain {
   .t, .t {
     display: block; }
 
-  .d, .m, .ml, .mp, .not-t {
+  .t, .t-block {
+    display: block; }
+
+  .t, .t-inline {
+    display: block; }
+
+  .d, .d-block, .d-inline, .m, .m-block, .m-inline, .ml, .ml-block, .ml-inline, .mp, .mp-block, .mp-inline, .not-t {
+    display: none; }
+
+  .d, .d-block, .d-inline, .m, .m-block, .m-inline, .ml, .ml-block, .ml-inline, .mp, .mp-block, .mp-inline, .not-t {
     display: none; }
 
   .container {
@@ -1538,9 +1554,6 @@ ul.plain {
 
   .t-opacity-25 {
     opacity: 0.25; }
-
-  .t-inline {
-    display: inline; }
 
   .t-clear, .t-clearLeft {
     clear: left; }
@@ -2038,10 +2051,13 @@ ul.plain {
   .col.t-border-bottom-5 {
     border-bottom-width: 5px; }
 
-  /* Borders
+  /* Image
   ================================================== */
   .col img.t-fill {
-    width: 100%; } }
+    width: 100%; }
+
+  .col img.t-auto {
+    width: auto; } }
 @media (min-width: 0px) and (max-width: 960px) {
   land-m {
     cue: none; }
@@ -2049,11 +2065,20 @@ ul.plain {
   .m, .m {
     display: block; }
 
-  .d, .t, .ml, .mp, .not-m {
+  .m, .m-block {
+    display: block; }
+
+  .m, .m-inline {
+    display: block; }
+
+  .d, .d-block, .d-inline, .t, .t-block, .t-inline, .ml, .ml-block, .ml-inline, .mp, .mp-block, .mp-inline, .not-m {
+    display: none; }
+
+  .d, .d-block, .d-inline, .t, .t-block, .t-inline, .ml, .ml-block, .ml-inline, .mp, .mp-block, .mp-inline, .not-m {
     display: none; }
 
   .container {
-    width: 940px; }
+    width: 100%; }
 
   .m-1-1 {
     width: 100%; }
@@ -2183,9 +2208,6 @@ ul.plain {
 
   .m-opacity-25 {
     opacity: 0.25; }
-
-  .m-inline {
-    display: inline; }
 
   .m-clear, .m-clearLeft {
     clear: left; }
@@ -2683,18 +2705,30 @@ ul.plain {
   .col.m-border-bottom-5 {
     border-bottom-width: 5px; }
 
-  /* Borders
+  /* Image
   ================================================== */
   .col img.m-fill {
-    width: 100%; } }
-@media (min-width: 640px) and (max-width: 960px) {
+    width: 100%; }
+
+  .col img.m-auto {
+    width: auto; } }
+@media (min-width: 479px) and (max-width: 960px) {
   land-ml {
     cue: none; }
 
   .m, .ml {
     display: block; }
 
-  .d, .t, .mp, .not-ml {
+  .m, .ml-block {
+    display: block; }
+
+  .m, .ml-inline {
+    display: block; }
+
+  .d, .d-block, .d-inline, .t, .t-block, .t-inline, .mp, .mp-block, .mp-inline, .not-ml {
+    display: none; }
+
+  .d, .d-block, .d-inline, .t, .t-block, .t-inline, .mp, .mp-block, .mp-inline, .not-ml {
     display: none; }
 
   .container {
@@ -2828,9 +2862,6 @@ ul.plain {
 
   .ml-opacity-25 {
     opacity: 0.25; }
-
-  .ml-inline {
-    display: inline; }
 
   .ml-clear, .ml-clearLeft {
     clear: left; }
@@ -3328,18 +3359,30 @@ ul.plain {
   .col.ml-border-bottom-5 {
     border-bottom-width: 5px; }
 
-  /* Borders
+  /* Image
   ================================================== */
   .col img.ml-fill {
-    width: 100%; } }
-@media (min-width: 0px) and (max-width: 640px) {
+    width: 100%; }
+
+  .col img.ml-auto {
+    width: auto; } }
+@media (min-width: 0px) and (max-width: 479px) {
   land-mp {
     cue: none; }
 
   .m, .mp {
     display: block; }
 
-  .d, .t, .ml, .not-mp {
+  .m, .mp-block {
+    display: block; }
+
+  .m, .mp-inline {
+    display: block; }
+
+  .d, .d-block, .d-inline, .t, .t-block, .t-inline, .ml, .ml-block, .ml-inline, .not-mp {
+    display: none; }
+
+  .d, .d-block, .d-inline, .t, .t-block, .t-inline, .ml, .ml-block, .ml-inline, .not-mp {
     display: none; }
 
   .container {
@@ -3473,9 +3516,6 @@ ul.plain {
 
   .mp-opacity-25 {
     opacity: 0.25; }
-
-  .mp-inline {
-    display: inline; }
 
   .mp-clear, .mp-clearLeft {
     clear: left; }
@@ -3973,7 +4013,10 @@ ul.plain {
   .col.mp-border-bottom-5 {
     border-bottom-width: 5px; }
 
-  /* Borders
+  /* Image
   ================================================== */
   .col img.mp-fill {
-    width: 100%; } }
+    width: 100%; }
+
+  .col img.mp-auto {
+    width: auto; } }

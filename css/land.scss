@@ -21,22 +21,21 @@
  *  e.g.  'col a-1-2 mp-1-1' will be a half column that changes to full width on mobile portrait
  */
 
+@import "land/_targeted.scss";
+
 $defaultContainerMax: 960px;
 
-/*                |       |       |       |       |       */
-$layouts:         d       t       m       m       m;
-$subLayouts:      d       t       m       ml      mp;
-$max:             99999   1024    960     960     640;
-$min:             1024    960     0       640     0;
-$containerMax:    1000px  940px   940px   100%    100%;
-
-$layoutCount: length($layouts);
-
+//                |         |         |         |         |
+$layouts:         d         t         m         m         m;
+$subLayouts:      d         t         m         ml        mp;
+$max:             99999px   1024px    960px     960px     479px;
+$min:             1024px    960px     0px       479px     0px;
+$containerMax:    940px     940px     100%      100%      100%;
 
 $largestDenominator: 8;
 
 $padSizes: 0 10 20 30 40 50;
-$padColDefaultSize: 3; /* Start at one, no zero */
+$padColDefaultSize: 3; // Start at one, no zero
 
 $borderSizes: 0 1 2 3 4 5;
 
@@ -103,26 +102,6 @@ ul.plain {
   max-width: 100%;
 }
 
-@function fraction_percent($parts, $whole) {
-  @return ($parts / $whole) * 100%;
-}
-
-@mixin colSize($pre, $numerator, $denominator) {
-  .#{$pre}-#{$numerator}-#{$denominator} {
-    width: fraction_percent($numerator, $denominator);
-  }
-}
-
-@mixin colSizes($pre) {
-  @for $i from 1 through $largestDenominator {
-    @for $j from 1 through $i {
-      @if $j <= $i {
-        @include colSize(#{$pre}, $j, $i);
-      }
-    }
-  }
-}
-
 /* Column debug */
 .debug {
   .debuggable {
@@ -142,196 +121,11 @@ ul.plain {
   }
 }
 
-@mixin fixedWithFluid($pre, $width) {
-  .a-fixed-left.#{$pre}-px#{$width},
-  .a-fixed-right.#{$pre}-px#{$width},
-  .#{$pre}-fixed-left.#{$pre}-px#{$width},
-  .#{$pre}-fixed-right.#{$pre}-px#{$width} {
-    width: #{$width}px;
-  }
-
-  .a-fluid-left.#{$pre}-px#{$width} .a-fluid,
-  .#{$pre}-fluid-left.#{$pre}-px#{$width} .a-fluid,
-  .a-fluid-left.#{$pre}-px#{$width} .#{$pre}-fluid,
-  .#{$pre}-fluid-left.#{$pre}-px#{$width} .#{$pre}-fluid {
-    margin-right: #{$width}px;
-  }
-
-  .a-fluid-right.#{$pre}-px#{$width} .a-fluid,
-  .#{$pre}-fluid-right.#{$pre}-px#{$width} .a-fluid,
-  .a-fluid-right.#{$pre}-px#{$width} .#{$pre}-fluid,
-  .#{$pre}-fluid-right.#{$pre}-px#{$width} .#{$pre}-fluid {
-    margin-left: #{$width}px;
-  }
-}
-
-
-/* Layout targeted properties
-================================================== */
-
-@mixin targetedProperties($pre) {
-
-  .#{$pre}-auto { width: auto; }
-
-  .#{$pre}-float-left { float: left; }
-  .#{$pre}-float-right { float: right; }
-
-  .#{$pre}-opacity-100 { opacity: 0; }
-  .#{$pre}-opacity-75 { opacity: 0.75; }
-  .#{$pre}-opacity-50 { opacity: 0.5; }
-  .#{$pre}-opacity-25 { opacity: 0.25; }
-
-  .#{$pre}-inline { display: inline; }
-
-  .#{$pre}-clear, .#{$pre}-clearLeft { clear: left; }
-  .#{$pre}-clear-right { clear: right; }
-  .#{$pre}-clear-both { clear: both; }
-
-  .#{$pre}-text-center { text-align: center; }
-  .#{$pre}-text-right { text-align: right; }
-  .#{$pre}-text-left { text-align: left; }
-
-  .#{$pre}-margin-auto { margin: auto !important; float: none !important; }
-
-  .#{$pre}-no-select {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-
-
-  /* #Fixed with fluid columns
-  ================================================== */
-
-  .#{$pre}-fluid-left .#{$pre}-fluid-right .#{$pre}-fluid { margin-right: 0}
-  .#{$pre}-fluid-right .#{$pre}-fluid-left .#{$pre}-fluid { margin-left: 0}
-
-  .#{$pre}-fluid-right {
-    float: left;
-    width: 100%;
-  }
-  .#{$pre}-fluid-left {
-    float: right;
-    width: 100%;
-  }
-
-  .#{$pre}-fixed-left,
-  .#{$pre}-fixed-right {
-    background: #C8FC98;
-  }
-  .#{$pre}-fixed-left {
-    float: left;
-    margin-left: -100%;
-  }
-  .#{$pre}-fixed-right {
-    float: right;
-    margin-right: -100%;
-  }
-
-  $i:0;
-  @each $fixedSize in $fixedSizes {
-    @include fixedWithFluid($pre: $pre, $width: $fixedSize);
-  }
-
-  /* #Absolute positioning
-  ================================================== */
-  .#{$pre}-position-absolute { position: absolute; }
-  .#{$pre}-position-static { position: static; }
-  .#{$pre}-position-fixed { position: fixed;}
-
-  .#{$pre}-position-absolute.left, .#{$pre}-position-static.left, .#{$pre}-position-fixed.left { left: 0; }
-  .#{$pre}-position-absolute.right, .#{$pre}-position-static.right, .#{$pre}-position-fixed.right { right: 0; }
-  .#{$pre}-position-absolute.top, .#{$pre}-position-static.top, .#{$pre}-position-fixed.top { top: 0; }
-  .#{$pre}-position-absolute.bottom , .#{$pre}-position-static.bottom, .#{$pre}-position-fixed.bottom{ bottom: 0; }
-
-
-  /* Depth
-  ================================================== */
-
-  .#{$pre}-z9 { z-index: 9; }
-  .#{$pre}-z99 { z-index: 99; }
-  .#{$pre}-z999 { z-index: 999; }
-  .#{$pre}-z9999 { z-index: 9999; }
-  .#{$pre}-z99999 { z-index: 99999; }
-  .#{$pre}-z999999 { z-index: 999999; }
-
-
-  /* Misc
-  ================================================== */
-  .#{$pre}-cursor-pointer { cursor: pointer; }
-  .#{$pre}-full-height { height: 100%; }
-  .#{$pre}-display-table { display: table; }
-  .#{$pre}-cell-vertical-middle { display: table-cell; vertical-align: middle; float: none; }
-
-
-  /* Padding and margin
-  ================================================== */
-
-  @if $padColDefaultSize > 0 {
-    .col {
-      padding: #{nth($padSizes, $padColDefaultSize)}px;
-    }
-  }
-
-  .col.#{$pre}-pad-0 { padding: 0; }
-  .col.#{$pre}-margin-0 { margin: 0; }
-
-  $i:0;
-  @each $padSize in $padSizes {
-    .col.#{$pre}-pad-#{$i} { padding: #{$padSize}px; }
-    .col.#{$pre}-pad-top-#{$i} { padding-top: #{$padSize}px; }
-    .col.#{$pre}-pad-right-#{$i} { padding-right: #{$padSize}px; }
-    .col.#{$pre}-pad-bottom-#{$i} { padding-bottom: #{$padSize}px; }
-    .col.#{$pre}-pad-left-#{$i} { padding-left: #{$padSize}px; }
-
-    .col.#{$pre}-margin-#{$i} { margin: #{$padSize}px; }
-    .col.#{$pre}-margin-top-#{$i} { margin-top: #{$padSize}px; }
-    .col.#{$pre}-margin-right-#{$i} { margin-right: #{$padSize}px; }
-    .col.#{$pre}-margin-bottom-#{$i} { margin-bottom: #{$padSize}px; }
-    .col.#{$pre}-margin-left-#{$i} { margin-left: #{$padSize}px; }
-
-    $i:$i+1;
-  }
-
-  .col.#{$pre}-pad-top-0 { padding-top: 0; }
-  .col.#{$pre}-pad-right-0 { padding-right: 0; }
-  .col.#{$pre}-pad-bottom-0 { padding-bottom: 0; }
-  .col.#{$pre}-pad-left-0 { padding-left: 0; }
-
-  .col.#{$pre}-margin-top-0 { margin-top: 0; }
-  .col.#{$pre}-margin-right-0 { margin-right: 0; }
-  .col.#{$pre}-margin-bottom-0 { margin-bottom: 0; }
-  .col.#{$pre}-margin-left-0 { margin-left: 0; }
-
-
-  /* Borders
-  ================================================== */
-
-  $i:0;
-  @each $borderSize in $borderSizes {
-    .col.#{$pre}-border-#{$i} { border-width: #{$borderSize}px; }
-    .col.#{$pre}-border-top-#{$i} { border-top-width: #{$borderSize}px; }
-    .col.#{$pre}-border-right-#{$i} { border-right-width: #{$borderSize}px; }
-    .col.#{$pre}-border-left-#{$i} { border-left-width: #{$borderSize}px; }
-    .col.#{$pre}-border-bottom-#{$i} { border-bottom-width: #{$borderSize}px; }
-
-    $i:$i+1;
-  }
-
-
-  /* Borders
-  ================================================== */
-  .col img.#{$pre}-fill {
-    width: 100%;
-  }
-}
-
 
 /* #Default Layout
 ================================================== */
+
+$layoutCount: length($layouts);
 
 .container {
   overflow: hidden;
@@ -352,8 +146,8 @@ ul.plain {
 }
 
 /* Col sizes for any layout - to override with more specific layouts */
-@include colSizes($pre: "a");
-@include targetedProperties($pre: "a");
+@include colSizes($la: "a");
+@include targetedProperties($la: "a");
 
 @media screen {
   land-s {cue:none}
@@ -383,27 +177,30 @@ ul.plain {
   @for $j from 1 through $layoutCount {
     $nla: nth($subLayouts, $j);
     @if $nla != $la and $nla != $subLa {
-      $nots: $nots + '.#{nth($subLayouts, $j)}';
+      $nots: $nots + '.#{nth($subLayouts, $j)},';
+      $nots: $nots + '.#{nth($subLayouts, $j)}-block,';
+      $nots: $nots + '.#{nth($subLayouts, $j)}-inline';
       @if $j < $layoutCount {
         $nots: $nots + ',';
       }
     }
   }
 
-  @media (min-width: #{nth($min,$i)}px) and (max-width: #{nth($max,$i)}px) {
+  @media (min-width: #{nth($min,$i)}) and (max-width: #{nth($max,$i)}) {
     land-#{$subLa} {cue:none}
 
     .#{$la}, .#{$subLa} { display: block; }
+    .#{$la}, .#{$subLa}-block { display: block; }
+    .#{$la}, .#{$subLa}-inline { display: block; }
 
-    #{$nots}, .not-#{$subLa} {
-      display: none;
-    }
+    #{$nots}, .not-#{$subLa} { display: none; }
+    #{$nots}, .not-#{$subLa} { display: none; }
 
     .container {
       width: #{nth($containerMax,$i)};
     }
 
-    @include colSizes($pre: $subLa);
-    @include targetedProperties($pre: $subLa);
+    @include colSizes($la: $subLa);
+    @include targetedProperties($la: $subLa);
   }
 }
