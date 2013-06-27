@@ -1,0 +1,15 @@
+@function fraction_percent($parts, $whole) {
+  @return ($parts / $whole) * 100%;
+}
+
+@function implode($list, $glue) {
+  $result: '';
+  $count: length($list);
+  @for $i from 1 through $count {
+    $result: $result + nth($list, $i);
+    @if $i < $count {
+      $result: $result + $glue;
+    }
+  }
+  @return $result;
+}

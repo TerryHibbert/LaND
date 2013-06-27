@@ -4,7 +4,7 @@
  *        Add non-layout styles to a different CSS file loaded after LaND.
  *
  * Usage 'col La-N-D' where:
- *  'La' is replaced by the shorthand of the layout:
+ *  'La' is replaced by the shorthand of the targeted layout:
  *      a   :   any
  *      d   :   desktop
  *      t   :   tablet
@@ -12,47 +12,64 @@
  *      ml  :   mobile landscape
  *      mp  :   mobile portrait
  *
- *      s   :   screen
- *      p   :   print
+ *      There's also limited visibility options for print vs screen
+ *      p   :   print only
+ *      s   :   screen only
  *
- *  Then '-N-D' to represent the fraction: N/D
- *  'N' is the numerator (top of the fraction)
- *  'D' is the denominator (bottom of the fraction)
- *  e.g.  'col a-1-2 mp-1-1' will be a half column that changes to full width on mobile portrait
+ *  Then '-N-D' to represent the fraction: N/D where
+ *       'N' is the numerator (top of the fraction)
+ *       'D' is the denominator (bottom of the fraction)
+ *
+ *  E.g. 'col a-1-2 mp-1-1' will be a half column that changes to full width on mobile portrait.
  */
 
-@import "land/_targeted.scss";
+// Configuration
+//==================================================
 
-$defaultContainerMax: 960px;
+$responsive: true;
 
+// Default container size. This will be used on fixed width sites:
+$defaultContainerMax: 940px;
+
+// Layout definitions
+$dcm: $defaultContainerMax; // Just an alias
 //                |         |         |         |         |
 $layouts:         d         t         m         m         m;
 $subLayouts:      d         t         m         ml        mp;
 $max:             99999px   1024px    960px     960px     479px;
 $min:             1024px    960px     0px       479px     0px;
-$containerMax:    940px     940px     100%      100%      100%;
+$containerMax:    $dcm      $dcm     100%      100%      100%;
 
+// Largest amounts of parts in size. The largest D in 'La-N-D':
 $largestDenominator: 8;
 
+// Padding sizes used by index. E.g. 'a-pad-0' or 'a-pad-3':
 $padSizes: 0 10 20 30 40 50;
-$padColDefaultSize: 3; // Start at one, no zero
 
+// Index of the padding size used as default for all 'col':
+$padColDefaultSize: 3; // NB: Start at 1, no such thing as 0
+
+// Border sizes used by index. E.g. 'a-border-0' or 'a-border-3':
 $borderSizes: 0 1 2 3 4 5;
 
+// Animation transitions. Applied to containers with 'animate' class:
 $transitionDuration: '0.5s';
 
+// Fixed width sizes:
 $fixedSizes: 100 200 300 400;
 
+
+
+// Business
+//==================================================
+
+@import "land/_functions.scss";
+@import "land/_layouts.scss";
 
 /* General
 ================================================== */
 
-@mixin borderBoxSizing() {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  *behavior: url(/css/boxsizing.htc);
-}
+$layoutCount: length($layouts);
 
 * {
   @include borderBoxSizing();
@@ -71,13 +88,6 @@ ul.plain {
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none;
-}
-
-@mixin animate($duration, $properties) {
-  transition-property: #{$properties};
-  -webkit-transition-property: #{$properties};
-  transition-duration: #{$transitionDuration};
-  -webkit-transition-duration: #{$transitionDuration};
 }
 
 /* Columns
@@ -125,8 +135,6 @@ ul.plain {
 /* #Default Layout
 ================================================== */
 
-$layoutCount: length($layouts);
-
 .container {
   overflow: hidden;
   width: $defaultContainerMax;
@@ -154,7 +162,7 @@ $layoutCount: length($layouts);
 
   .not-s,
   .p {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -163,44 +171,13 @@ $layoutCount: length($layouts);
 
   .not-p,
   .s {
-    display: none;
+    display: none !important;
   }
 }
 
-/* BUILD LAYOUTS */
-@for $i from 1 through $layoutCount {
-
-  $la: nth($layouts,$i);
-  $subLa: nth($subLayouts,$i);
-
-  $nots: '';
-  @for $j from 1 through $layoutCount {
-    $nla: nth($subLayouts, $j);
-    @if $nla != $la and $nla != $subLa {
-      $nots: $nots + '.#{nth($subLayouts, $j)},';
-      $nots: $nots + '.#{nth($subLayouts, $j)}-block,';
-      $nots: $nots + '.#{nth($subLayouts, $j)}-inline';
-      @if $j < $layoutCount {
-        $nots: $nots + ',';
-      }
-    }
-  }
-
-  @media (min-width: #{nth($min,$i)}) and (max-width: #{nth($max,$i)}) {
-    land-#{$subLa} {cue:none}
-
-    .#{$la}, .#{$subLa} { display: block; }
-    .#{$la}, .#{$subLa}-block { display: block; }
-    .#{$la}, .#{$subLa}-inline { display: block; }
-
-    #{$nots}, .not-#{$subLa} { display: none; }
-    #{$nots}, .not-#{$subLa} { display: none; }
-
-    .container {
-      width: #{nth($containerMax,$i)};
-    }
-
-    @include colSizes($la: $subLa);
-    @include targetedProperties($la: $subLa);
-  }
+@if $responsive {
+  body { overflow-x: hidden; }
+  @include layouts();
 }
+
+/* #{implode($layouts, '-')} */

@@ -4,7 +4,7 @@
  *        Add non-layout styles to a different CSS file loaded after LaND.
  *
  * Usage 'col La-N-D' where:
- *  'La' is replaced by the shorthand of the layout:
+ *  'La' is replaced by the shorthand of the targeted layout:
  *      a   :   any
  *      d   :   desktop
  *      t   :   tablet
@@ -12,13 +12,15 @@
  *      ml  :   mobile landscape
  *      mp  :   mobile portrait
  *
- *      s   :   screen
- *      p   :   print
+ *      There's also limited visibility options for print vs screen
+ *      p   :   print only
+ *      s   :   screen only
  *
- *  Then '-N-D' to represent the fraction: N/D
- *  'N' is the numerator (top of the fraction)
- *  'D' is the denominator (bottom of the fraction)
- *  e.g.  'col a-1-2 mp-1-1' will be a half column that changes to full width on mobile portrait
+ *  Then '-N-D' to represent the fraction: N/D where
+ *       'N' is the numerator (top of the fraction)
+ *       'D' is the denominator (bottom of the fraction)
+ *
+ *  E.g. 'col a-1-2 mp-1-1' will be a half column that changes to full width on mobile portrait.
  */
 /* Layout targeted properties
 ================================================== */
@@ -85,7 +87,7 @@ ul.plain {
 ================================================== */
 .container {
   overflow: hidden;
-  width: 960px;
+  width: 940px;
   clear: both; }
 
 .container.center {
@@ -99,7 +101,7 @@ ul.plain {
 
 /* Less than ie9 is fixed. Upgrade your browser please... */
 .lt-ie8 .container {
-  width: 960px !important; }
+  width: 940px !important; }
 
 /* Col sizes for any layout - to override with more specific layouts */
 .a-1-1 {
@@ -741,14 +743,17 @@ ul.plain {
 
   .not-s,
   .p {
-    display: none; } }
+    display: none !important; } }
 @media print {
   land-p {
     cue: none; }
 
   .not-p,
   .s {
-    display: none; } }
+    display: none !important; } }
+body {
+  overflow-x: hidden; }
+
 /* BUILD LAYOUTS */
 @media (min-width: 1024px) and (max-width: 99999px) {
   land-d {
@@ -4020,3 +4025,4 @@ ul.plain {
 
   .col img.mp-auto {
     width: auto; } }
+/* d-t-m-m-m */

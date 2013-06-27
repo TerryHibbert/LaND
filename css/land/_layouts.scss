@@ -1,5 +1,41 @@
-@function fraction_percent($parts, $whole) {
-  @return ($parts / $whole) * 100%;
+@mixin layouts() {
+  /* BUILD LAYOUTS */
+  @for $i from 1 through $layoutCount {
+
+    $la: nth($layouts, $i);
+    $subLa: nth($subLayouts, $i);
+
+    $nots: '';
+    @for $j from 1 through $layoutCount {
+      $nla: nth($subLayouts, $j);
+      @if $nla != $la and $nla != $subLa {
+        $nots: $nots + '.#{nth($subLayouts, $j)},';
+        $nots: $nots + '.#{nth($subLayouts, $j)}-block,';
+        $nots: $nots + '.#{nth($subLayouts, $j)}-inline';
+        @if $j < $layoutCount {
+          $nots: $nots + ',';
+        }
+      }
+    }
+
+    @media (min-width: #{nth($min,$i)}) and (max-width: #{nth($max,$i)}) {
+      land-#{$subLa} {cue:none}
+
+      .#{$la}, .#{$subLa} { display: block; }
+      .#{$la}, .#{$subLa}-block { display: block; }
+      .#{$la}, .#{$subLa}-inline { display: block; }
+
+      #{$nots}, .not-#{$subLa} { display: none; }
+      #{$nots}, .not-#{$subLa} { display: none; }
+
+      .container {
+        width: #{nth($containerMax,$i)};
+      }
+
+      @include colSizes($la: $subLa);
+      @include targetedProperties($la: $subLa);
+    }
+  }
 }
 
 @mixin colSize($la, $numerator, $denominator) {
@@ -41,9 +77,22 @@
   }
 }
 
+@mixin borderBoxSizing() {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  *behavior: url(/css/boxsizing.htc);
+}
+
+@mixin animate($duration, $properties) {
+  transition-property: #{$properties};
+  -webkit-transition-property: #{$properties};
+  transition-duration: #{$transitionDuration};
+  -webkit-transition-duration: #{$transitionDuration};
+}
+
 /* Layout targeted properties
 ================================================== */
-
 @mixin targetedProperties($la) {
 
   .#{$la}-auto { width: auto; }
