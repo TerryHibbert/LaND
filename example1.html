@@ -16,15 +16,18 @@
     <link rel="stylesheet" type="text/css" media="all" href="css/land.css">
     <link rel="stylesheet" type="text/css" media="all" href="css/site.css">
 
+    <!--[if lt IE 10]>
+        <script type="text/javascript" src="/js/lib/matchmedia/matchmedia.js"></script>
+        <script type="text/javascript" src="/js/lib/matchmedia/matchmedia.addlistener.js"></script>
+    <![endif]-->
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
     <script type="text/javascript" src="/js/land/land.js"></script>
     <script type="text/javascript">
-        var land = new LaND()
-        land.addListener(LaND.events.CHANGE, function() {
-            //console.log('Change event caught:');
-            //console.log(land.layouts);
-        });
-        land.init();
-
+        var land = new LaND({
+            'applyToHTML': true
+        }).init();
     </script>
 
     <script type="text/javascript">var console = typeof console !== 'undefined' ? console : {log:function(){}};</script>

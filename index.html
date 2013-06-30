@@ -19,13 +19,10 @@
 
     <script type="text/javascript" src="/js/land/land.js"></script>
     <script type="text/javascript">
-        var land = new LaND()
-        land.addListener(LaND.events.CHANGE, function() {
-           //console.log('Change event caught:');
-           //console.log(land.layouts);
+        var land = new LaND({
+            'applyToHTML': true
         });
         land.init();
-
     </script>
 
     <script type="text/javascript">var console = typeof console !== 'undefined' ? console : {log:function(){}};</script>
