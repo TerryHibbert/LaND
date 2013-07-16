@@ -4,15 +4,24 @@
  * NB - It's working in recent Chrome. Add paulirish's matchMedia for some IE 9 support.
  */
 
+var console = typeof console !== 'undefined' ? console : {log:function(){}};
+
 var LaND = function(options) {
     var that = this;
     var options = typeof options !== 'undefined' ? options : {};
+
+    this.mediaQuerySupport = typeof CSSMediaRule !== 'undefined';
 
     var defaults = {
         'applyToHTML': true
     };
 
-    options = $.extend(defaults, options);
+    if (typeof jQuery === 'undefined') {
+        console.log('jQuery is required');
+        return;
+    }
+
+    options = jQuery.extend(defaults, options);
 
     this.layouts = {};
 
@@ -21,7 +30,7 @@ var LaND = function(options) {
     };
 
     this.init = function() {
-        console.log("LaND init...");
+        console.log("LaND: init...");
 
         if (options.applyToHTML) addHTMLaddListeners();
 
@@ -32,7 +41,7 @@ var LaND = function(options) {
 
     this.addListener = function(name, handler) {
         if (!listeners.hasOwnProperty(name)) {
-            throw "Land doesn't have an event called '" + name + "'";
+            throw "LaND: Can't add listener to unknown event: '" + name + "'";
             return false;
         }
 
@@ -83,8 +92,8 @@ var LaND = function(options) {
     }
 
     function handleMediaChange(active, layouts) {
-        //console.log(layouts);
-        //console.log(active);
+        console.log(layouts);
+        console.log(active);
 
         var layoutLength = layouts.length;
         for (var i=0; i<layoutLength; ++i) {
@@ -95,6 +104,12 @@ var LaND = function(options) {
     };
 
     function findMediaQueries() {
+
+        if (!that.mediaQuerySupport) {
+            console.log('LaND: MediaQueries are not supported by this browser');
+            return;
+        }
+
         var sheetsLength = document.styleSheets.length;
         var sheet;
 
@@ -102,10 +117,10 @@ var LaND = function(options) {
             sheet = document.styleSheets[i];
 
             if (sheet.href.indexOf('/land.') > -1) {
-                //console.log(sheet);
+                console.log(sheet);
 
-                var rules = sheet.cssRules,
-                    numRules = rules.length,
+                var rules = sheet.cssRules || sheet.rules;
+                var numRules = rules.length,
                     mqls = {};
 
                 for (var j = 0; j < numRules; j += 1) {
@@ -129,7 +144,8 @@ var LaND = function(options) {
                         handleMediaChange(mqls['mql' + j].matches, layouts);
                     }
                 }
-                break;
+
+                break; // CSS file found, stop looking.
             }
         }
     }
