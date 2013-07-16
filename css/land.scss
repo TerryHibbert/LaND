@@ -34,17 +34,17 @@ $defaultContainerMax: 940px;
 // Layout definitions
 $dcm: $defaultContainerMax; // Just an alias
 //                |         |         |         |         |
-$layouts:         d         t         m         m         m;
-$subLayouts:      d         t         m         ml        mp;
-$max:             99999px   1024px    960px     960px     479px;
-$min:             1024px    961px     0px       479px     0px;
-$containerMax:    $dcm      $dcm     100%      100%      100%;
+$layouts:         b         b         b         m         m         m;
+$subLayouts:      b         d         t         m         ml        mp;
+$max:             99999px   99999px   1024px    960px     960px     479px;
+$min:             961px     1024px    961px     0px       479px     0px;
+$containerMax:    $dcm      $dcm      $dcm      100%      100%      100%;
 
 // Largest amounts of parts in size. The largest D in 'La-N-D':
 $largestDenominator: 8;
 
 // Padding sizes used by index. E.g. 'a-pad-0' or 'a-pad-3':
-$padSizes: 0 10 20 30 40 50;
+$padSizes: 0 10 20 30 40 50 60 70 80 90 100;
 
 // Index of the padding size used as default for all 'col':
 $padColDefaultSize: 3; // NB: Start at 1, no such thing as 0
@@ -179,5 +179,3 @@ ul.plain {
   body { overflow-x: hidden; }
   @include layouts();
 }
-
-/* #{implode($layouts, '-')} */
