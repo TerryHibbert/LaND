@@ -32,8 +32,6 @@ var LaND = function(options) {
     this.init = function() {
         console.log("LaND: init...");
 
-        if (options.applyToHTML) addHTMLaddListeners();
-
         findMediaQueries();
 
         return this;
@@ -105,11 +103,6 @@ var LaND = function(options) {
 
     function findMediaQueries() {
 
-        if (!that.mediaQuerySupport) {
-            console.log('LaND: MediaQueries are not supported by this browser');
-            return;
-        }
-
         var sheetsLength = document.styleSheets.length;
         var sheet;
 
@@ -123,25 +116,42 @@ var LaND = function(options) {
                 var numRules = rules.length,
                     mqls = {};
 
-                for (var j = 0; j < numRules; j += 1) {
-                    if (rules[j].constructor === CSSMediaRule) {
-                        //console.log('Found media rule:');
-                        //console.log(rules[j].media.mediaText);
-                        //console.log(rules[j].cssRules[0].selectorText);
+                var landInfoRule = rules[0];
+                console.log(landInfoRule.cssText);
+                var landInfoString = landInfoRule.cssText.split("*")[1];
+                console.log(landInfoString);
+                var rows = landInfoString.split('|');
+                console.log(rows);
+                that.landInfo = {
+                    'layouts': rows[0].split(','),
+                    'subLayouts': rows[1].split(','),
+                    'max': rows[2].split(','),
+                    'min': rows[3].split(','),
+                    'containerMax': rows[4].split(',')
+                }
+                console.log(that.landInfo);
 
-                        var layouts = rules[j].cssRules[0].selectorText.split('-');
-                        layouts.shift();
+                if (that.mediaQuerySupport) {
+                    for (var j = 1; j < numRules; j += 1) {
+                        if (rules[j].constructor === CSSMediaRule) {
+                            //console.log('Found media rule:');
+                            //console.log(rules[j].media.mediaText);
+                            //console.log(rules[j].cssRules[0].selectorText);
 
-                        //console.log(layouts);
+                            var layouts = rules[j].cssRules[0].selectorText.split('-');
+                            layouts.shift();
 
-                        mqls['mql' + j] = window.matchMedia(rules[j].media.mediaText);
-                        mqls['mql' + j].addListener(function(mql, layouts) {
-                            return function() {
-                                handleMediaChange(mql.matches, layouts);
-                            }
-                        }(mqls['mql' + j], layouts));
+                            //console.log(layouts);
 
-                        handleMediaChange(mqls['mql' + j].matches, layouts);
+                            mqls['mql' + j] = window.matchMedia(rules[j].media.mediaText);
+                            mqls['mql' + j].addListener(function(mql, layouts) {
+                                return function() {
+                                    handleMediaChange(mql.matches, layouts);
+                                }
+                            }(mqls['mql' + j], layouts));
+
+                            handleMediaChange(mqls['mql' + j].matches, layouts);
+                        }
                     }
                 }
 

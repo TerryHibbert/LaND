@@ -208,12 +208,16 @@
     .col.#{$la}-pad-right-#{$i} { padding-right: #{$padSize}px; }
     .col.#{$la}-pad-bottom-#{$i} { padding-bottom: #{$padSize}px; }
     .col.#{$la}-pad-left-#{$i} { padding-left: #{$padSize}px; }
+    .col.#{$la}-pad-h-#{$i} { padding-left: #{$padSize}px; padding-right: #{$padSize}px; }
+    .col.#{$la}-pad-v-#{$i} { padding-top: #{$padSize}px; padding-bottom: #{$padSize}px; }
 
     .col.#{$la}-margin-#{$i} { margin: #{$padSize}px; }
     .col.#{$la}-margin-top-#{$i} { margin-top: #{$padSize}px; }
     .col.#{$la}-margin-right-#{$i} { margin-right: #{$padSize}px; }
     .col.#{$la}-margin-bottom-#{$i} { margin-bottom: #{$padSize}px; }
     .col.#{$la}-margin-left-#{$i} { margin-left: #{$padSize}px; }
+    .col.#{$la}-margin-h-#{$i} { margin-left: #{$padSize}px; margin-right: #{$padSize}px; }
+    .col.#{$la}-margin-v-#{$i} { margin-top: #{$padSize}px; margin-bottom: #{$padSize}px; }
 
     $i:$i+1;
   }

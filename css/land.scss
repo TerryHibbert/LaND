@@ -58,12 +58,22 @@ $transitionDuration: '0.5s';
 // Fixed width sizes:
 $fixedSizes: 100 200 300 400;
 
-
-
 // Business
 //==================================================
 
 @import "land/_functions.scss";
+
+$infoWrapper: '*';
+
+.LaND-info {
+  content: $infoWrapper + implode($layouts,',')
+        + '|' + implode($subLayouts,',')
+        + '|' + implode($max,',')
+        + '|' + implode($min,',')
+        + '|' + implode($containerMax,',')
+        + $infoWrapper;
+}
+
 @import "land/_layouts.scss";
 
 /* General
