@@ -10,6 +10,8 @@ var LaND = function(options) {
     var that = this;
     var options = typeof options !== 'undefined' ? options : {};
 
+    this.mqls = {};
+
     this.mediaQuerySupport = typeof CSSMediaRule !== 'undefined';
 
     var defaults = {
@@ -113,8 +115,7 @@ var LaND = function(options) {
                 console.log(sheet);
 
                 var rules = sheet.cssRules || sheet.rules;
-                var numRules = rules.length,
-                    mqls = {};
+                var numRules = rules.length;
 
                 var landInfoRule = rules[0];
                 console.log(landInfoRule.cssText);
@@ -134,23 +135,20 @@ var LaND = function(options) {
                 if (that.mediaQuerySupport) {
                     for (var j = 1; j < numRules; j += 1) {
                         if (rules[j].constructor === CSSMediaRule) {
-                            //console.log('Found media rule:');
-                            //console.log(rules[j].media.mediaText);
-                            //console.log(rules[j].cssRules[0].selectorText);
 
                             var layouts = rules[j].cssRules[0].selectorText.split('-');
                             layouts.shift();
 
-                            //console.log(layouts);
-
-                            mqls['mql' + j] = window.matchMedia(rules[j].media.mediaText);
-                            mqls['mql' + j].addListener(function(mql, layouts) {
+                            that.mqls[j] = window.matchMedia(rules[j].media.mediaText);
+                            that.mqls[j].addListener(function(mql, layouts) {
                                 return function() {
                                     handleMediaChange(mql.matches, layouts);
                                 }
-                            }(mqls['mql' + j], layouts));
+                            }(that.mqls[j], layouts));
 
-                            handleMediaChange(mqls['mql' + j].matches, layouts);
+                            console.log(that.mqls[j]);
+
+                            handleMediaChange(that.mqls[j].matches, layouts);
                         }
                     }
                 }

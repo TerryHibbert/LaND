@@ -37,7 +37,7 @@ $dcm: $defaultContainerMax; // Just an alias
 $layouts:         b         b         b         m         m         m;
 $subLayouts:      b         d         t         m         ml        mp;
 $max:             99999px   99999px   1024px    960px     960px     479px;
-$min:             961px     1024px    961px     0px       479px     0px;
+$min:             961px     1025px    961px     0px       479px     0px;
 $containerMax:    $dcm      $dcm      $dcm      100%      100%      100%;
 
 // Largest amounts of parts in size. The largest D in 'La-N-D':

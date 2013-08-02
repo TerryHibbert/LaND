@@ -23,7 +23,7 @@
  *  E.g. 'col a-1-2 mp-1-1' will be a half column that changes to full width on mobile portrait.
  */
 .LaND-info {
-  content: "*b,b,b,m,m,m|b,d,t,m,ml,mp|99999px,99999px,1024px,960px,960px,479px|961px,1024px,961px,0px,479px,0px|940px,940px,940px,100%,100%,100%*"; }
+  content: "*b,b,b,m,m,m|b,d,t,m,ml,mp|99999px,99999px,1024px,960px,960px,479px|961px,1025px,961px,0px,479px,0px|940px,940px,940px,100%,100%,100%*"; }
 
 /* Layout targeted properties
 ================================================== */
@@ -954,6 +954,14 @@ ul.plain {
 .col.a-pad-left-0 {
   padding-left: 0; }
 
+.col.a-pad-h-0 {
+  padding-left: 0;
+  padding-right: 0; }
+
+.col.a-pad-v-0 {
+  padding-top: 0;
+  padding-bottom: 0; }
+
 .col.a-margin-top-0 {
   margin-top: 0; }
 
@@ -965,6 +973,14 @@ ul.plain {
 
 .col.a-margin-left-0 {
   margin-left: 0; }
+
+.col.a-margin-h-0 {
+  margin-left: 0;
+  margin-right: 0; }
+
+.col.a-margin-v-0 {
+  margin-top: 0;
+  margin-bottom: 0; }
 
 /* Borders
 ================================================== */
@@ -1953,6 +1969,14 @@ body {
   .col.b-pad-left-0 {
     padding-left: 0; }
 
+  .col.b-pad-h-0 {
+    padding-left: 0;
+    padding-right: 0; }
+
+  .col.b-pad-v-0 {
+    padding-top: 0;
+    padding-bottom: 0; }
+
   .col.b-margin-top-0 {
     margin-top: 0; }
 
@@ -1964,6 +1988,14 @@ body {
 
   .col.b-margin-left-0 {
     margin-left: 0; }
+
+  .col.b-margin-h-0 {
+    margin-left: 0;
+    margin-right: 0; }
+
+  .col.b-margin-v-0 {
+    margin-top: 0;
+    margin-bottom: 0; }
 
   /* Borders
   ================================================== */
@@ -2064,7 +2096,7 @@ body {
 
   .col img.b-auto {
     width: auto; } }
-@media (min-width: 1024px) and (max-width: 99999px) {
+@media (min-width: 1025px) and (max-width: 99999px) {
   land-d {
     cue: none; }
 
@@ -2933,6 +2965,14 @@ body {
   .col.d-pad-left-0 {
     padding-left: 0; }
 
+  .col.d-pad-h-0 {
+    padding-left: 0;
+    padding-right: 0; }
+
+  .col.d-pad-v-0 {
+    padding-top: 0;
+    padding-bottom: 0; }
+
   .col.d-margin-top-0 {
     margin-top: 0; }
 
@@ -2944,6 +2984,14 @@ body {
 
   .col.d-margin-left-0 {
     margin-left: 0; }
+
+  .col.d-margin-h-0 {
+    margin-left: 0;
+    margin-right: 0; }
+
+  .col.d-margin-v-0 {
+    margin-top: 0;
+    margin-bottom: 0; }
 
   /* Borders
   ================================================== */
@@ -3913,6 +3961,14 @@ body {
   .col.t-pad-left-0 {
     padding-left: 0; }
 
+  .col.t-pad-h-0 {
+    padding-left: 0;
+    padding-right: 0; }
+
+  .col.t-pad-v-0 {
+    padding-top: 0;
+    padding-bottom: 0; }
+
   .col.t-margin-top-0 {
     margin-top: 0; }
 
@@ -3924,6 +3980,14 @@ body {
 
   .col.t-margin-left-0 {
     margin-left: 0; }
+
+  .col.t-margin-h-0 {
+    margin-left: 0;
+    margin-right: 0; }
+
+  .col.t-margin-v-0 {
+    margin-top: 0;
+    margin-bottom: 0; }
 
   /* Borders
   ================================================== */
@@ -4893,6 +4957,14 @@ body {
   .col.m-pad-left-0 {
     padding-left: 0; }
 
+  .col.m-pad-h-0 {
+    padding-left: 0;
+    padding-right: 0; }
+
+  .col.m-pad-v-0 {
+    padding-top: 0;
+    padding-bottom: 0; }
+
   .col.m-margin-top-0 {
     margin-top: 0; }
 
@@ -4904,6 +4976,14 @@ body {
 
   .col.m-margin-left-0 {
     margin-left: 0; }
+
+  .col.m-margin-h-0 {
+    margin-left: 0;
+    margin-right: 0; }
+
+  .col.m-margin-v-0 {
+    margin-top: 0;
+    margin-bottom: 0; }
 
   /* Borders
   ================================================== */
@@ -5873,6 +5953,14 @@ body {
   .col.ml-pad-left-0 {
     padding-left: 0; }
 
+  .col.ml-pad-h-0 {
+    padding-left: 0;
+    padding-right: 0; }
+
+  .col.ml-pad-v-0 {
+    padding-top: 0;
+    padding-bottom: 0; }
+
   .col.ml-margin-top-0 {
     margin-top: 0; }
 
@@ -5884,6 +5972,14 @@ body {
 
   .col.ml-margin-left-0 {
     margin-left: 0; }
+
+  .col.ml-margin-h-0 {
+    margin-left: 0;
+    margin-right: 0; }
+
+  .col.ml-margin-v-0 {
+    margin-top: 0;
+    margin-bottom: 0; }
 
   /* Borders
   ================================================== */
@@ -6853,6 +6949,14 @@ body {
   .col.mp-pad-left-0 {
     padding-left: 0; }
 
+  .col.mp-pad-h-0 {
+    padding-left: 0;
+    padding-right: 0; }
+
+  .col.mp-pad-v-0 {
+    padding-top: 0;
+    padding-bottom: 0; }
+
   .col.mp-margin-top-0 {
     margin-top: 0; }
 
@@ -6864,6 +6968,14 @@ body {
 
   .col.mp-margin-left-0 {
     margin-left: 0; }
+
+  .col.mp-margin-h-0 {
+    margin-left: 0;
+    margin-right: 0; }
+
+  .col.mp-margin-v-0 {
+    margin-top: 0;
+    margin-bottom: 0; }
 
   /* Borders
   ================================================== */
