@@ -88,22 +88,22 @@ ul.plain {
 
 /* #Default Layout
 ================================================== */
-.container {
+.LaND-container {
   overflow: hidden;
   width: 940px;
   clear: both; }
 
-.container.center {
+.LaND-container.center {
   margin: 0 auto; }
 
-.container.animate {
+.LaND-container.animate {
   transition-property: all;
   -webkit-transition-property: all;
   transition-duration: 0.5s;
   -webkit-transition-duration: 0.5s; }
 
 /* Less than ie9 is fixed. Upgrade your browser please... */
-.lt-ie8 .container {
+.lt-ie8 .LaND-container {
   width: 940px !important; }
 
 /* Col sizes for any layout - to override with more specific layouts */
@@ -1119,7 +1119,7 @@ body {
   .d, .d-block, .d-inline, .t, .t-block, .t-inline, .m, .m-block, .m-inline, .ml, .ml-block, .ml-inline, .mp, .mp-block, .mp-inline, .not-b {
     display: none; }
 
-  .container {
+  .LaND-container {
     width: 940px; }
 
   .b-1-1 {
@@ -2115,7 +2115,7 @@ body {
   .t, .t-block, .t-inline, .m, .m-block, .m-inline, .ml, .ml-block, .ml-inline, .mp, .mp-block, .mp-inline, .not-d {
     display: none; }
 
-  .container {
+  .LaND-container {
     width: 940px; }
 
   .d-1-1 {
@@ -3111,7 +3111,7 @@ body {
   .d, .d-block, .d-inline, .m, .m-block, .m-inline, .ml, .ml-block, .ml-inline, .mp, .mp-block, .mp-inline, .not-t {
     display: none; }
 
-  .container {
+  .LaND-container {
     width: 940px; }
 
   .t-1-1 {
@@ -4107,7 +4107,7 @@ body {
   .b, .b-block, .b-inline, .d, .d-block, .d-inline, .t, .t-block, .t-inline, .ml, .ml-block, .ml-inline, .mp, .mp-block, .mp-inline, .not-m {
     display: none; }
 
-  .container {
+  .LaND-container {
     width: 100%; }
 
   .m-1-1 {
@@ -5103,7 +5103,7 @@ body {
   .b, .b-block, .b-inline, .d, .d-block, .d-inline, .t, .t-block, .t-inline, .mp, .mp-block, .mp-inline, .not-ml {
     display: none; }
 
-  .container {
+  .LaND-container {
     width: 100%; }
 
   .ml-1-1 {
@@ -6099,7 +6099,7 @@ body {
   .b, .b-block, .b-inline, .d, .d-block, .d-inline, .t, .t-block, .t-inline, .ml, .ml-block, .ml-inline, .not-mp {
     display: none; }
 
-  .container {
+  .LaND-container {
     width: 100%; }
 
   .mp-1-1 {

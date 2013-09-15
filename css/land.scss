@@ -145,21 +145,21 @@ ul.plain {
 /* #Default Layout
 ================================================== */
 
-.container {
+.LaND-container {
   overflow: hidden;
   width: $defaultContainerMax;
   clear: both;
 }
-.container.center {
+.LaND-container.center {
   margin: 0 auto;
 }
 
-.container.animate {
+.LaND-container.animate {
   @include animate($transitionDuration, 'all');
 }
 
 /* Less than ie9 is fixed. Upgrade your browser please... */
-.lt-ie8 .container {
+.lt-ie8 .LaND-container {
   width: $defaultContainerMax !important;
 }
 
