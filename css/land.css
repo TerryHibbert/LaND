@@ -60,6 +60,7 @@ ul.plain {
   position: relative;
   width: 100%;
   border: 0 solid #999;
+  min-height: 1px;
   transition-property: padding, border;
   -webkit-transition-property: padding, border;
   transition-duration: 0.5s;
@@ -69,8 +70,8 @@ ul.plain {
   .col .overflow-visible {
     overflow: visible; }
 
-.col img {
-  max-width: 100%; }
+.col.collapsible {
+  min-height: 0; }
 
 /* Column debug */
 .debug .debuggable .col {

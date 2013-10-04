@@ -111,6 +111,7 @@ ul.plain {
   position: relative;
   width: 100%;
   border: 0 solid #999;
+  min-height: 1px;
 
   .right { float: right; }
   .overflow-visible { overflow: visible; }
@@ -118,8 +119,8 @@ ul.plain {
   @include animate($transitionDuration, 'padding, border');
 }
 
-.col img {
-  max-width: 100%;
+.col.collapsible {
+  min-height: 0;
 }
 
 /* Column debug */
