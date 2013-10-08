@@ -1,7 +1,5 @@
 # LaND :  A fraction based, responsive CSS layout framework.
 
----
-
 ## CONTAINER
 Wrap your page with an container of class 'LaND-container', optionally with 'center' and/or 'animate'.
 
