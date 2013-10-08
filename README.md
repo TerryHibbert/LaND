@@ -32,17 +32,17 @@ Then '-N-D' to represent the fraction: N/D where
 E.g. 'col a-1-2 mp-1-1' will be a half column that changes to full width on mobile portrait.
 
 ## PADDING / MARGINS
-Generally, only padding should be used as margins breaks horisontal box model. Margin is OK vertically though.
+Generally, only padding should be used as margins breaks horizontal box model. Margin is OK vertically though.
 By default, col has 20px padding. This can be modified with classes like so:
 
 ```
 a-pad-0     : No padding for all layouts
-m-pad-h-1   : Horisontal padding of 10px for mobile layout
+m-pad-h-1   : Horizontal padding of 10px for mobile layout
 t-pad-v-4   : Vertical padding of 40px for tablet layout
 a-pad-b-2   : Bottom padding of 20px for all layouts
 ```
 
-Padding classes can be chained. The following has 40px padding on everything except 20px on mobile and 0px horisontal on mobile portrait.
+Padding classes can be chained. The following has 40px padding on everything except 20px on mobile and 0px horizontal on mobile portrait.
 ```
 a-pad-4 m-pad-2 mp-pad-h-0
 ```
