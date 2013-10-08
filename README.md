@@ -77,7 +77,7 @@ Don't use the JS library yet. It's a work in progress.
 Please use GitHub issues (with appropriate labels) to report bugs, suggest enhancements and ask questions.
 
 ---
-Copyright (C) 2013 Terry Hibbert
+Copyright &copy; 2013 Terry Hibbert
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
