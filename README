@@ -1,9 +1,10 @@
-A fraction based, responsive CSS layout framework.
+# LaND
+### A fraction based, responsive CSS layout framework.
 
-CONTAINER:
+## CONTAINER
 Wrap your page with an container of class 'LaND-container', optionally with 'center' and/or 'animate'.
 
-COL LAYOUTS:
+## COL LAYOUTS
 Usage add these classes to your block elements: 'col La-N-D' where:
     'La' is replaced by the shorthand of the targeted layout:
         a   :   any
@@ -24,7 +25,7 @@ Then '-N-D' to represent the fraction: N/D where
 
 E.g. 'col a-1-2 mp-1-1' will be a half column that changes to full width on mobile portrait.
 
-PADDING / MARGINS:
+# PADDING / MARGINS
 Generally, only padding should be used as margins breaks horisontal box model. Margin is OK vertically though.
 By default, col has 20px padding. This can be modified with classes like so:
     a-pad-0     // No padding for all layouts
@@ -35,7 +36,7 @@ By default, col has 20px padding. This can be modified with classes like so:
 Padding classes can be chained. The following has 40px padding on everything except 20px on mobile and 0px horisontal on mobile portrait.
     a-pad-4 m-pad-2 mp-pad-h-0
 
-OTHER STYLES:
+## OTHER STYLES:
 This framework and documentation are not complete. There are other features that use a similar format. Some quick examples:
     a-float-right m-float-left      // This will float right except for mobile which will float right.
     a-clear-left                    // Does what it says
@@ -48,15 +49,15 @@ This framework and documentation are not complete. There are other features that
 
     ... There's more, have a dig around.
 
-JAVASCRIPT:
+## JAVASCRIPT:
 Don't use the JS library yet. It's a work in progress.
 
-TIPS:
+## TIPS:
     - Look at the example pages for implementation and examples.
     - IE8 and below are fixed width. There are no surely no mobile devices (we care about) using <IE8.
     - Edit the SCSS and not the CSS. Add non-layout styles to a different CSS file loaded after LaND
     - SASS is required to modify LaND, but not to use without modification
     - Layout definitions can be defined in /css/land.scss
 
-BUGS / FEATURE REQUESTS / HELP:
+## BUGS / FEATURE REQUESTS / HELP:
 Please use GitHub issues (with appropriate labels) to report bugs, suggest enhancements and ask questions.
