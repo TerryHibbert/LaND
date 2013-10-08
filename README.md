@@ -1,5 +1,5 @@
 # LaND
-A fraction based, responsive CSS layout framework.
+A responsive, fraction based CSS layout framework.
 
 ## CONTAINER
 Wrap your page with an container of class 'LaND-container', optionally with 'center' and/or 'animate'.
@@ -75,3 +75,14 @@ Don't use the JS library yet. It's a work in progress.
 
 ## BUGS / FEATURE REQUESTS / HELP:
 Please use GitHub issues (with appropriate labels) to report bugs, suggest enhancements and ask questions.
+
+---
+Copyright (C) 2013 Terry Hibbert
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
