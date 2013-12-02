@@ -22,11 +22,10 @@
       land-#{$subLa} {cue:none}
 
       .#{$la}, .#{$subLa} { display: block; }
-      .#{$la}, .#{$subLa}-block { display: block; }
-      .#{$la}, .#{$subLa}-inline { display: block; }
+      .#{$la}-block, .#{$subLa}-block { display: block; }
+      .#{$la}-inline, .#{$subLa}-inline { display: block; }
 
-      #{$nots}, .not-#{$subLa} { display: none; }
-      #{$nots}, .not-#{$subLa} { display: none; }
+      #{$nots}, .not-#{$la}, .not-#{$subLa} { display: none; }
 
       .LaND-container {
         width: #{nth($containerMax,$i)};
@@ -187,6 +186,25 @@
   .#{$la}-full-height { height: 100%; }
   .#{$la}-display-table { display: table; }
   .#{$la}-cell-vertical-middle { display: table-cell; vertical-align: middle; float: none; }
+
+  .#{$la}-v-center {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 100%;
+    width: 100%;
+    height: 100%;
+    display: table;
+
+    .#{$la}-v-center-content {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+
+      width: 100%;
+      height: 100%;
+    }
+  }
 
 
 /* Padding and margin
