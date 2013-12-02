@@ -168,6 +168,9 @@ ul.plain {
 @include colSizes($la: "a");
 @include targetedProperties($la: "a");
 
+.a-block { display: block; }
+.a-inline { display: inline; }
+
 @media screen {
   land-s {cue:none}
 
