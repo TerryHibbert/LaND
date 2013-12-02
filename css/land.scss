@@ -43,8 +43,9 @@ $containerMax:    $dcm      $dcm      $dcm      100%      100%      100%;
 // Largest amounts of parts in size. The largest D in 'La-N-D':
 $largestDenominator: 8;
 
-// Padding sizes used by index. E.g. 'a-pad-0' or 'a-pad-3':
-$padSizes: 0 10 20 30 40 50 60 70 80 90 100;
+// Padding sizes used by name. E.g. 'a-pad-0' or 'a-pad-3':
+$padSizeNames:  0   1   2   3   4   5   6   7   8   9   10    5px;
+$padSizes:      0   10  20  30  40  50  60  70  80  90  100   5;
 
 // Index of the padding size used as default for all 'col':
 $padColDefaultSize: 3; // NB: Start at 1, no such thing as 0
