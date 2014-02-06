@@ -1,16 +1,16 @@
-/* LaND - A fluid responsive layout framework by Terry Hibbert.
+/* LaND - A mobile first fluid responsive layout framework by Terry Hibbert.
  *
  * TIPS:  Edit the SCSS and not the CSS.
  *        Add non-layout styles to a different CSS file loaded after LaND.
  *
  * Usage 'col La-N-D' where:
  *  'La' is replaced by the shorthand of the targeted layout:
- *      a   :   any
- *      d   :   desktop
- *      t   :   tablet
- *      m   :   mobile
- *      ml  :   mobile landscape
+ *      s   :   small
  *      mp  :   mobile portrait
+ *      ml  :   mobile landscape (also table portrait)
+ *      t   :   tablet (landscape)
+ *      d   :   desktop
+ *      dl  :   desktop large
  *
  *      There's also limited visibility options for print vs screen
  *      p   :   print only
@@ -20,7 +20,7 @@
  *       'N' is the numerator (top of the fraction)
  *       'D' is the denominator (bottom of the fraction)
  *
- *  E.g. 'col a-1-2 mp-1-1' will be a half column that changes to full width on mobile portrait.
+ *  E.g. 'col s-1-2 d-1-4' will be a half column element that changes to quarter width on desktop.
  */
 
 // Configuration
@@ -30,15 +30,19 @@ $responsive: true;
 
 // Default container size. This will be used on fixed width sites:
 $defaultContainerMax: 940px;
+$dcm: $defaultContainerMax; // Just an alias
 
 // Layout definitions
-$dcm: $defaultContainerMax; // Just an alias
-//                |         |         |         |         |
-$layouts:         b         b         b         m         m         m;
-$subLayouts:      b         d         t         m         ml        mp;
-$max:             99999px   99999px   1024px    960px     960px     479px;
-$min:             961px     1025px    961px     0px       479px     0px;
-$containerMax:    $dcm      $dcm      $dcm      100%      100%      100%;
+//                |         |         |         |         |         |
+//                small     mobile    mobile    tablet    desktop   desktop
+//                          portrait  landscape                     large
+$layouts:         s         mp        ml        t         d         dl;
+$min:             0px       320px     480px     961px     1025px    1200px;
+$containerMax:    100%      100%      100%      $dcm      $dcm      1150px;
+
+// The layout used for ie 8 and below
+// Used when media queries are not supported
+$fixedLayout: 'd';
 
 // Largest amounts of parts in size. The largest D in 'La-N-D':
 $largestDenominator: 8;
@@ -48,7 +52,7 @@ $padSizeNames:  0   1   2   3   4   5   6   7   8   9   10    5px;
 $padSizes:      0   10  20  30  40  50  60  70  80  90  100   5;
 
 // Index of the padding size used as default for all 'col':
-$padColDefaultSize: 3; // NB: Start at 1, no such thing as 0
+$padColDefaultSize: 2; // NB: Start at 1, no such thing as 0
 
 // Border sizes used by index. E.g. 'a-border-0' or 'a-border-3':
 $borderSizes: 0 1 2 3 4 5;
@@ -62,29 +66,25 @@ $fixedSizes: 100 200 300 400;
 // Business
 //==================================================
 
-@import "land/_functions.scss";
+@import "land/functions";
 
 $infoWrapper: '*';
 
 .LaND-info {
   content: $infoWrapper + implode($layouts,',')
-        + '|' + implode($subLayouts,',')
-        + '|' + implode($max,',')
         + '|' + implode($min,',')
         + '|' + implode($containerMax,',')
         + $infoWrapper;
 }
 
-@import "land/_layouts.scss";
+@import "land/layouts";
 
 /* General
 ================================================== */
 
 $layoutCount: length($layouts);
 
-* {
-  @include borderBoxSizing();
-}
+* { @include borderBoxSizing(); }
 
 img {
   border: 0;
@@ -149,7 +149,7 @@ ul.plain {
 
 .LaND-container {
   overflow: hidden;
-  width: $defaultContainerMax;
+  width: 100%;
   clear: both;
 }
 .LaND-container.center {
@@ -166,17 +166,17 @@ ul.plain {
 }
 
 /* Col sizes for any layout - to override with more specific layouts */
-@include colSizes($la: "a");
-@include targetedProperties($la: "a");
+@include colSizes($la: "s");
+@include targetedProperties($la: "s");
 
-.a-block { display: block; }
-.a-inline { display: inline; }
+.s-block { display: block; }
+.s-inline { display: inline; }
 
 @media screen {
   land-s {cue:none}
 
-  .not-s,
-  .p {
+  .not-screen,
+  .print {
     display: none !important;
   }
 }
@@ -184,13 +184,8 @@ ul.plain {
 @media print {
   land-p {cue:none}
 
-  .not-p,
-  .s {
+  .not-print,
+  .screen {
     display: none !important;
   }
-}
-
-@if $responsive {
-  body { overflow-x: hidden; }
-  @include layouts();
 }

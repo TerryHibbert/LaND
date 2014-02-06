@@ -1,38 +1,81 @@
-@mixin layouts() {
+@mixin layouts($mediaQueries, $lastLayout) {
   /* BUILD LAYOUTS */
-  @for $i from 1 through $layoutCount {
+  $lastDone: false;
+
+  $lastItem: $layoutCount;
+  @if ($lastLayout != '') {
+    $lastItem: index($layouts, $lastLayout);
+  }
+
+  @for $i from 1 through $lastItem {
 
     $la: nth($layouts, $i);
-    $subLa: nth($subLayouts, $i);
 
-    $nots: '';
+    $isLast: $lastLayout == $la;
+
+//    $nots: '';
+//    @for $j from 1 through $layoutCount {
+//      $nla: nth($subLayouts, $j);
+//      @if $nla != $la and $nla != $subLa {
+//        $nots: $nots + '.#{nth($subLayouts, $j)},';
+//        $nots: $nots + '.#{nth($subLayouts, $j)}-block,';
+//        $nots: $nots + '.#{nth($subLayouts, $j)}-inline';
+//        @if $j < $layoutCount {
+//          $nots: $nots + ',';
+//        }
+//      }
+//    }
+
+    $invisibles: ();
     @for $j from 1 through $layoutCount {
-      $nla: nth($subLayouts, $j);
-      @if $nla != $la and $nla != $subLa {
-        $nots: $nots + '.#{nth($subLayouts, $j)},';
-        $nots: $nots + '.#{nth($subLayouts, $j)}-block,';
-        $nots: $nots + '.#{nth($subLayouts, $j)}-inline';
-        @if $j < $layoutCount {
-          $nots: $nots + ',';
-        }
+      @if $j < $i {
+        $layout: nth($layouts, $j);
+        $selector: '.' + $layout;
+        $invisibles: append($invisibles, $selector);
+      } @else if $j > $i {
+        $layout: nth($layouts, $j);
+        $selector: '.' + $layout;
+        $invisibles: append($invisibles, $selector);
       }
     }
 
-    @media (min-width: #{nth($min,$i)}) and (max-width: #{nth($max,$i)}) {
-      land-#{$subLa} {cue:none}
+    $invisibleSelectors: implode($invisibles, ', ');
+    /* $invisibleSelectors #{$invisibleSelectors} */
 
-      .#{$la}, .#{$subLa} { display: block; }
-      .#{$la}-block, .#{$subLa}-block { display: block; }
-      .#{$la}-inline, .#{$subLa}-inline { display: block; }
+    @if ($mediaQueries) {
+      @media (min-width: #{nth($min, $i)}) {
+        land-#{$la} {cue:none}
 
-      #{$nots}, .not-#{$la}, .not-#{$subLa} { display: none; }
+        #{$invisibleSelectors} { display: none;}
 
-      .LaND-container {
-        width: #{nth($containerMax,$i)};
+        .#{$la}, .#{$la} { display: block; }
+        .#{$la}-block, .#{$la}-block { display: block; }
+        .#{$la}-inline, .#{$la}-inline { display: block; }
+
+        .LaND-container {
+          width: #{nth($containerMax, $i)};
+        }
+
+        @include colSizes($la: $la);
+        @include targetedProperties($la: $la);
       }
 
-      @include colSizes($la: $subLa);
-      @include targetedProperties($la: $subLa);
+    } @else {
+
+      land-#{$la} {cue:none}
+
+      #{$invisibleSelectors} { display: none;}
+
+      .#{$la}, .#{$la} { display: block; }
+      .#{$la}-block, .#{$la}-block { display: block; }
+      .#{$la}-inline, .#{$la}-inline { display: block; }
+
+      .LaND-container {
+        width: #{nth($containerMax, $i)};
+      }
+
+      @include colSizes($la: $la);
+      @include targetedProperties($la: $la);
     }
   }
 }
@@ -211,6 +254,7 @@
 ================================================== */
 
   @if $padColDefaultSize > 0 {
+    /* $padColDefaultSize: #{$padColDefaultSize} */
     .col {
       padding: #{nth($padSizes, $padColDefaultSize)}px;
     }
