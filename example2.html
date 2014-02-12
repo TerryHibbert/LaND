@@ -14,44 +14,45 @@
 
     <link rel="stylesheet" type="text/css" media="all" href="css/normalize.css">
 
-    <link rel="stylesheet" type="text/css" media="all" href="css/land.css">
+    <link rel="stylesheet" type="text/css" media="all" href="css/land-mobile.css">
     <!--[if lte IE 8]>
         <link rel="stylesheet" type="text/css" media="all" href="css/land-desktop.css">
     <![endif]-->
-    <!--[if IE 9]><!-->
+    <!--[if IE 9]>
         <link rel="stylesheet" type="text/css" media="screen" href="css/land-respond.css">
     <![endif]-->
+    <!--[if !IE | gte IE 10]><!-->
+        <script>
+            var loadResponsiveAt = 481;
+            console.log("gt ie9 width: " + window.innerWidth + "px");
+            if (window.matchMedia) {
+                var mm = window.matchMedia('screen and (min-width: ' + loadResponsiveAt + 'px)');
 
-    <!--[if gte IE 10 | !IE ]><!-->
-    <script>
-        console.log("gt ie9 width: " + window.innerWidth);
-        if (window.matchMedia) {
-            var mm = window.matchMedia('screen and (min-width: 321px)');
+                function loadResponsiveCSS() {
+                    console.log("Loading LaND responsive");
+                    var ref = document.createElement("link");
+                    ref.setAttribute("rel", "stylesheet");
+                    ref.setAttribute("type", "text/css");
+                    ref.setAttribute("href", "css/land-respond.css");
+                    document.getElementsByTagName("head")[0].appendChild(ref);
+                }
 
-            function loadResponsiveCSS() {
-                var ref = document.createElement("link");
-                ref.setAttribute("rel", "stylesheet");
-                ref.setAttribute("type", "text/css");
-                ref.setAttribute("href", "css/land-respond.css");
-                document.getElementsByTagName("head")[0].appendChild(ref);
+                if (mm.matches) {
+                    console.log("...and min width " + loadResponsiveAt);
+                    document.write('<link rel="stylesheet" type="text/css" media="screen" href="css/land-respond.css">');
+                } else {
+                    console.log("...and NOT min width " + loadResponsiveAt);
+                    function handleMMChange() {
+                        console.log("resized and matched min width " + loadResponsiveAt);
+                        mm.removeListener(handleMMChange);
+                        loadResponsiveCSS();
+                    };
+
+                    mm.addListener(handleMMChange);
+                }
             }
-
-            if (mm.matches) {
-                console.log("...and min width 321px");
-                document.write('<link rel="stylesheet" type="text/css" media="screen" href="css/land-respond.css">');
-            } else {
-                console.log("...and NOT min width 321px");
-                function handleMMChange() {
-                    console.log("resized and matched min width 321px");
-                    mm.removeListener(handleMMChange);
-                    loadResponsiveCSS();
-                };
-
-                mm.addListener(handleMMChange);
-            }
-        }
-    </script>
-    <![endif]-->
+        </script>
+    <!--<![endif]-->
 
 
     <link rel="stylesheet" type="text/css" media="all" href="css/site.css">
@@ -105,9 +106,9 @@
 <body class="debug">
     <div class="LaND-container animate center debuggable">
 
-        <div class="col">Layout: s mp ml t d b</div>
+        <div class="col">Layout: s m ml t d b</div>
         <div class="col s">s</div>
-        <div class="col mp">mp</div>
+        <div class="col m">m</div>
         <div class="col ml">ml</div>
         <div class="col t">t</div>
         <div class="col d">d</div>
@@ -116,33 +117,33 @@
 
         <div class="col">
             <div class="col s-pad-0 s-1-2">1-2</div><div class="col s-pad-0 s-1-2">1-2</div>
-            <div class="col s-pad-0 mp-3-7">3-7</div><div class="col s-pad-0 mp-4-7">4-7</div>
-            <div class="col s-pad-0 mp-2-5">2-5</div><div class="col s-pad-0 mp-3-5">3-5</div>
-            <div class="col s-pad-0 mp-3-8">3-8</div><div class="col s-pad-0 mp-5-8">5-8</div>
-            <div class="col s-pad-0 mp-1-3">1-3</div><div class="col s-pad-0 mp-2-3">2-3</div>
-            <div class="col s-pad-0 mp-1-4">1-4</div><div class="col s-pad-0 mp-3-4">3-4</div>
-            <div class="col s-pad-0 mp-1-5">1-5</div><div class="col s-pad-0 mp-4-5">4-5</div>
-            <div class="col s-pad-0 mp-1-6">1-6</div><div class="col s-pad-0 mp-5-6">5-6</div>
-            <div class="col s-pad-0 mp-1-7">1-7</div><div class="col s-pad-0 mp-6-7">6-7</div>
-            <div class="col s-pad-0 mp-1-8">1-8</div><div class="col s-pad-0 mp-7-8">7-8</div>
+            <div class="col s-pad-0 t-3-7">3-7</div><div class="col s-pad-0 t-4-7">4-7</div>
+            <div class="col s-pad-0 ml-2-5">2-5</div><div class="col s-pad-0 ml-3-5">3-5</div>
+            <div class="col s-pad-0 t-3-8">3-8</div><div class="col s-pad-0 t-5-8">5-8</div>
+            <div class="col s-pad-0 m-1-3">1-3</div><div class="col s-pad-0 m-2-3">2-3</div>
+            <div class="col s-pad-0 m-1-4">1-4</div><div class="col s-pad-0 m-3-4">3-4</div>
+            <div class="col s-pad-0 ml-1-5">1-5</div><div class="col s-pad-0 ml-4-5">4-5</div>
+            <div class="col s-pad-0 ml-1-6">1-6</div><div class="col s-pad-0 ml-5-6">5-6</div>
+            <div class="col s-pad-0 t-1-7">1-7</div><div class="col s-pad-0 t-6-7">6-7</div>
+            <div class="col s-pad-0 t-1-8">1-8</div><div class="col s-pad-0 t-7-8">7-8</div>
         </div>
 
         <div class="col d-position-fixed right d-auto">fixed right auto</div>
 
-        <div class="col mp-pad-1 mp-border-bottom-5">
-            <div class="col d-1-4 m-1-3 d-pad-1">1</div>
-            <div class="col d-1-4 m-1-3 d-pad-1">
+        <div class="col m-pad-1 m-border-bottom-5">
+            <div class="col d-1-4 m-1-2 ml-1-3 d-pad-1">1</div>
+            <div class="col d-1-4 m-1-2 ml-1-3 d-pad-1">
                 <div class="col d-border-1">bordered</div>
             </div>
-            <div class="col d-1-4 m-1-3 d-pad-1">3</div>
-            <div class="col d-1-4 m-1-3 d-pad-1 m-clear">4</div>
+            <div class="col d-1-4 m-1-2 ml-1-3 d-pad-1">3</div>
+            <div class="col d-1-4 m-1-2 ml-1-3 d-pad-1">4</div>
 
-            <div class="col d-1-4 m-1-3 d-pad-1 b-clear">
+            <div class="col d-1-4 m-1-2 ml-1-3 d-pad-1">
                 <div class="col d-border-1">bordered</div>
             </div>
-            <div class="col d-1-4 m-1-3 d-pad-1">1</div>
-            <div class="col d-1-4 m-1-3 d-pad-1 m-clear">3</div>
-            <div class="col d-1-4 m-1-3 d-pad-1">4</div>
+            <div class="col d-1-4 m-1-2 ml-1-3 d-pad-1">1</div>
+            <div class="col d-1-4 m-1-2 ml-1-3 d-pad-1">3</div>
+            <div class="col d-1-4 m-1-2 ml-1-3 d-pad-1">4</div>
         </div>
         <div class="col d-pad-0">
             <div class="col d-pad-0 d-margin-2">No padding on parent and margin on child = Too wide</div>
@@ -154,9 +155,9 @@
         <div class="col d-1-2 m-1-1 d-clear d-margin-auto">Centered but full on mobile</div>
         <div class="col d-1-2">left</div>
 
-        <div class="col d-1-3 d-clear d-float-right mp-float-left">1</div>
-        <div class="col d-1-3 d-float-right m-float-left mp-float-left">2</div>
-        <div class="col d-1-3 d-float-right mp-float-left">3</div>
+        <div class="col d-1-3 d-clear d-float-right m-float-left">1</div>
+        <div class="col d-1-3 d-float-right m-float-left m-float-left">2</div>
+        <div class="col d-1-3 d-float-right m-float-left">3</div>
 
         <div class="col">
             <div class="col d-pad-t-0"><div class="col">a-pad-t-0</div></div>
@@ -187,10 +188,6 @@
         <div class="col d-pad-3 d-pad-v-2">
             <div class="col">content</div>
         </div>
-    </div>
-
-    <div class="col d-pad-0">
-        <div class="col d-1-1 d-pad-1"><img src="http://lorempixel.com/953/625/nature/1/1"/></div>
     </div>
 
 </body>

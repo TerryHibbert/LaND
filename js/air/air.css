@@ -1,0 +1,20 @@
+a.air,
+span.air {
+  background-color: lightgrey;
+  transition: opacity 0.5s;
+  -webkit-transition: opacity 0.5s;
+  opacity: 1; }
+  a.air img,
+  span.air img {
+    transition: opacity 0.5s;
+    -webkit-transition: opacity 0.5s;
+    opacity: 1; }
+  a.air.updating.grayscale img,
+  span.air.updating.grayscale img {
+    -webkit-filter: grayscale(85%); }
+  a.air.updating.blur img,
+  span.air.updating.blur img {
+    -webkit-filter: blur(5px); }
+  a.air.lazy img,
+  span.air.lazy img {
+    opacity: 0; }

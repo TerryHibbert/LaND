@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6 lt-ie9 lt-ie8 lt-ie7" lang="en" xmlns:ng="http://angularjs.org"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7 lt-ie9 lt-ie8" lang="en" xmlns:ng="http://angularjs.org"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8 lt-ie9" lang="en" xmlns:ng="http://angularjs.org"> <![endif]-->
+<!--[if IE 9 ]><html class="ie ie9 lt-ie10" lang="en" xmlns:ng="http://angularjs.org"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>LaND</title>
+    <meta name="description" content="A website" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="fragment" content="!" />
+
+    <link rel="stylesheet" type="text/css" media="all" href="css/normalize.css">
+
+    <link rel="stylesheet" type="text/css" media="all" href="css/land-mobile.css">
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" type="text/css" media="all" href="css/land-desktop.css">
+    <![endif]-->
+    <!--[if IE 9]>
+    <link rel="stylesheet" type="text/css" media="screen" href="css/land-respond.css">
+    <![endif]-->
+    <!--[if !IE | gte IE 10]><!-->
+    <script>
+        var loadResponsiveAt = 481;
+        console.log("gt ie9 width: " + window.innerWidth + "px");
+        if (window.matchMedia) {
+            var mm = window.matchMedia('screen and (min-width: ' + loadResponsiveAt + 'px)');
+
+            function loadResponsiveCSS() {
+                console.log("Loading LaND responsive");
+                var ref = document.createElement("link");
+                ref.setAttribute("rel", "stylesheet");
+                ref.setAttribute("type", "text/css");
+                ref.setAttribute("href", "css/land-respond.css");
+                document.getElementsByTagName("head")[0].appendChild(ref);
+            }
+
+            if (mm.matches) {
+                console.log("...and min width " + loadResponsiveAt);
+                document.write('<link rel="stylesheet" type="text/css" media="screen" href="css/land-respond.css">');
+            } else {
+                console.log("...and NOT min width " + loadResponsiveAt);
+                function handleMMChange() {
+                    console.log("resized and matched min width " + loadResponsiveAt);
+                    mm.removeListener(handleMMChange);
+                    loadResponsiveCSS();
+                };
+
+                mm.addListener(handleMMChange);
+            }
+        }
+    </script>
+    <!--<![endif]-->
+
+
+    <link rel="stylesheet" type="text/css" media="all" href="css/site.css">
+
+    <!--[if lt IE 10]>
+    <script type="text/javascript" src="js/lib/matchmedia/matchmedia.js"></script>
+    <script type="text/javascript" src="js/lib/matchmedia/matchmedia.addlistener.js"></script>
+    <![endif]-->
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
+    <script type="text/javascript" src="js/land/land.js"></script>
+    <script type="text/javascript">
+        /*
+         var land = new LaND({
+         'applyToHTML': true
+         });
+
+         land.addListener('change', function() {
+         console.log('LaND change...');
+         $output = $('.output');
+
+         var activeLayouts = [];
+         $.each(land.layouts, function(i, layout) {
+         if (layout) activeLayouts.push(i);
+         });
+
+         $output.html(activeLayouts.join(', '));
+         console.log(land.layouts);
+         console.log($output);
+         })
+
+         land.init();
+         */
+    </script>
+
+    <script type="text/javascript">var console = typeof console !== 'undefined' ? console : {log:function(){}};</script>
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script type="text/javascript" src="js/css3-mediaqueries.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <script src="js/lib/json2.js"></script>
+    <![endif]-->
+    <!--[if lt IE 7]>
+    <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE7.js"></script>
+    <![endif]-->
+
+</head>
+<body class="">
+    <div class="LaND-container center">
+        <h1 class="col s-text-center">
+            Adaptive Image Requests<br/>
+            Layout:
+            <span class="s">s</span>
+            <span class="m">m</span>
+            <span class="ml">ml</span>
+            <span class="t">t</span>
+            <span class="d">d</span>
+            <span class="dl">dl</span>
+        </h1>
+        <div class="col">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi harum numquam sunt? A ab accusamus alias beatae blanditiis consequuntur delectus dolor, doloribus ea, eius error excepturi expedita libero magnam minima nostrum officia perferendis praesentium quia quis quos ratione rem repudiandae sequi tenetur veniam vero voluptatum. Fugit impedit in sit sunt!</div>
+
+        <div class="col ml-1-3 s-pad-0 s-text-center">
+            <a id="img0" class="col s-pad-0 air lazy grayscale" data-class="s-fill" href="http://lorempixel.com/1150/1150/abstract/1/900"
+               data-srcs='{
+                    "200": "http://lorempixel.com/200/200/abstract/1/200",
+                    "320": "http://lorempixel.com/320/320/abstract/1/320",
+                    "400": "http://lorempixel.com/400/400/abstract/1/400",
+                    "500": "http://lorempixel.com/500/500/abstract/1/500",
+                    "600": "http://lorempixel.com/600/600/abstract/1/600",
+                    "700": "http://lorempixel.com/700/700/abstract/1/700",
+                    "940": "http://lorempixel.com/940/940/abstract/1/940"
+                }'>
+                <script>document.write('<img class="s-fill" src="images/1x1.gif" />');</script>
+                <noscript><img class="s-fill" src="http://lorempixel.com/200/200/abstract/1/320" /></noscript>
+            </a>
+        </div>
+        <div class="col ml-2-3 s-pad-0 s-text-center">
+            <span id="img1" class="col s-pad-0 air lazy grayscale" data-class="s-fill" href="http://lorempixel.com/900/450/food/1/1150"
+               data-srcs='{
+                    "200": "http://lorempixel.com/200/100/food/1/200",
+                    "320": "http://lorempixel.com/320/160/food/1/320",
+                    "400": "http://lorempixel.com/400/200/food/1/400",
+                    "500": "http://lorempixel.com/500/250/food/1/500",
+                    "600": "http://lorempixel.com/600/300/food/1/600",
+                    "700": "http://lorempixel.com/700/350/food/1/700",
+                    "940": "http://lorempixel.com/940/470/food/1/940"
+                }'>
+                <script>document.write('<img class="s-fill" src="images/2x1.gif" />');</script>
+                <noscript><img class="s-fill" src="http://lorempixel.com/200/100/food/1/320" /></noscript>
+            </span>
+        </div>
+        <div class="col">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam facere harum id ipsam nihil praesentium quos repellendus soluta suscipit ullam. Accusantium amet aut beatae blanditiis deserunt dolorem ducimus eligendi error esse facere illum, impedit, magnam magni maiores minima modi nesciunt nihil non numquam odio officia perspiciatis quas quasi qui quia repellat sed sit sunt suscipit tenetur vel veniam vero voluptatem! Ab accusamus ad amet asperiores aspernatur assumenda at culpa deleniti enim esse excepturi expedita explicabo itaque iure labore laborum magnam maiores maxime, modi mollitia non numquam odio porro praesentium quas quisquam recusandae repellendus saepe sequi, suscipit tempore ullam ut voluptatibus? Aut consectetur cumque dicta distinctio dolorum, ducimus eum expedita harum inventore iste, laborum maxime nam neque optio perferendis perspiciatis quo reiciendis sint, tempora voluptatum. Asperiores dolore et id maiores minus odio pariatur quae quos, reprehenderit tempore voluptate, voluptatum. Animi aperiam, aspernatur at deserunt ducimus eius esse expedita in iste magnam maxime mollitia placeat quas ratione veniam? Animi asperiores aspernatur cumque cupiditate et facere impedit, incidunt, laudantium libero magnam natus, nesciunt quas repellat sequi totam. Aliquid aperiam cum debitis est explicabo ipsam libero perferendis quisquam sint voluptates? Adipisci animi assumenda atque aut autem consequuntur culpa cupiditate deserunt distinctio dolore, doloribus ea eligendi excepturi illo in inventore magnam modi nesciunt numquam obcaecati odit officiis pariatur perferendis possimus provident quas quis quo saepe sequi suscipit tempora temporibus ut voluptatem? Alias aliquid aperiam aut consectetur, ducimus eaque earum eligendi, esse eum exercitationem explicabo hic inventore iste itaque labore modi mollitia natus neque nobis officiis porro quaerat quam quibusdam quisquam quo ratione repellendus reprehenderit rerum saepe soluta suscipit tempora ut vitae voluptas voluptate voluptates voluptatum. Aliquam aut cupiditate dolorum facere libero magnam mollitia, nisi praesentium rem! Atque corporis dignissimos doloremque exercitationem id, ipsam rerum. Consectetur deleniti est fugit itaque placeat quaerat quos sapiente totam ut.</div>
+        <div class="col s-text-center s-pad-0">
+            <a id="img2" class="col s-pad-0 air lazy grayscale" data-class="s-fill" href="http://lorempixel.com/1150/575/fashion/1/1150"
+               data-srcs='{
+                    "200": "http://lorempixel.com/200/100/fashion/1/200",
+                    "320": "http://lorempixel.com/320/160/fashion/1/320",
+                    "400": "http://lorempixel.com/400/200/fashion/1/400",
+                    "500": "http://lorempixel.com/500/250/fashion/1/500",
+                    "600": "http://lorempixel.com/600/300/fashion/1/600",
+                    "700": "http://lorempixel.com/700/350/fashion/1/700",
+                    "940": "http://lorempixel.com/940/470/fashion/1/940"
+                }'>
+                <script>document.write('<img class="s-fill" src="images/2x1.gif" />');</script>
+                <noscript><img class="s-fill" src="http://lorempixel.com/200/100/fashion/1/320" /></noscript>
+            </a>
+        </div>
+        <div class="col s-text-center s-pad-0">
+            <a id="img3" class="col s-pad-0 air lazy grayscale" data-class="s-fill" href="http://lorempixel.com/1150/575/fashion/2/1150"
+               data-srcs='{
+                    "200": "http://lorempixel.com/200/100/fashion/2/200",
+                    "320": "http://lorempixel.com/320/160/fashion/2/320",
+                    "400": "http://lorempixel.com/400/200/fashion/2/400",
+                    "500": "http://lorempixel.com/500/250/fashion/2/500",
+                    "600": "http://lorempixel.com/600/300/fashion/2/600",
+                    "700": "http://lorempixel.com/700/350/fashion/2/700",
+                    "940": "http://lorempixel.com/940/470/fashion/2/940"
+                }'>
+                <script>document.write('<img class="s-fill" src="images/2x1.gif" />');</script>
+                <noscript><img class="s-fill" src="http://lorempixel.com/200/100/fashion/2/320" /></noscript>
+            </a>
+        </div>
+        <div class="col">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam facere harum id ipsam nihil praesentium quos repellendus soluta suscipit ullam. Accusantium amet aut beatae blanditiis deserunt dolorem ducimus eligendi error esse facere illum, impedit, magnam magni maiores minima modi nesciunt nihil non numquam odio officia perspiciatis quas quasi qui quia repellat sed sit sunt suscipit tenetur vel veniam vero voluptatem! Ab accusamus ad amet asperiores aspernatur assumenda at culpa deleniti enim esse excepturi expedita explicabo itaque iure labore laborum magnam maiores maxime, modi mollitia non numquam odio porro praesentium quas quisquam recusandae repellendus saepe sequi, suscipit tempore ullam ut voluptatibus? Aut consectetur cumque dicta distinctio dolorum, ducimus eum expedita harum inventore iste, laborum maxime nam neque optio perferendis perspiciatis quo reiciendis sint, tempora voluptatum. Asperiores dolore et id maiores minus odio pariatur quae quos, reprehenderit tempore voluptate, voluptatum. Animi aperiam, aspernatur at deserunt ducimus eius esse expedita in iste magnam maxime mollitia placeat quas ratione veniam? Animi asperiores aspernatur cumque cupiditate et facere impedit, incidunt, laudantium libero magnam natus, nesciunt quas repellat sequi totam. Aliquid aperiam cum debitis est explicabo ipsam libero perferendis quisquam sint voluptates? Adipisci animi assumenda atque aut autem consequuntur culpa cupiditate deserunt distinctio dolore, doloribus ea eligendi excepturi illo in inventore magnam modi nesciunt numquam obcaecati odit officiis pariatur perferendis possimus provident quas quis quo saepe sequi suscipit tempora temporibus ut voluptatem? Alias aliquid aperiam aut consectetur, ducimus eaque earum eligendi, esse eum exercitationem explicabo hic inventore iste itaque labore modi mollitia natus neque nobis officiis porro quaerat quam quibusdam quisquam quo ratione repellendus reprehenderit rerum saepe soluta suscipit tempora ut vitae voluptas voluptate voluptates voluptatum. Aliquam aut cupiditate dolorum facere libero magnam mollitia, nisi praesentium rem! Atque corporis dignissimos doloremque exercitationem id, ipsam rerum. Consectetur deleniti est fugit itaque placeat quaerat quos sapiente totam ut.</div>
+        <div class="col s-text-center s-pad-0">
+            <a id="img4" class="col s-pad-0 air lazy grayscale" data-class="s-fill" href="http://lorempixel.com/1150/575/fashion/3/1150"
+               data-srcs='{
+                    "200": "http://lorempixel.com/200/100/fashion/3/200",
+                    "200": "http://lorempixel.com/200/100/fashion/3/200",
+                    "320": "http://lorempixel.com/320/160/fashion/3/320",
+                    "400": "http://lorempixel.com/400/200/fashion/3/400",
+                    "500": "http://lorempixel.com/500/250/fashion/3/500",
+                    "600": "http://lorempixel.com/600/300/fashion/3/600",
+                    "700": "http://lorempixel.com/700/350/fashion/3/700",
+                    "940": "http://lorempixel.com/940/470/fashion/3/940"
+                }'>
+                <script>document.write('<img class="s-fill" src="images/2x1.gif" />');</script>
+                <noscript><img class="s-fill" src="http://lorempixel.com/200/100/fashion/3/320" /></noscript>
+            </a>
+        </div>
+        <div class="col">
+            Add a dynamic AIR:
+        </div>
+        <div id="airContainer"></div>
+    </div>
+
+    <link rel="stylesheet" href="js/air/air.css"/>
+    <script type="text/javascript" src="js/air/air.js"></script>
+</body>
+</html>

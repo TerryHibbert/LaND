@@ -1,4 +1,6 @@
 @import "land.scss";
 @import "land/_functions.scss";
 
-@include layouts(false, $fixedLayout);
+$fixedLayoutIndex: index($layouts, $fixedLayout);
+
+@include layouts(false, 1, $fixedLayoutIndex);

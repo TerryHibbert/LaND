@@ -35,10 +35,16 @@ $dcm: $defaultContainerMax; // Just an alias
 // Layout definitions
 //                |         |         |         |         |         |
 //                small     mobile    mobile    tablet    desktop   desktop
-//                          portrait  landscape                     large
-$layouts:         s         mp        ml        t         d         dl;
+//                portrait  landscape                     large
+$layouts:         s         m         ml        t         d         dl;
 $min:             0px       320px     480px     961px     1025px    1200px;
 $containerMax:    100%      100%      100%      $dcm      $dcm      1150px;
+$denominatorMax:  3         4         6         8         8         8;
+
+$layoutSelectors: ();
+@each $layout in $layouts {
+  $layoutSelectors: append($layoutSelectors, '.#{$layout}');
+}
 
 // The layout used for ie 8 and below
 // Used when media queries are not supported
@@ -63,129 +69,12 @@ $transitionDuration: '0.5s';
 // Fixed width sizes:
 $fixedSizes: 100 200 300 400;
 
+$layoutCount: length($layouts);
+
 // Business
 //==================================================
 
 @import "land/functions";
 
-$infoWrapper: '*';
-
-.LaND-info {
-  content: $infoWrapper + implode($layouts,',')
-        + '|' + implode($min,',')
-        + '|' + implode($containerMax,',')
-        + $infoWrapper;
-}
-
 @import "land/layouts";
 
-/* General
-================================================== */
-
-$layoutCount: length($layouts);
-
-* { @include borderBoxSizing(); }
-
-img {
-  border: 0;
-}
-
-ul.plain {
-  list-style: none;
-}
-
-.debug-only { display: none; }
-.debug .debug-only { display: block; }
-
-[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-  display: none;
-}
-
-/* Columns
-================================================== */
-
-.col {
-  float: left;
-  margin: 0;
-  overflow: hidden;
-  padding: 0;
-  position: relative;
-  width: 100%;
-  border: 0 solid #999;
-  min-height: 1px;
-
-  .right { float: right; }
-  .overflow-visible { overflow: visible; }
-
-  @include animate($transitionDuration, 'padding, border');
-}
-
-.col.collapsible {
-  min-height: 0;
-}
-
-/* Column debug */
-.debug {
-  .debuggable {
-    .col {
-      background: -moz-linear-gradient(-45deg, rgba(255,127,127,0.5) 0%, rgba(131,255,127,0.5) 100%);
-      background: -webkit-linear-gradient(-45deg, rgba(255,127,127,0.5) 0%, rgba(131,255,127,0.5) 100%);
-      background: -ms-linear-gradient(-45deg, rgba(255,127,127,0.5) 0%, rgba(131,255,127,0.5) 100%); /* IE10+ */
-      background: linear-gradient(135deg, rgba(255,127,127,0.5) 0%, rgba(131,255,127,0.5) 100%);
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FF7F7F', endColorstr='#83FF7F', GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-    }
-
-    .col.one,
-    .col.full,
-    .col.fullWidth {
-      background-color: #FF00FF;
-    }
-  }
-}
-
-
-/* #Default Layout
-================================================== */
-
-.LaND-container {
-  overflow: hidden;
-  width: 100%;
-  clear: both;
-}
-.LaND-container.center {
-  margin: 0 auto;
-}
-
-.LaND-container.animate {
-  @include animate($transitionDuration, 'all');
-}
-
-/* Less than ie9 is fixed. Upgrade your browser please... */
-.lt-ie8 .LaND-container {
-  width: $defaultContainerMax !important;
-}
-
-/* Col sizes for any layout - to override with more specific layouts */
-@include colSizes($la: "s");
-@include targetedProperties($la: "s");
-
-.s-block { display: block; }
-.s-inline { display: inline; }
-
-@media screen {
-  land-s {cue:none}
-
-  .not-screen,
-  .print {
-    display: none !important;
-  }
-}
-
-@media print {
-  land-p {cue:none}
-
-  .not-print,
-  .screen {
-    display: none !important;
-  }
-}

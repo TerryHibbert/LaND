@@ -1,30 +1,16 @@
-@mixin layouts($mediaQueries, $lastLayout) {
+@mixin layouts($mediaQueries, $firstLayoutIndex, $lastLayoutIndex) {
   /* BUILD LAYOUTS */
   $lastDone: false;
 
-  $lastItem: $layoutCount;
-  @if ($lastLayout != '') {
-    $lastItem: index($layouts, $lastLayout);
-  }
+  $lastItem: $lastLayoutIndex;
 
-  @for $i from 1 through $lastItem {
+  @for $i from $firstLayoutIndex through $lastItem {
 
     $la: nth($layouts, $i);
 
-    $isLast: $lastLayout == $la;
+    $isLast: $i == $lastItem;
 
-//    $nots: '';
-//    @for $j from 1 through $layoutCount {
-//      $nla: nth($subLayouts, $j);
-//      @if $nla != $la and $nla != $subLa {
-//        $nots: $nots + '.#{nth($subLayouts, $j)},';
-//        $nots: $nots + '.#{nth($subLayouts, $j)}-block,';
-//        $nots: $nots + '.#{nth($subLayouts, $j)}-inline';
-//        @if $j < $layoutCount {
-//          $nots: $nots + ',';
-//        }
-//      }
-//    }
+    $denomMax: nth($denominatorMax, $i);
 
     $invisibles: ();
     @for $j from 1 through $layoutCount {
@@ -48,7 +34,7 @@
 
         #{$invisibleSelectors} { display: none;}
 
-        .#{$la}, .#{$la} { display: block; }
+        .#{$la}, .#{$la} { display: initial; }
         .#{$la}-block, .#{$la}-block { display: block; }
         .#{$la}-inline, .#{$la}-inline { display: block; }
 
@@ -56,7 +42,7 @@
           width: #{nth($containerMax, $i)};
         }
 
-        @include colSizes($la: $la);
+        @include colSizes($la, $denomMax);
         @include targetedProperties($la: $la);
       }
 
@@ -74,7 +60,7 @@
         width: #{nth($containerMax, $i)};
       }
 
-      @include colSizes($la: $la);
+      @include colSizes($la, $denomMax);
       @include targetedProperties($la: $la);
     }
   }
@@ -86,8 +72,8 @@
   }
 }
 
-@mixin colSizes($la) {
-  @for $i from 1 through $largestDenominator {
+@mixin colSizes($la, $denomMax) {
+  @for $i from 1 through $denomMax {
     @for $j from 1 through $i {
       @if $j <= $i {
         @include colSize(#{$la}, $j, $i);
@@ -319,9 +305,18 @@
 /* Image
 ================================================== */
   .col img.#{$la}-fill {
+    display: block;
+    height: auto;
     width: 100%;
   }
+  .col img.#{$la}-fit {
+    display: block;
+    height: auto;
+    max-width: 100%;
+  }
   .col img.#{$la}-auto {
+    display: inline;
+    height: auto;
     width: auto;
   }
 }

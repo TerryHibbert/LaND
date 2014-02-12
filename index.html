@@ -13,16 +13,80 @@
     <meta name="fragment" content="!" />
 
     <link rel="stylesheet" type="text/css" media="all" href="css/normalize.css">
-    <link rel="stylesheet" type="text/css" media="all" href="css/land.css">
-    <link rel="stylesheet" type="text/css" media="all" href="css/builder.css">
+
+    <link rel="stylesheet" type="text/css" media="all" href="css/land-mobile.css">
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" type="text/css" media="all" href="css/land-desktop.css">
+    <![endif]-->
+    <!--[if IE 9]>
+    <link rel="stylesheet" type="text/css" media="screen" href="css/land-respond.css">
+    <![endif]-->
+    <!--[if !IE | gte IE 10]><!-->
+    <script>
+        var loadResponsiveAt = 481;
+        console.log("gt ie9 width: " + window.innerWidth + "px");
+        if (window.matchMedia) {
+            var mm = window.matchMedia('screen and (min-width: ' + loadResponsiveAt + 'px)');
+
+            function loadResponsiveCSS() {
+                console.log("Loading LaND responsive");
+                var ref = document.createElement("link");
+                ref.setAttribute("rel", "stylesheet");
+                ref.setAttribute("type", "text/css");
+                ref.setAttribute("href", "css/land-respond.css");
+                document.getElementsByTagName("head")[0].appendChild(ref);
+            }
+
+            if (mm.matches) {
+                console.log("...and min width " + loadResponsiveAt);
+                document.write('<link rel="stylesheet" type="text/css" media="screen" href="css/land-respond.css">');
+            } else {
+                console.log("...and NOT min width " + loadResponsiveAt);
+                function handleMMChange() {
+                    console.log("resized and matched min width " + loadResponsiveAt);
+                    mm.removeListener(handleMMChange);
+                    loadResponsiveCSS();
+                };
+
+                mm.addListener(handleMMChange);
+            }
+        }
+    </script>
+    <!--<![endif]-->
+
+
     <link rel="stylesheet" type="text/css" media="all" href="css/site.css">
+
+    <!--[if lt IE 10]>
+    <script type="text/javascript" src="/js/lib/matchmedia/matchmedia.js"></script>
+    <script type="text/javascript" src="/js/lib/matchmedia/matchmedia.addlistener.js"></script>
+    <![endif]-->
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 
     <script type="text/javascript" src="/js/land/land.js"></script>
     <script type="text/javascript">
-        var land = new LaND({
-            'applyToHTML': true
-        });
-        land.init();
+        /*
+         var land = new LaND({
+         'applyToHTML': true
+         });
+
+         land.addListener('change', function() {
+         console.log('LaND change...');
+         $output = $('.output');
+
+         var activeLayouts = [];
+         $.each(land.layouts, function(i, layout) {
+         if (layout) activeLayouts.push(i);
+         });
+
+         $output.html(activeLayouts.join(', '));
+         console.log(land.layouts);
+         console.log($output);
+         })
+
+         land.init();
+         */
     </script>
 
     <script type="text/javascript">var console = typeof console !== 'undefined' ? console : {log:function(){}};</script>
@@ -31,16 +95,6 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <script type="text/javascript" src="js/css3-mediaqueries.js"></script>
     <![endif]-->
-    <!--[if lte IE 8]>
-    <script>
-        document.createElement('ng-include');
-        document.createElement('ng-pluralize');
-        document.createElement('ng-view');
-        document.createElement('ng:include');
-        document.createElement('ng:pluralize');
-        document.createElement('ng:view');
-    </script>
-    <![endif]-->
     <!--[if lt IE 8]>
     <script src="/js/lib/json2.js"></script>
     <![endif]-->
@@ -48,40 +102,39 @@
     <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE7.js"></script>
     <![endif]-->
 
-    <script type="text/javascript" src="/js/lib/jquery/jquery-1.10.2.min.js"></script>
-
 </head>
-<body id="ng-app" class="ng-app:landApp" ng-app="landApp" ng-controller="LandCtrl" ng-class="{true:'debug'}[$root.debug]">
+<body id="ng-app" class="ng-app:landApp" ng-app="landApp" ng-controller="LandCtrl">
     <article class="page LaND-container center animate">
         <div class="col a-pad-0 m-pad-left-1 m-pad-right-1">
             <h1>LaND</h1>
             <h2>A fraction based, responsive CSS layout framework.</h2>
         </div>
-        <nav class="col a-pad-left-0 m-pad-left-1">
+        <nav class="col s-pad-left-0 m-pad-left-1">
             <a href="#/intro">intro</a>
             <a href="#/docs">docs</a>
+            <a href="example3.html">AIR example</a>
             <a href="#/tests">tests</a>
-            <a href="#/builder">builder</a>
+            <!-- <a href="#/builder">builder</a> -->
         </nav>
-        <div ng-view class="col a-clear a-pad-0"></div>
+        <div ng-view class="col s-clear s-pad-0"></div>
     </article>
 
-    <footer class="LaND-container center a-text-center">
+    <footer class="LaND-container center s-text-center">
         Footer
     </footer>
 
-    <script type="text/javascript" src="/js/lib/angularjs.1.0.5/angular.min.js"></script>
-    <script type="text/javascript" src="/js/lib/angularjs.1.0.5/angular-cookies.min.js"></script>
-    <script type="text/javascript" src="/js/lib/angularjs.1.0.5/angular-resource.min.js"></script>
-    <script type="text/javascript" src="/js/lib/angularjs.1.0.5/angular-sanitize.min.js"></script>
-    <script type="text/javascript" src="/js/lib/angularjs.1.0.5/angular-loader.min.js"></script>
+    <script type="text/javascript" src="js/lib/angularjs.1.0.5/angular.min.js"></script>
+    <script type="text/javascript" src="js/lib/angularjs.1.0.5/angular-cookies.min.js"></script>
+    <script type="text/javascript" src="js/lib/angularjs.1.0.5/angular-resource.min.js"></script>
+    <script type="text/javascript" src="js/lib/angularjs.1.0.5/angular-sanitize.min.js"></script>
+    <script type="text/javascript" src="js/lib/angularjs.1.0.5/angular-loader.min.js"></script>
 
-    <script type="text/javascript" src="/js/lib/underscore/underscore-min.js"></script>
+    <script type="text/javascript" src="js/lib/underscore/underscore-min.js"></script>
 
-    <script type="text/javascript" src="/js/land/land-app.js"></script>
-    <script type="text/javascript" src="/js/land/land-directives.js"></script>
-    <script type="text/javascript" src="/js/land/land-filters.js"></script>
-    <script type="text/javascript" src="/js/land/land-services.js"></script>
-    <script type="text/javascript" src="/js/land/land-controllers.js"></script>
+    <script type="text/javascript" src="js/land/land-app.js"></script>
+    <script type="text/javascript" src="js/land/land-directives.js"></script>
+    <script type="text/javascript" src="js/land/land-filters.js"></script>
+    <script type="text/javascript" src="js/land/land-services.js"></script>
+    <script type="text/javascript" src="js/land/land-controllers.js"></script>
 </body>
 </html>
