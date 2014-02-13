@@ -81,10 +81,15 @@ m-border-bottom-3               : Border of 3px on mobile and wider
 
 ## INCLUDING LAND
 The two main files are:
+```
 'land-mobile.css'               : Core styles and 's', 'm' and 'ml' layouts (always loaded)
 'land-responsive.css'           : 't' and wider layouts (loaded when needed or if ie9)
+```
 
+For backwards compatibility:
+```
 'land-desktop.css'              : Fixed width 'd' layout for IE 8 and other old browsers with no MediaQuery support.
+```
 
 Conditional comments and javascript tests detect capabilities and decide what's to be loaded. See 'PHP usage' for the
 recommended inclusion method.
