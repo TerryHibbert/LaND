@@ -13,6 +13,7 @@
     <meta name="fragment" content="!" />
 
     <?php include 'land.php'; ?>
+    <?php include 'air.php'; ?>
 
     <link rel="stylesheet" type="text/css" media="all" href="/css/site.css">
 
@@ -24,13 +25,13 @@
         </h1>
 
         <div class="col s-text-center s-pad-0">
-            <img class="s-fill" src="images/test_images/balloon_1150x575.jpg" alt=""/>
+            <img class="s-fill" src="/images/test_images/balloon_1150x575.jpg" alt=""/>
         </div>
         <div class="col s-1-2 s-text-left"><a href="example1.php">previous</a></div>
         <div class="col s-1-2 s-text-right"><a href="example3.php">next</a></div>
     </div>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-    <?php include 'air.php'; ?>
+    <?php air_includes(); ?>
 </body>
 </html>

@@ -13,6 +13,7 @@
     <meta name="fragment" content="!" />
 
     <?php include 'land.php'; ?>
+    <?php include 'air.php'; ?>
 
     <link rel="stylesheet" type="text/css" media="all" href="/css/site.css">
 
@@ -54,5 +55,7 @@
     <script type="text/javascript" src="/js/land/land-filters.js"></script>
     <script type="text/javascript" src="/js/land/land-services.js"></script>
     <script type="text/javascript" src="/js/land/land-controllers.js"></script>
+
+    <?php air_includes(); ?>
 </body>
 </html>

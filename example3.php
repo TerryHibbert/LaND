@@ -13,6 +13,7 @@
     <meta name="fragment" content="!" />
 
     <?php include 'land.php'; ?>
+    <?php include 'air.php'; ?>
 
     <link rel="stylesheet" type="text/css" media="all" href="/css/site.css">
 
@@ -24,21 +25,23 @@
         </h1>
 
         <div class="col s-text-center s-pad-0">
-            <a id="img2" class="col s-pad-0 air lazy" data-class="s-fill" href="images/test_images/balloon_1150x575.jpg"
-               data-srcs='{
-                    "320": "images/test_images/balloon_320x160.jpg",
-                    "640": "images/test_images/balloon_640x320.jpg",
-                    "960": "images/test_images/balloon_960x480.jpg"
-                }'>
-                <script>document.write('<img class="s-fill" src="images/2x1.gif" />');</script>
-                <noscript><img class="s-fill" src="images/test_images/balloon_1150x575.jpg" /></noscript>
-            </a>
+            <?php air(
+                'col s-pad-0 lazy',
+                's-fill',
+                '/images/test_images/balloon_1150x575.jpg',
+                array(
+                    '320' => '/images/test_images/balloon_320x160.jpg',
+                    '640' => 'images/test_images/balloon_640x320.jpg',
+                    '960' => '/images/test_images/balloon_960x480.jpg'
+                ),
+                'images/2x1.gif'
+            ); ?>
         </div>
         <div class="col s-1-2 s-text-left"><a href="example2.php">previous</a></div>
         <div class="col s-1-2 s-text-right"><a href="example4.php">next</a></div>
     </div>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-    <?php include 'air.php'; ?>
+    <?php air_includes(); ?>
 </body>
 </html>

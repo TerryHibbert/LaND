@@ -13,6 +13,7 @@
     <meta name="fragment" content="!" />
 
     <?php include 'land.php'; ?>
+    <?php include 'air.php'; ?>
 
     <link rel="stylesheet" type="text/css" media="all" href="/css/site.css">
 </head>
@@ -210,6 +211,6 @@
     </div>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-    <?php include 'air.php'; ?>
+    <?php air_includes(); ?>
 </body>
 </html>

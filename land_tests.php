@@ -13,6 +13,7 @@
     <meta name="fragment" content="!" />
 
     <?php include 'land.php'; ?>
+    <?php include 'air.php'; ?>
 
     <link rel="stylesheet" type="text/css" media="all" href="/css/site.css">
 
@@ -105,6 +106,8 @@
             <div class="col">content</div>
         </div>
     </div>
+
+    <?php air_includes(); ?>
 
 </body>
 </html>
