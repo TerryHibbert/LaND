@@ -1,5 +1,10 @@
-# LaND
-A responsive, fraction based CSS layout framework.
+# LaND (and AIR beta)
+A responsive, fraction based CSS layout framework. Now Mobile First!
+
+##INTRODUCING AIR...
+Adaptive Image Requests - A JS solution to enable the browser to request the appropriate size image for it's container.
+Examples only, documentation to come:
+    /example4.html
 
 ## CONTAINER
 Wrap your page with an container of class 'LaND-container', optionally with 'center' and/or 'animate'.
@@ -8,20 +13,16 @@ Wrap your page with an container of class 'LaND-container', optionally with 'cen
 Usage add these classes to your block elements: 'col La-N-D' where:
 'La' is replaced by the shorthand of the targeted layout:
 ```
-a   :   any
-b   :   big
-d   :   desktop
-t   :   tablet
+s   :   small
 m   :   mobile
 ml  :   mobile landscape
-mp  :   mobile portrait
+t   :   tablet
+d   :   desktop
+dl  :   desktop large
 ```
-
-There's also limited visibility options for print vs screen
-```
-p   :   print only
-s   :   screen only
-```
+Following the mobile first paradigm, layouts cascade from smallest to large.
+i.e. small settings will affect all layouts unless overridden by wider layouts.
+The default 'La-N-D' setting for 'col' elements is 's-1-1' (full width).
 
 Then '-N-D' to represent the fraction: N/D where
 ```
@@ -29,39 +30,71 @@ Then '-N-D' to represent the fraction: N/D where
 'D'   is the denominator (bottom of the fraction)
 ```
 
-E.g. 'col a-1-2 mp-1-1' will be a half column that changes to full width on mobile portrait.
+E.g. 'col m-1-2 t-1-3' will be a full column that:
+    On mobile and wider will be half of of it's container wide...
+    until tablet, when it becomes one third of the container width.
+
+
+There's also limited visibility options for print vs screen
+```
+print   :   print only
+screen   :   screen only
+```
 
 ## PADDING / MARGINS
-Generally, only padding should be used as margins breaks horizontal box model. Margin is OK vertically though.
-By default, col has 20px padding. This can be modified with classes like so:
+Generally, only padding should be used as horizontal margins break the box model. Margin is OK vertically though.
+By default, col has 10px padding. This can be modified with classes like so:
 
 ```
-a-pad-0     : No padding for all layouts
-m-pad-h-1   : Horizontal padding of 10px for mobile layout
-t-pad-v-4   : Vertical padding of 40px for tablet layout
-a-pad-b-2   : Bottom padding of 20px for all layouts
+s-pad-0     : No padding for all layouts
+m-pad-h-1   : Horizontal padding of 10px for mobile and wider layouts
+t-pad-v-2   : Vertical padding of 40px for tablet and wider layout
+d-pad-b-4   : Bottom padding of 20px for desktop layouts
 ```
 
-Padding classes can be chained. The following has 40px padding on everything except 20px on mobile and 0px horizontal on mobile portrait.
+Padding classes can be chained. The following has:
+* no horizontal padding on on the small layout (and default vertical padding of 10px)
+* 20px of padding on mobile and wider layouts
+* 40px of horizontal padding on tablet and wider layouts.
 ```
-a-pad-4 m-pad-2 mp-pad-h-0
+...class="col s-pad-h-0 m-pad-2 t-pad-h-4"...
 ```
 
 ## OTHER STYLES:
 This framework and documentation are not complete. There are other features that use a similar format. Some quick examples:
 ```
-a-float-right m-float-left      : This will float right except for mobile which will float right.
-a-clear-left                    : Does what it says
-m-text-center                   : Center text on mobile
-mp-margin-auto                  : Margin auto on mobile portrait
-a-position-absolute             : Does what it says
-m-z99                           : z-index of 99 (depths: 9, 99, 999 ... 999999)
-m-border-bottom-3               : Border of 3px on mobile
+s-float-right d-float-left      : This will float right up to desktop which will float left.
+s-clear-left                    : Does what it says
+m-text-center                   : Center text on mobile (also right and left)
+ml-margin-auto                  : Margin auto on mobile landscape (center the block)
+s-position-absolute             : Does what it says
+m-z99                           : z-index of 99 (depths: 9, 99, 999 ... 999999) for mobile and wider
+m-border-bottom-3               : Border of 3px on mobile and wider
                                   (some shorthands are now available: m-border-b-3)
-<img> a-fill                    : Make an image width 100%
+<img class="s-fill"...          : Make an image width 100%
+<img class="s-fit"              : Make an image max width 100%
 ```
 
 ... There's more, have a dig around.
+
+##
+
+## INCLUDING LAND
+The two main files are:
+'land-mobile.css'               : Core styles and 's', 'm' and 'ml' layouts (always loaded)
+'land-responsive.css'           : 't' and wider layouts (loaded when needed or if ie9)
+
+'land-desktop.css'              : Fixed width 'd' layout for IE 8 and other old browsers with no MediaQuery support.
+
+Conditional comments and javascript tests detect capabilities and decide what's to be loaded. See 'PHP usage' for the
+recommended inclusion method.
+
+## PHP usage
+A php bootstrap file exists for easy LaND inclusion in <head>:
+```
+<php include 'land.php'; ?>
+```
+Edit land.php to point to the right place and used the right breakpoint.
 
 ## JAVASCRIPT:
 Don't use the JS library yet. It's a work in progress.

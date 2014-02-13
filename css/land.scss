@@ -39,6 +39,8 @@ $dcm: $defaultContainerMax; // Just an alias
 $layouts:         s         m         ml        t         d         dl;
 $min:             0px       320px     480px     961px     1025px    1200px;
 $containerMax:    100%      100%      100%      $dcm      $dcm      1150px;
+
+// Largest amounts of parts in size. The largest D in 'La-N-D':
 $denominatorMax:  3         4         6         8         8         8;
 
 $layoutSelectors: ();
@@ -49,9 +51,6 @@ $layoutSelectors: ();
 // The layout used for ie 8 and below
 // Used when media queries are not supported
 $fixedLayout: 'd';
-
-// Largest amounts of parts in size. The largest D in 'La-N-D':
-$largestDenominator: 8;
 
 // Padding sizes used by name. E.g. 'a-pad-0' or 'a-pad-3':
 $padSizeNames:  0   1   2   3   4   5   6   7   8   9   10    5px;

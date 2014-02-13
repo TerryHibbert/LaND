@@ -12,68 +12,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="fragment" content="!" />
 
-    <link rel="stylesheet" type="text/css" media="all" href="css/normalize.css">
+    <?php include 'land.php'; ?>
 
-    <link rel="stylesheet" type="text/css" media="all" href="css/land-mobile.css">
-    <!--[if lte IE 8]><link rel="stylesheet" type="text/css" media="all" href="css/land-desktop.css"><![endif]-->
-    <!--[if IE 9]><link rel="stylesheet" type="text/css" media="screen" href="css/land-respond.css"><![endif]-->
-    <!--[if !IE | gte IE 10]><!-->
-    <script>
-        var loadResponsiveAt = 481;
-        console.log("gt ie9 width: " + window.innerWidth + "px");
-        if (window.matchMedia) {
-            var mm = window.matchMedia('screen and (min-width: ' + loadResponsiveAt + 'px)');
-
-            function loadResponsiveCSS() {
-                console.log("Loading LaND responsive");
-                var ref = document.createElement("link");
-                ref.setAttribute("rel", "stylesheet");
-                ref.setAttribute("type", "text/css");
-                ref.setAttribute("href", "css/land-respond.css");
-                document.getElementsByTagName("head")[0].appendChild(ref);
-            }
-
-            if (mm.matches) {
-                console.log("...and min width " + loadResponsiveAt);
-                document.write('<link rel="stylesheet" type="text/css" media="screen" href="css/land-respond.css">');
-            } else {
-                console.log("...and NOT min width " + loadResponsiveAt);
-                function handleMMChange() {
-                    console.log("resized and matched min width " + loadResponsiveAt);
-                    mm.removeListener(handleMMChange);
-                    loadResponsiveCSS();
-                };
-
-                mm.addListener(handleMMChange);
-            }
-        }
-    </script>
-    <noscript><link rel="stylesheet" type="text/css" media="screen" href="css/land-desktop.css"></noscript>
-    <!--<![endif]-->
-
-
-    <link rel="stylesheet" type="text/css" media="all" href="css/site.css">
-
-    <!--[if lt IE 10]>
-    <script type="text/javascript" src="/js/lib/matchmedia/matchmedia.js"></script>
-    <script type="text/javascript" src="/js/lib/matchmedia/matchmedia.addlistener.js"></script>
-    <![endif]-->
-
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-
-    <script type="text/javascript">var console = typeof console !== 'undefined' ? console : {log:function(){}};</script>
-
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <script type="text/javascript" src="js/css3-mediaqueries.js"></script>
-    <![endif]-->
-    <!--[if lt IE 8]>
-    <script src="/js/lib/json2.js"></script>
-    <![endif]-->
-    <!--[if lt IE 7]>
-    <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE7.js"></script>
-    <![endif]-->
-
+    <link rel="stylesheet" type="text/css" media="all" href="/css/site.css">
 </head>
 <body class="debug">
     <div class="LaND-container animate center debuggable">
@@ -86,11 +27,11 @@
             <li class="col ml-1-2 t-auto">Two</li>
             <li class="col ml-1-2 t-auto">Three</li>
             <li class="col ml-1-2 t-auto ml-float-right">four</li>
-            <li class="col ml-1-2 t-auto ml-float-right">five</li>
+            <li class="col ml-1-2 t-auto ml-float-right"><a href="example2.php">Example 2</a></li>
         </ul>
 
         <div class="col ml-2-3 t-pad-0 t-pad-right-1 m-pad-0">
-            <img class="s-fill" src="/images/test_800x400.jpg" />
+            <img class="s-fill" src="http://lorempixel.com/940/470/transport/1/940" />
         </div>
 
         <div class="col ml-1-3 t-pad-0">
@@ -175,21 +116,21 @@
             <div class="col t-pad-0 t-margin-top-1">
                 <h3 class="col">Title</h3>
                 <div class="col t-1-3 t-pad-0">
-                    <img class="s-fill" src="/images/test_400x200.jpg" alt=""/>
+                    <img class="s-fill" src="http://lorempixel.com/400/200/transport/2" alt=""/>
                     <div class="col t-pad-top-0">
                         <h4>Title</h4>
                         <div>Info goes here</div>
                     </div>
                 </div>
                 <div class="col t-1-3 t-pad-0">
-                    <img class="s-fill" src="/images/test_400x200.jpg" alt=""/>
+                    <img class="s-fill" src="http://lorempixel.com/400/200/transport/3" alt=""/>
                     <div class="col t-pad-top-0">
                         <h4>Title</h4>
                         <div>Info goes here</div>
                     </div>
                 </div>
                 <div class="col t-1-3 t-pad-0">
-                    <img class="s-fill" src="/images/test_400x200.jpg" alt=""/>
+                    <img class="s-fill" src="http://lorempixel.com/400/200/transport/4" alt=""/>
                     <div class="col t-pad-top-0">
                         <h4>Title</h4>
                         <div>Info goes here</div>
@@ -222,13 +163,13 @@
 
         <div class="col t-pad-0 t-margin-top-1">
             <div class="col t-1-3 s-text-center">
-                <img class="s-fill" src="/images/test_400x200.jpg" />
+                <img class="s-fill" src="http://lorempixel.com/400/200/transport/5" />
             </div>
             <div class="col t-1-3 s-text-center">
-                <img class="s-fill" src="/images/test_400x200.jpg" />
+                <img class="s-fill" src="http://lorempixel.com/400/200/transport/6" />
             </div>
             <div class="col t-1-3 s-text-center">
-                <img class="s-fill" src="/images/test_400x200.jpg" />
+                <img class="s-fill" src="http://lorempixel.com/400/200/transport/7" />
             </div>
         </div>
 
@@ -267,5 +208,8 @@
 
         <div class="col s-text-center t-margin-top-1">Footer information here</div>
     </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <?php include 'air.php'; ?>
 </body>
 </html>

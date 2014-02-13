@@ -12,95 +12,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="fragment" content="!" />
 
-    <link rel="stylesheet" type="text/css" media="all" href="css/normalize.css">
+    <?php include 'land.php'; ?>
 
-    <link rel="stylesheet" type="text/css" media="all" href="css/land-mobile.css">
-    <!--[if lte IE 8]>
-        <link rel="stylesheet" type="text/css" media="all" href="css/land-desktop.css">
-    <![endif]-->
-    <!--[if IE 9]>
-        <link rel="stylesheet" type="text/css" media="screen" href="css/land-respond.css">
-    <![endif]-->
-    <!--[if !IE | gte IE 10]><!-->
-        <script>
-            var loadResponsiveAt = 481;
-            console.log("gt ie9 width: " + window.innerWidth + "px");
-            if (window.matchMedia) {
-                var mm = window.matchMedia('screen and (min-width: ' + loadResponsiveAt + 'px)');
-
-                function loadResponsiveCSS() {
-                    console.log("Loading LaND responsive");
-                    var ref = document.createElement("link");
-                    ref.setAttribute("rel", "stylesheet");
-                    ref.setAttribute("type", "text/css");
-                    ref.setAttribute("href", "css/land-respond.css");
-                    document.getElementsByTagName("head")[0].appendChild(ref);
-                }
-
-                if (mm.matches) {
-                    console.log("...and min width " + loadResponsiveAt);
-                    document.write('<link rel="stylesheet" type="text/css" media="screen" href="css/land-respond.css">');
-                } else {
-                    console.log("...and NOT min width " + loadResponsiveAt);
-                    function handleMMChange() {
-                        console.log("resized and matched min width " + loadResponsiveAt);
-                        mm.removeListener(handleMMChange);
-                        loadResponsiveCSS();
-                    };
-
-                    mm.addListener(handleMMChange);
-                }
-            }
-        </script>
-    <!--<![endif]-->
-
-
-    <link rel="stylesheet" type="text/css" media="all" href="css/site.css">
-
-    <!--[if lt IE 10]>
-        <script type="text/javascript" src="/js/lib/matchmedia/matchmedia.js"></script>
-        <script type="text/javascript" src="/js/lib/matchmedia/matchmedia.addlistener.js"></script>
-    <![endif]-->
+    <link rel="stylesheet" type="text/css" media="all" href="/css/site.css">
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-
-    <script type="text/javascript" src="/js/land/land.js"></script>
-    <script type="text/javascript">
-        /*
-        var land = new LaND({
-            'applyToHTML': true
-        });
-
-        land.addListener('change', function() {
-            console.log('LaND change...');
-            $output = $('.output');
-
-            var activeLayouts = [];
-            $.each(land.layouts, function(i, layout) {
-                if (layout) activeLayouts.push(i);
-            });
-
-            $output.html(activeLayouts.join(', '));
-            console.log(land.layouts);
-            console.log($output);
-        })
-
-        land.init();
-        */
-    </script>
-
-    <script type="text/javascript">var console = typeof console !== 'undefined' ? console : {log:function(){}};</script>
-
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <script type="text/javascript" src="js/css3-mediaqueries.js"></script>
-    <![endif]-->
-    <!--[if lt IE 8]>
-    <script src="/js/lib/json2.js"></script>
-    <![endif]-->
-    <!--[if lt IE 7]>
-    <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE7.js"></script>
-    <![endif]-->
 
 </head>
 <body class="debug">

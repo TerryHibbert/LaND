@@ -16,12 +16,17 @@ var AIR = function() {
         AIR.$airs = $(selector);
     }
 
+    this.refresh = function() {
+        console.log('refreshing...');
+        AIR.$airs.each(function(i, el) {
+            var $el = $(el);
+            var lazy = $el.hasClass('lazy');
+            handleInterval($el, lazy);
+        });
+    };
+
     var intervalToken = setInterval(function() {
-            AIR.$airs.each(function(i, el) {
-                var $el = $(el);
-                var lazy = $el.hasClass('lazy');
-                handleInterval($el, lazy);
-            });
+            that.refresh();
         },
         500
     );
@@ -83,18 +88,14 @@ var AIR = function() {
     }
 
     this.updateAirs('.air');
+
+    this.refresh();
 }
 
-jQuery(document).ready(function() {
-    var air = new AIR();
 
-    var categories = ['abstract','animals','business','cats','city','food','nightlife','fashion','people','nature','sports','technics','transport'];
-    function getCat(i) {
-        i = (i) ? i : Math.floor(Math.random()*categories.length);
-        return categories[i];
-    }
+var air = new AIR();
 
-    return;
+/*
     for (var i = 0; i<10; ++i) {
         var cat = getCat();
 
@@ -104,7 +105,6 @@ jQuery(document).ready(function() {
             "s-fill",
             "http://lorempixel.com/1150/575/" + cat + "/3/1150",
             {
-                "200": "http://lorempixel.com/200/100/" + cat + "/3/200",
                 "200": "http://lorempixel.com/200/100/" + cat + "/3/200",
                 "320": "http://lorempixel.com/320/160/" + cat + "/3/320",
                 "400": "http://lorempixel.com/400/200/" + cat + "/3/400",
@@ -116,4 +116,4 @@ jQuery(document).ready(function() {
             "/images/2x1.gif"
         );
     }
-});
+*/
