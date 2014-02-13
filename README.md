@@ -90,7 +90,7 @@ Conditional comments and javascript tests detect capabilities and decide what's 
 recommended inclusion method.
 
 ## PHP usage
-A php bootstrap file exists for easy LaND inclusion in <head>:
+A php bootstrap file exists for easy LaND inclusion in head:
 ```
 <php include 'land.php'; ?>
 ```
