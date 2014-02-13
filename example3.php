@@ -26,7 +26,7 @@
 
         <div class="col s-text-center s-pad-0">
             <?php air(
-                'col s-pad-0 lazy',
+                'col s-pad-0',
                 's-fill',
                 '/images/test_images/balloon_1150x575.jpg',
                 array(
@@ -34,7 +34,8 @@
                     '640' => 'images/test_images/balloon_640x320.jpg',
                     '960' => '/images/test_images/balloon_960x480.jpg'
                 ),
-                'images/2x1.gif'
+                'images/2x1.gif',
+                'This is AIR'
             ); ?>
         </div>
         <div class="col s-1-2 s-text-left"><a href="example2.php">previous</a></div>

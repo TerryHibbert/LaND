@@ -17,10 +17,9 @@ var AIR = function() {
     }
 
     this.refresh = function() {
-        console.log('refreshing...');
         AIR.$airs.each(function(i, el) {
             var $el = $(el);
-            var lazy = $el.hasClass('lazy');
+            var lazy = $el.data('lazy') == 'true';
             handleInterval($el, lazy);
         });
     };
@@ -42,6 +41,7 @@ var AIR = function() {
 
         var dataSrcs = $el.data('srcs');
         var dataClass = $el.data('class');
+        var title = $el.attr('title');
 
         var closestSrc = false;
 
@@ -68,10 +68,11 @@ var AIR = function() {
 
         var imageClasses = $img.className;
         $newImg = $(image).attr('class', dataClass);
+        $newImg.attr('alt', title);
 
         $newImg.on('load', function() {
             $el.removeClass('updating');
-            $el.removeClass('lazy');
+            $el.attr('data-lazy', 'loaded');
         });
     }
     this.addAir = function($container, classes, imgClasses, href, srcs, placeholderSrc) {

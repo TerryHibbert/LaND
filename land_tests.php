@@ -77,17 +77,17 @@
         <div class="col d-1-3 d-float-right m-float-left">3</div>
 
         <div class="col">
-            <div class="col d-pad-t-0"><div class="col">a-pad-t-0</div></div>
-            <div class="col d-pad-r-0"><div class="col">a-pad-r-0</div></div>
-            <div class="col d-pad-b-0"><div class="col">a-pad-b-0</div></div>
-            <div class="col d-pad-l-0"><div class="col">a-pad-l-0</div></div>
+            <div class="col d-pad-t-0"><div class="col">s-pad-t-0</div></div>
+            <div class="col d-pad-r-0"><div class="col">s-pad-r-0</div></div>
+            <div class="col d-pad-b-0"><div class="col">s-pad-b-0</div></div>
+            <div class="col d-pad-l-0"><div class="col">s-pad-l-0</div></div>
         </div>
 
         <div class="col">
-            <div class="col d-pad-5px"><div class="col">a-pad-5px</div></div>
-            <div class="col d-pad-5px"><div class="col">a-pad-5px</div></div>
-            <div class="col d-pad-5px"><div class="col">a-pad-5px</div></div>
-            <div class="col d-pad-5px"><div class="col">a-pad-5px</div></div>
+            <div class="col d-pad-5px"><div class="col">s-pad-5px</div></div>
+            <div class="col d-pad-5px"><div class="col">s-pad-5px</div></div>
+            <div class="col d-pad-5px"><div class="col">s-pad-5px</div></div>
+            <div class="col d-pad-5px"><div class="col">s-pad-5px</div></div>
         </div>
 
         <div class="col">

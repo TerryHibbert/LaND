@@ -17,9 +17,9 @@ span.air {
   a.air.updating.blur img,
   span.air.updating.blur img {
     -webkit-filter: blur(5px); }
-  a.air.lazy,
-  span.air.lazy {
+  a.air[data-lazy=true],
+  span.air[data-lazy=true] {
     background-image: url("../../images/loading.gif"); }
-    a.air.lazy img,
-    span.air.lazy img {
+    a.air[data-lazy=true] img,
+    span.air[data-lazy=true] img {
       opacity: 0; }

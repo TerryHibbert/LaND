@@ -22,7 +22,7 @@ span.air {
     }
   }
 
-  &.lazy {
+  &[data-lazy=true] {
     background-image: url('../../images/loading.gif');
     img {
       opacity: 0;
