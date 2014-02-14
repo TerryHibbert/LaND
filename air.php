@@ -1,5 +1,5 @@
 <?php
-    $air_url_path = '/js/air/';
+    $air_url_path = '/assets/js/air/';
 
     function air($airClasses, $imageClasses, $fullImageUrl, $srcsArray, $placeholderImageUrl, $title='', $id = null, $textFallback = false, $lazy = true) {
         ?>

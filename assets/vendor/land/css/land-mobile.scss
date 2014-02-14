@@ -1,6 +1,8 @@
-@import "land.scss";
-@import "land/_functions.scss";
-@import "land/_layouts.scss";$infoWrapper: '*';
+@import "land";
+@import "functions";
+@import "layouts";
+
+$infoWrapper: '*';
 
 .LaND-info {
   content: $infoWrapper + implode($layouts,',')

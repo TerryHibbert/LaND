@@ -114,7 +114,7 @@ var air = new AIR();
                 "700": "http://lorempixel.com/700/350/" + cat + "/3/700",
                 "940": "http://lorempixel.com/940/470/" + cat + "/3/940"
             },
-            "/images/2x1.gif"
+            "/assets/images/2x1.gif"
         );
     }
 */

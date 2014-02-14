@@ -15,7 +15,7 @@
     <?php include 'land.php'; ?>
     <?php include 'air.php'; ?>
 
-    <link rel="stylesheet" type="text/css" media="all" href="/css/site.css">
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/css/site.css" />
 </head>
 <body class="debug">
     <div class="LaND-container animate center debuggable">
@@ -23,7 +23,7 @@
         <div class="col m-1-2 t-1-3">Log in</div>
 
         <ul class="col t-pad-0">
-            <li class="col ml-1-2 t-auto"><strong>Home</strong></li>
+            <li class="col ml-1-2 t-auto"><strong><a href="/">Home</a></strong></li>
             <li class="col ml-1-2 t-auto">One</li>
             <li class="col ml-1-2 t-auto">Two</li>
             <li class="col ml-1-2 t-auto">Three</li>

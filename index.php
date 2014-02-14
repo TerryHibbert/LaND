@@ -15,7 +15,7 @@
     <?php include 'land.php'; ?>
     <?php include 'air.php'; ?>
 
-    <link rel="stylesheet" type="text/css" media="all" href="/css/site.css">
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/css/site.css" />
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 
@@ -42,19 +42,19 @@
         Footer
     </footer>
 
-    <script type="text/javascript" src="/js/lib/angularjs.1.0.5/angular.min.js"></script>
-    <script type="text/javascript" src="/js/lib/angularjs.1.0.5/angular-cookies.min.js"></script>
-    <script type="text/javascript" src="/js/lib/angularjs.1.0.5/angular-resource.min.js"></script>
-    <script type="text/javascript" src="/js/lib/angularjs.1.0.5/angular-sanitize.min.js"></script>
-    <script type="text/javascript" src="/js/lib/angularjs.1.0.5/angular-loader.min.js"></script>
+    <script type="text/javascript" src="/assets/js/lib/angularjs.1.0.5/angular.min.js"></script>
+    <script type="text/javascript" src="/assets/js/lib/angularjs.1.0.5/angular-cookies.min.js"></script>
+    <script type="text/javascript" src="/assets/js/lib/angularjs.1.0.5/angular-resource.min.js"></script>
+    <script type="text/javascript" src="/assets/js/lib/angularjs.1.0.5/angular-sanitize.min.js"></script>
+    <script type="text/javascript" src="/assets/js/lib/angularjs.1.0.5/angular-loader.min.js"></script>
 
-    <script type="text/javascript" src="/js/lib/underscore/underscore-min.js"></script>
+    <script type="text/javascript" src="/assets/js/lib/underscore/underscore-min.js"></script>
 
-    <script type="text/javascript" src="/js/land/land-app.js"></script>
-    <script type="text/javascript" src="/js/land/land-directives.js"></script>
-    <script type="text/javascript" src="/js/land/land-filters.js"></script>
-    <script type="text/javascript" src="/js/land/land-services.js"></script>
-    <script type="text/javascript" src="/js/land/land-controllers.js"></script>
+    <script type="text/javascript" src="/assets/js/land-app.js"></script>
+    <script type="text/javascript" src="/assets/js/land-directives.js"></script>
+    <script type="text/javascript" src="/assets/js/land-filters.js"></script>
+    <script type="text/javascript" src="/assets/js/land-services.js"></script>
+    <script type="text/javascript" src="/assets/js/land-controllers.js"></script>
 
     <?php air_includes(); ?>
 </body>

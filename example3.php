@@ -15,8 +15,7 @@
     <?php include 'land.php'; ?>
     <?php include 'air.php'; ?>
 
-    <link rel="stylesheet" type="text/css" media="all" href="/css/site.css">
-
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/css/site.css" />
 </head>
 <body class="">
     <div class="LaND-container center">
@@ -28,11 +27,11 @@
             <?php air(
                 'col s-pad-0',
                 's-fill',
-                '/images/test_images/balloon_1150x575.jpg',
+                '/assets/images/test_images/balloon_1150x575.jpg',
                 array(
-                    '320' => '/images/test_images/balloon_320x160.jpg',
-                    '640' => 'images/test_images/balloon_640x320.jpg',
-                    '960' => '/images/test_images/balloon_960x480.jpg'
+                    '320' => '/assets/images/test_images/balloon_320x160.jpg',
+                    '640' => '/assets/images/test_images/balloon_640x320.jpg',
+                    '960' => '/assets/images/test_images/balloon_960x480.jpg'
                 ),
                 'images/2x1.gif',
                 'This is AIR'

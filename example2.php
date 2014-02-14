@@ -15,7 +15,7 @@
     <?php include 'land.php'; ?>
     <?php include 'air.php'; ?>
 
-    <link rel="stylesheet" type="text/css" media="all" href="/css/site.css">
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/css/site.css" />
 
 </head>
 <body class="">
@@ -25,7 +25,7 @@
         </h1>
 
         <div class="col s-text-center s-pad-0">
-            <img class="s-fill" src="/images/test_images/balloon_1150x575.jpg" alt=""/>
+            <img class="s-fill" src="/assets/images/test_images/balloon_1150x575.jpg" alt=""/>
         </div>
         <div class="col s-1-2 s-text-left"><a href="example1.php">previous</a></div>
         <div class="col s-1-2 s-text-right"><a href="example3.php">next</a></div>
