@@ -1,4 +1,29 @@
-<div class="col a-clear">
-    <h3>What is LaND</h3>
-    <p></p>
+<div class="col s-clear">
+    <h3 class="col">Why is it called LaND?</h3>
+    <p class="col">LaND is an abbreviation of "<strong>La</strong>yout <strong>N</strong>umerator / <strong>D</strong>enominator" which describes how the system works and is the format of CSS classes applied to HTML elements to implement the system.</p>
+    <p class="col">i.e. The <strong>La</strong>yout part denotes a browser width range to target. The<strong>N</strong>umerator / <strong>D</strong>enominator part is the fraction of horizontal width of parent container that the column will fill.</p>
+
+    <h3 class="col">How do you use it?</h3>
+    <p class="col">Classes are added to an element. The actual syntax is this:</p>
+    <pre class="col">&lt;div class="col s-1-2"&gt;Hello&lt;/div&gt;<br/>&lt;div class="col s-1-2"&gt;world&lt;/div&gt;</pre>
+    <p class="col">The result of two of the above together is this:</p>
+    <div class="col s-border-1 example">
+        <div class="col t-1-2">Hello world</div>
+        <div class="col t-1-2">Hello world</div>
+    </div>
+    <p class="col">An explanation of the above: The 'col' declares the element to be a LaND column. A land column has a default layout of 't-1-1' which means<br/>
+        "on <strong>s</strong>mall screens and wider, the columns has a width of <strong>1</strong> divided by <strong>1</strong> (which is the whole width)". The 't-1-2' specifies that <br/>
+        "for <strong>t</strong>ablet and wider, the columns have a width of <strong>1</strong> divided by <strong>2</strong> (half)".
+    </p>
+
+    <h3 class="col">What's with the colors?</h3>
+    <p class="col">The colors are what the site looks like in debug mode. The purpose of debug mode helps to see where the 'col' blocks start and end. It's enabled through two classes and toggleable with this bookmarklet
+        (<a href="javascript:(function(){$=jQuery;$h=$('html');$b=$('body');if($h.hasClass('debug')){$h.removeClass('debug')}else{$h.addClass('debug');$b.addClass('debuggable');}})();">LaND Debug</a>), which you can drag to your bookmark bar.</p>
+
+    <h3 class="col">Are there more options?</h3>
+    <p class="col">Yes, see the <a href="https://github.com/TerryHibbert/LaND/tree/mobile-first">GitHub readme</a> for more documentation.</p>
+
+    <h3 class="col">What is AIR?</h3>
+    <p class="col">AIR is an <strong>A</strong>daptive <strong>I</strong>mage <strong>Request</strong> framework designed to reduce asset weight by requesting the smallest image available for the space. Here's an example
+        <a href="example2.php">without AIR</a> and one with <a href="example3.php">AIR</a>. AIR is a work in progress.</p>
 </div>

@@ -7,6 +7,12 @@ body {
     background-color: #FFF;
 }
 
+footer {
+    color: #AAA;
+    font-size: 10px;
+}
+
 ul.plain {
     list-style: none;
 }
+

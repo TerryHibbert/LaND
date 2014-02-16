@@ -7,9 +7,9 @@ landApp.config(['$routeProvider', function($routeProvider) {
         templateUrl: '/assets/partials/views/intro.html',
         controller: IntroCtrl
     });
-    $routeProvider.when('/docs', {
-        templateUrl: '/assets/partials/views/docs.html',
-        controller: DocsCtrl
+    $routeProvider.when('/examples', {
+        templateUrl: '/assets/partials/views/examples.html',
+        controller: TestsCtrl
     });
     $routeProvider.when('/tests', {
         templateUrl: '/assets/partials/views/tests.html',

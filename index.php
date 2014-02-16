@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 ]><html class="ie ie6 lt-ie9 lt-ie8 lt-ie7" lang="en" xmlns:ng="http://angularjs.org"> <![endif]-->
-<!--[if IE 7 ]><html class="ie ie7 lt-ie9 lt-ie8" lang="en" xmlns:ng="http://angularjs.org"> <![endif]-->
-<!--[if IE 8 ]><html class="ie ie8 lt-ie9" lang="en" xmlns:ng="http://angularjs.org"> <![endif]-->
-<!--[if IE 9 ]><html class="ie ie9 lt-ie10" lang="en" xmlns:ng="http://angularjs.org"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<!--[if lt IE 7 ]><html class="ie ie6 lt-ie9 lt-ie8 lt-ie7 debug" lang="en" xmlns:ng="http://angularjs.org"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7 lt-ie9 lt-ie8 debug" lang="en" xmlns:ng="http://angularjs.org"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8 lt-ie9 debug" lang="en" xmlns:ng="http://angularjs.org"> <![endif]-->
+<!--[if IE 9 ]><html class="ie ie9 lt-ie10 debug" lang="en" xmlns:ng="http://angularjs.org"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en" class="debug"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <title>LaND</title>
@@ -22,24 +22,24 @@
     <script type="text/javascript">var console = typeof console !== 'undefined' ? console : {log:function(){}};</script>
 
 </head>
-<body id="ng-app" class="ng-app:landApp" ng-app="landApp" ng-controller="LandCtrl">
+<body id="ng-app" class="debuggable" ng-app="landApp" ng-controller="LandCtrl">
     <article class="page LaND-container center animate">
-        <div class="col a-pad-0 m-pad-left-1 m-pad-right-1">
+        <div class="col s-pad-0 s-pad-h-1">
             <h1>LaND</h1>
             <h2>A mobile first, fraction based, responsive CSS layout framework.</h2>
         </div>
-        <nav class="col s-pad-left-0 m-pad-left-1">
-            <a href="#/intro">intro</a>
-            <a href="#/docs">docs</a>
-            <a href="/example1.php">Examples</a>
-            <a href="#/tests">tests</a>
+        <nav class="col s-pad-left-0 m-pad-left-1 s-text-center ml-text-left">
+            <a class="col s-1-2 ml-auto" href="#/intro">Introduction</a>
+            <a class="col s-1-2 ml-auto" href="#/examples">Examples</a>
+            <a class="col s-1-2 ml-auto" href="#/tests">Tests</a>
+            <a class="col s-1-2 ml-auto ml-float-right" href="https://github.com/TerryHibbert/LaND/tree/mobile-first" target="_blank">GitHub</a>
             <!-- <a href="#/builder">builder</a> -->
         </nav>
         <div ng-view class="col s-clear s-pad-0"></div>
     </article>
 
     <footer class="LaND-container center s-text-center">
-        Footer
+        <div class="col">&copy; Terry Hibbert 2014</div>
     </footer>
 
     <script type="text/javascript" src="/assets/js/lib/angularjs.1.0.5/angular.min.js"></script>
