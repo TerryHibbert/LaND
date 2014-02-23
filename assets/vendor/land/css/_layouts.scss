@@ -36,7 +36,7 @@
 
         .#{$la}, .#{$la} { display: initial; }
         .#{$la}-block, .#{$la}-block { display: block; }
-        .#{$la}-inline, .#{$la}-inline { display: block; }
+        .#{$la}-inline, .#{$la}-inline { display: inline; }
 
         .LaND-container {
           width: #{nth($containerMax, $i)};
@@ -109,7 +109,7 @@
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  *behavior: url(/css/boxsizing.htc);
+  *behavior: url('boxsizing.htc');
 }
 
 @mixin animate($duration, $properties) {
@@ -125,23 +125,28 @@
 
   .#{$la}-auto { width: auto; }
 
+  .#{$la}-clear, .#{$la}-clear-left { clear: left; }
+  .#{$la}-clear-right { clear: right; }
+  .#{$la}-clear-both { clear: both; }
+
   .#{$la}-float-left { float: left; }
   .#{$la}-float-right { float: right; }
+  .#{$la}-float-none { float: none; }
 
   .#{$la}-opacity-100 { opacity: 0; }
   .#{$la}-opacity-75 { opacity: 0.75; }
   .#{$la}-opacity-50 { opacity: 0.5; }
   .#{$la}-opacity-25 { opacity: 0.25; }
 
-  .#{$la}-clear, .#{$la}-clearLeft { clear: left; }
-  .#{$la}-clear-right { clear: right; }
-  .#{$la}-clear-both { clear: both; }
+  .#{$la}-overflow-visible { overflow: visible; }
+  .#{$la}-overflow-scroll { overflow: scroll; }
 
   .#{$la}-text-center { text-align: center; }
   .#{$la}-text-right { text-align: right; }
   .#{$la}-text-left { text-align: left; }
 
-  .#{$la}-margin-auto { margin: auto !important; float: none !important; }
+  .#{$la}-ws-normal { white-space: normal; }
+  .#{$la}-ws-nowrap { white-space: nowrap; }
 
   .#{$la}-no-select {
     -webkit-touch-callout: none;
@@ -153,8 +158,8 @@
   }
 
 
-/* #Fixed with fluid columns
-================================================== */
+  /* #Fixed with fluid columns
+  ================================================== */
 
   .#{$la}-fluid-left .#{$la}-fluid-right .#{$la}-fluid { margin-right: 0}
   .#{$la}-fluid-right .#{$la}-fluid-left .#{$la}-fluid { margin-left: 0}
@@ -186,8 +191,8 @@
     @include fixedWithFluid($la: $la, $width: $fixedSize);
   }
 
-/* #Absolute positioning
-================================================== */
+  /* #Absolute positioning
+  ================================================== */
   .#{$la}-position-absolute { position: absolute; }
   .#{$la}-position-static { position: static; }
   .#{$la}-position-fixed { position: fixed;}
@@ -198,8 +203,8 @@
   .#{$la}-position-absolute.bottom , .#{$la}-position-static.bottom, .#{$la}-position-fixed.bottom{ bottom: 0; }
 
 
-/* Depth
-================================================== */
+  /* Depth
+  ================================================== */
 
   .#{$la}-z9 { z-index: 9; }
   .#{$la}-z99 { z-index: 99; }
@@ -209,8 +214,8 @@
   .#{$la}-z999999 { z-index: 999999; }
 
 
-/* Misc
-================================================== */
+  /* Misc
+  ================================================== */
   .#{$la}-cursor-pointer { cursor: pointer; }
   .#{$la}-full-height { height: 100%; }
   .#{$la}-display-table { display: table; }
@@ -236,8 +241,8 @@
   }
 
 
-/* Padding and margin
-================================================== */
+  /* Padding and margin
+  ================================================== */
 
   @if $padColDefaultSize > 0 {
     /* $padColDefaultSize: #{$padColDefaultSize} */
@@ -285,10 +290,11 @@
   .col.#{$la}-margin-left-0, .col.#{$la}-margin-l-0 { margin-left: 0; }
   .col.#{$la}-margin-h-0 { margin-left: 0; margin-right: 0; }
   .col.#{$la}-margin-v-0 { margin-top: 0; margin-bottom: 0; }
+  .col.#{$la}-margin-auto { margin: auto; }
 
 
-/* Borders
-================================================== */
+  /* Borders
+  ================================================== */
 
   $i:0;
   @each $borderSize in $borderSizes {
@@ -302,15 +308,15 @@
   }
 
 
-/* Image
-================================================== */
+  /* Image
+  ================================================== */
   .col img.#{$la}-fill {
     display: block;
     height: auto;
     width: 100%;
   }
   .col img.#{$la}-fit {
-    display: block;
+    display: inline-block;
     height: auto;
     max-width: 100%;
   }
