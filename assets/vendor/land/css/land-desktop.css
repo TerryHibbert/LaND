@@ -903,7 +903,8 @@ land-s {
   margin-bottom: 0; }
 
 .col.s-margin-auto {
-  margin: auto; }
+  margin-left: auto;
+  margin-right: auto; }
 
 /* Borders
 ================================================== */
@@ -1904,7 +1905,8 @@ land-m {
   margin-bottom: 0; }
 
 .col.m-margin-auto {
-  margin: auto; }
+  margin-left: auto;
+  margin-right: auto; }
 
 /* Borders
 ================================================== */
@@ -2938,7 +2940,8 @@ land-ml {
   margin-bottom: 0; }
 
 .col.ml-margin-auto {
-  margin: auto; }
+  margin-left: auto;
+  margin-right: auto; }
 
 /* Borders
 ================================================== */
@@ -4017,7 +4020,8 @@ land-t {
   margin-bottom: 0; }
 
 .col.t-margin-auto {
-  margin: auto; }
+  margin-left: auto;
+  margin-right: auto; }
 
 /* Borders
 ================================================== */
@@ -5096,7 +5100,8 @@ land-d {
   margin-bottom: 0; }
 
 .col.d-margin-auto {
-  margin: auto; }
+  margin-left: auto;
+  margin-right: auto; }
 
 /* Borders
 ================================================== */
