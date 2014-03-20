@@ -1,6 +1,7 @@
 <?php
     $width_to_load_responsive_css = 481;
-    $url_path_to_land = '/assets/vendor/land/';
+    $root = defined('ROOT') ? ROOT : '/';
+    $url_path_to_land = isset($url_path_to_land) ? $url_path_to_land : "{$root}assets/vendor/land/";
 
     $enable_land_js = false; // Not ready yet
 ?>
@@ -19,8 +20,8 @@
 
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo $url_path_to_land; ?>css/land-mobile.css">
 
-        <!--[if lte IE 8]><link rel="stylesheet" type="text/css" media="all" href="<?php echo $url_path_to_land; ?>land-desktop.css"><![endif]-->
-        <!--[if IE 9]><link rel="stylesheet" type="text/css" media="screen" href="<?php echo $url_path_to_land; ?>land-respond.css"><![endif]-->
+        <!--[if lte IE 8]><link rel="stylesheet" type="text/css" media="all" href="<?php echo $url_path_to_land; ?>css/land-desktop.css"><![endif]-->
+        <!--[if IE 9]><link rel="stylesheet" type="text/css" media="screen" href="<?php echo $url_path_to_land; ?>css/land-respond.css"><![endif]-->
         <!--[if !IE | gte IE 10]><!-->
         <script>
             if (window.matchMedia) {

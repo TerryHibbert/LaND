@@ -1,3 +1,4 @@
+<?php include 'config.php' ?>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]><html class="ie ie6 lt-ie9 lt-ie8 lt-ie7 debug" lang="en" xmlns:ng="http://angularjs.org"> <![endif]-->
 <!--[if IE 7 ]><html class="ie ie7 lt-ie9 lt-ie8 debug" lang="en" xmlns:ng="http://angularjs.org"> <![endif]-->
@@ -15,7 +16,11 @@
     <?php include 'land.php'; ?>
     <?php include 'air.php'; ?>
 
-    <link rel="stylesheet" type="text/css" media="all" href="/assets/css/site.css" />
+    <script>
+        window.root = "<?php echo ROOT; ?>";
+    </script>
+
+    <link rel="stylesheet" type="text/css" media="all" href="<?php echo ROOT; ?>assets/css/site.css" />
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 
@@ -42,19 +47,20 @@
         <div class="col">&copy; Terry Hibbert 2014</div>
     </footer>
 
-    <script type="text/javascript" src="/assets/js/lib/angularjs.1.0.5/angular.min.js"></script>
-    <script type="text/javascript" src="/assets/js/lib/angularjs.1.0.5/angular-cookies.min.js"></script>
-    <script type="text/javascript" src="/assets/js/lib/angularjs.1.0.5/angular-resource.min.js"></script>
-    <script type="text/javascript" src="/assets/js/lib/angularjs.1.0.5/angular-sanitize.min.js"></script>
-    <script type="text/javascript" src="/assets/js/lib/angularjs.1.0.5/angular-loader.min.js"></script>
+    <script type="text/javascript" src="<?php echo ROOT; ?>assets/js/lib/angularjs.1.0.5/angular.min.js"></script>
+    <script type="text/javascript" src="<?php echo ROOT; ?>assets/js/lib/angularjs.1.0.5/angular-cookies.min.js"></script>
+    <script type="text/javascript" src="<?php echo ROOT; ?>assets/js/lib/angularjs.1.0.5/angular-resource.min.js"></script>
+    <script type="text/javascript" src="<?php echo ROOT; ?>assets/js/lib/angularjs.1.0.5/angular-sanitize.min.js"></script>
+    <script type="text/javascript" src="<?php echo ROOT; ?>assets/js/lib/angularjs.1.0.5/angular-loader.min.js"></script>
 
-    <script type="text/javascript" src="/assets/js/lib/underscore/underscore-min.js"></script>
+    <script type="text/javascript" src="<?php echo ROOT; ?>assets/js/lib/underscore/underscore-min.js"></script>
 
-    <script type="text/javascript" src="/assets/js/land-app.js"></script>
-    <script type="text/javascript" src="/assets/js/land-directives.js"></script>
-    <script type="text/javascript" src="/assets/js/land-filters.js"></script>
-    <script type="text/javascript" src="/assets/js/land-services.js"></script>
-    <script type="text/javascript" src="/assets/js/land-controllers.js"></script>
+    <script type="text/javascript" src="<?php echo ROOT; ?>assets/js/apparent-directives.js"></script>
+    <script type="text/javascript" src="<?php echo ROOT; ?>assets/js/land-app.js"></script>
+    <script type="text/javascript" src="<?php echo ROOT; ?>assets/js/land-directives.js"></script>
+    <script type="text/javascript" src="<?php echo ROOT; ?>assets/js/land-filters.js"></script>
+    <script type="text/javascript" src="<?php echo ROOT; ?>assets/js/land-services.js"></script>
+    <script type="text/javascript" src="<?php echo ROOT; ?>assets/js/land-controllers.js"></script>
 
     <?php air_includes(); ?>
 </body>

@@ -1,5 +1,6 @@
 <?php
-    $air_url_path = '/assets/js/air/';
+    $root = defined('ROOT') ? ROOT : '/';
+    $air_url_path = "{$root}assets/js/air/";
 
     function air($airClasses, $imageClasses, $fullImageUrl, $srcsArray, $placeholderImageUrl, $title='', $id = null, $textFallback = false, $lazy = true) {
         ?>
