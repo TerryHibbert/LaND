@@ -144,6 +144,9 @@ land-s {
 .s-inline, .s-inline {
   display: block; }
 
+.s-none, .s-none {
+  display: none; }
+
 .LaND-container {
   width: 100%; }
 
@@ -176,6 +179,9 @@ land-s {
 
 .s-clear-both {
   clear: both; }
+
+.s-clear-none {
+  clear: none; }
 
 .s-float-left {
   float: left; }
@@ -1136,6 +1142,9 @@ land-s {
   .m-inline, .m-inline {
     display: inline; }
 
+  .m-none, .m-none {
+    display: none; }
+
   .LaND-container {
     width: 100%; }
 
@@ -1180,6 +1189,9 @@ land-s {
 
   .m-clear-both {
     clear: both; }
+
+  .m-clear-none {
+    clear: none; }
 
   .m-float-left {
     float: left; }
