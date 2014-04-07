@@ -302,11 +302,15 @@
   $i:0;
   @each $borderSize in $borderSizes {
     .col.#{$la}-border-#{$i} { border-width: #{$borderSize}px; }
+    $i:$i+1;
+  }
+
+  $i:0;
+  @each $borderSize in $borderSizes {
     .col.#{$la}-border-top-#{$i}, .col.#{$la}-border-t-#{$i} { border-top-width: #{$borderSize}px; }
     .col.#{$la}-border-right-#{$i}, .col.#{$la}-border-r-#{$i} { border-right-width: #{$borderSize}px; }
     .col.#{$la}-border-left-#{$i}, .col.#{$la}-border-l-#{$i} { border-left-width: #{$borderSize}px; }
     .col.#{$la}-border-bottom-#{$i}, .col.#{$la}-border-b-#{$i} { border-bottom-width: #{$borderSize}px; }
-
     $i:$i+1;
   }
 

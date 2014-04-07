@@ -20,7 +20,7 @@ apparent.directives.directive('apMatchHeight', function() {
             var selected = jQuery(scope.selector, element);
             selected.wrapInner( "<div class='matchHeightInner'></div>");;
             elements[scope.groupName] = elements[scope.groupName].concat(selected.toArray());
-            elementsInner[scope.groupName] = elementsInner[scope.groupName].concat(jQuery('.matchHeightInner', selected).toArray());
+            elementsInner[scope.groupName] = elementsInner[scope.groupName].concat(jQuery('.matchHeightInner', selected).css('overflow', 'hidden').toArray());
         } else {
             elements[scope.groupName].push(element);
         }
@@ -70,8 +70,7 @@ apparent.directives.directive('apMatchHeight', function() {
     return {
         scope: {
             groupName: "=apMatchHeight",
-            selector: "=",
-            classes: '=class'
+            selector: "="
         },
         link: link
     }

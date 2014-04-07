@@ -965,6 +965,21 @@
   .col.ml-border-0 {
     border-width: 0px; }
 
+  .col.ml-border-1 {
+    border-width: 1px; }
+
+  .col.ml-border-2 {
+    border-width: 2px; }
+
+  .col.ml-border-3 {
+    border-width: 3px; }
+
+  .col.ml-border-4 {
+    border-width: 4px; }
+
+  .col.ml-border-5 {
+    border-width: 5px; }
+
   .col.ml-border-top-0, .col.ml-border-t-0 {
     border-top-width: 0px; }
 
@@ -976,9 +991,6 @@
 
   .col.ml-border-bottom-0, .col.ml-border-b-0 {
     border-bottom-width: 0px; }
-
-  .col.ml-border-1 {
-    border-width: 1px; }
 
   .col.ml-border-top-1, .col.ml-border-t-1 {
     border-top-width: 1px; }
@@ -992,9 +1004,6 @@
   .col.ml-border-bottom-1, .col.ml-border-b-1 {
     border-bottom-width: 1px; }
 
-  .col.ml-border-2 {
-    border-width: 2px; }
-
   .col.ml-border-top-2, .col.ml-border-t-2 {
     border-top-width: 2px; }
 
@@ -1006,9 +1015,6 @@
 
   .col.ml-border-bottom-2, .col.ml-border-b-2 {
     border-bottom-width: 2px; }
-
-  .col.ml-border-3 {
-    border-width: 3px; }
 
   .col.ml-border-top-3, .col.ml-border-t-3 {
     border-top-width: 3px; }
@@ -1022,9 +1028,6 @@
   .col.ml-border-bottom-3, .col.ml-border-b-3 {
     border-bottom-width: 3px; }
 
-  .col.ml-border-4 {
-    border-width: 4px; }
-
   .col.ml-border-top-4, .col.ml-border-t-4 {
     border-top-width: 4px; }
 
@@ -1036,9 +1039,6 @@
 
   .col.ml-border-bottom-4, .col.ml-border-b-4 {
     border-bottom-width: 4px; }
-
-  .col.ml-border-5 {
-    border-width: 5px; }
 
   .col.ml-border-top-5, .col.ml-border-t-5 {
     border-top-width: 5px; }
@@ -2051,6 +2051,21 @@
   .col.t-border-0 {
     border-width: 0px; }
 
+  .col.t-border-1 {
+    border-width: 1px; }
+
+  .col.t-border-2 {
+    border-width: 2px; }
+
+  .col.t-border-3 {
+    border-width: 3px; }
+
+  .col.t-border-4 {
+    border-width: 4px; }
+
+  .col.t-border-5 {
+    border-width: 5px; }
+
   .col.t-border-top-0, .col.t-border-t-0 {
     border-top-width: 0px; }
 
@@ -2062,9 +2077,6 @@
 
   .col.t-border-bottom-0, .col.t-border-b-0 {
     border-bottom-width: 0px; }
-
-  .col.t-border-1 {
-    border-width: 1px; }
 
   .col.t-border-top-1, .col.t-border-t-1 {
     border-top-width: 1px; }
@@ -2078,9 +2090,6 @@
   .col.t-border-bottom-1, .col.t-border-b-1 {
     border-bottom-width: 1px; }
 
-  .col.t-border-2 {
-    border-width: 2px; }
-
   .col.t-border-top-2, .col.t-border-t-2 {
     border-top-width: 2px; }
 
@@ -2092,9 +2101,6 @@
 
   .col.t-border-bottom-2, .col.t-border-b-2 {
     border-bottom-width: 2px; }
-
-  .col.t-border-3 {
-    border-width: 3px; }
 
   .col.t-border-top-3, .col.t-border-t-3 {
     border-top-width: 3px; }
@@ -2108,9 +2114,6 @@
   .col.t-border-bottom-3, .col.t-border-b-3 {
     border-bottom-width: 3px; }
 
-  .col.t-border-4 {
-    border-width: 4px; }
-
   .col.t-border-top-4, .col.t-border-t-4 {
     border-top-width: 4px; }
 
@@ -2122,9 +2125,6 @@
 
   .col.t-border-bottom-4, .col.t-border-b-4 {
     border-bottom-width: 4px; }
-
-  .col.t-border-5 {
-    border-width: 5px; }
 
   .col.t-border-top-5, .col.t-border-t-5 {
     border-top-width: 5px; }
@@ -3137,6 +3137,21 @@
   .col.d-border-0 {
     border-width: 0px; }
 
+  .col.d-border-1 {
+    border-width: 1px; }
+
+  .col.d-border-2 {
+    border-width: 2px; }
+
+  .col.d-border-3 {
+    border-width: 3px; }
+
+  .col.d-border-4 {
+    border-width: 4px; }
+
+  .col.d-border-5 {
+    border-width: 5px; }
+
   .col.d-border-top-0, .col.d-border-t-0 {
     border-top-width: 0px; }
 
@@ -3148,9 +3163,6 @@
 
   .col.d-border-bottom-0, .col.d-border-b-0 {
     border-bottom-width: 0px; }
-
-  .col.d-border-1 {
-    border-width: 1px; }
 
   .col.d-border-top-1, .col.d-border-t-1 {
     border-top-width: 1px; }
@@ -3164,9 +3176,6 @@
   .col.d-border-bottom-1, .col.d-border-b-1 {
     border-bottom-width: 1px; }
 
-  .col.d-border-2 {
-    border-width: 2px; }
-
   .col.d-border-top-2, .col.d-border-t-2 {
     border-top-width: 2px; }
 
@@ -3178,9 +3187,6 @@
 
   .col.d-border-bottom-2, .col.d-border-b-2 {
     border-bottom-width: 2px; }
-
-  .col.d-border-3 {
-    border-width: 3px; }
 
   .col.d-border-top-3, .col.d-border-t-3 {
     border-top-width: 3px; }
@@ -3194,9 +3200,6 @@
   .col.d-border-bottom-3, .col.d-border-b-3 {
     border-bottom-width: 3px; }
 
-  .col.d-border-4 {
-    border-width: 4px; }
-
   .col.d-border-top-4, .col.d-border-t-4 {
     border-top-width: 4px; }
 
@@ -3208,9 +3211,6 @@
 
   .col.d-border-bottom-4, .col.d-border-b-4 {
     border-bottom-width: 4px; }
-
-  .col.d-border-5 {
-    border-width: 5px; }
 
   .col.d-border-top-5, .col.d-border-t-5 {
     border-top-width: 5px; }
@@ -4223,6 +4223,21 @@
   .col.dl-border-0 {
     border-width: 0px; }
 
+  .col.dl-border-1 {
+    border-width: 1px; }
+
+  .col.dl-border-2 {
+    border-width: 2px; }
+
+  .col.dl-border-3 {
+    border-width: 3px; }
+
+  .col.dl-border-4 {
+    border-width: 4px; }
+
+  .col.dl-border-5 {
+    border-width: 5px; }
+
   .col.dl-border-top-0, .col.dl-border-t-0 {
     border-top-width: 0px; }
 
@@ -4234,9 +4249,6 @@
 
   .col.dl-border-bottom-0, .col.dl-border-b-0 {
     border-bottom-width: 0px; }
-
-  .col.dl-border-1 {
-    border-width: 1px; }
 
   .col.dl-border-top-1, .col.dl-border-t-1 {
     border-top-width: 1px; }
@@ -4250,9 +4262,6 @@
   .col.dl-border-bottom-1, .col.dl-border-b-1 {
     border-bottom-width: 1px; }
 
-  .col.dl-border-2 {
-    border-width: 2px; }
-
   .col.dl-border-top-2, .col.dl-border-t-2 {
     border-top-width: 2px; }
 
@@ -4264,9 +4273,6 @@
 
   .col.dl-border-bottom-2, .col.dl-border-b-2 {
     border-bottom-width: 2px; }
-
-  .col.dl-border-3 {
-    border-width: 3px; }
 
   .col.dl-border-top-3, .col.dl-border-t-3 {
     border-top-width: 3px; }
@@ -4280,9 +4286,6 @@
   .col.dl-border-bottom-3, .col.dl-border-b-3 {
     border-bottom-width: 3px; }
 
-  .col.dl-border-4 {
-    border-width: 4px; }
-
   .col.dl-border-top-4, .col.dl-border-t-4 {
     border-top-width: 4px; }
 
@@ -4294,9 +4297,6 @@
 
   .col.dl-border-bottom-4, .col.dl-border-b-4 {
     border-bottom-width: 4px; }
-
-  .col.dl-border-5 {
-    border-width: 5px; }
 
   .col.dl-border-top-5, .col.dl-border-t-5 {
     border-top-width: 5px; }

@@ -46,8 +46,12 @@ ul.plain {
 
   .right { float: right; }
   .overflow-visible { overflow: visible; }
+}
 
-  @include animate($transitionDuration, 'padding, border');
+.animate {
+  .col {
+    @include animate($transitionDuration, 'padding, border');
+  }
 }
 
 .col.collapsible {

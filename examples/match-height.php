@@ -51,8 +51,8 @@
             </pre>
         </div>
 
-        <div class="col-s-pad-1" ap-match-height="'items'" selector="'.item'">
-            <div class="item col s-pad-1 ml-1-3 s-border-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, sapiente.</div>
+        <div class="col s-pad-1" ap-match-height="'items'" selector="'.item'">
+            <div class="item col s-pad-1 ml-1-3 s-border-1">{{'hello'}} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, sapiente.</div>
             <div class="item col s-pad-1 ml-1-3 s-border-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus facilis impedit iste modi nisi repellat sequi voluptas! Accusamus aliquam at fugiat labore libero maiores necessitatibus quas repellat? A, culpa laudantium.</div>
             <div class="item col s-pad-1 ml-1-3 s-border-1">Lorem ipsum dolor sit amet.</div>
             <div class="item col s-pad-1 ml-1-3 s-border-1">Lorem ipsum dolor sit amet.</div>
