@@ -136,6 +136,10 @@
   .#{$la}-float-right { float: right; }
   .#{$la}-float-none { float: none; }
 
+  .#{$la}-font-80 { font-size: 80%; }
+  .#{$la}-font-100 { font-size: 100%; }
+  .#{$la}-font-125 { font-size: 125%; }
+
   .#{$la}-opacity-100 { opacity: 0; }
   .#{$la}-opacity-75 { opacity: 0.75; }
   .#{$la}-opacity-50 { opacity: 0.5; }
@@ -196,14 +200,15 @@
 
   /* #Absolute positioning
   ================================================== */
-  .#{$la}-position-absolute { position: absolute; }
-  .#{$la}-position-static { position: static; }
-  .#{$la}-position-fixed { position: fixed;}
+  .#{$la}-absolute { position: absolute; }
+  .#{$la}-static { position: static; }
+  .#{$la}-fixed { position: fixed; }
+  .#{$la}-relative { position: relative; }
 
-  .#{$la}-position-absolute.left, .#{$la}-position-static.left, .#{$la}-position-fixed.left { left: 0; }
-  .#{$la}-position-absolute.right, .#{$la}-position-static.right, .#{$la}-position-fixed.right { right: 0; }
-  .#{$la}-position-absolute.top, .#{$la}-position-static.top, .#{$la}-position-fixed.top { top: 0; }
-  .#{$la}-position-absolute.bottom , .#{$la}-position-static.bottom, .#{$la}-position-fixed.bottom{ bottom: 0; }
+  .#{$la}-left { left: 0; }
+  .#{$la}-right { right: 0; }
+  .#{$la}-top { top: 0; }
+  .#{$la}-bottom { bottom: 0; }
 
 
   /* Depth
@@ -215,6 +220,30 @@
   .#{$la}-z9999 { z-index: 9999; }
   .#{$la}-z99999 { z-index: 99999; }
   .#{$la}-z999999 { z-index: 999999; }
+
+  .#{$la}-aspect-1-1 {
+    &:after {
+      padding-top: 100%;
+      display: block;
+      content: '';
+    }
+  }
+
+  .#{$la}-aspect-2-1 {
+    &:after {
+      padding-top: 50%;
+      display: block;
+      content: '';
+    }
+  }
+
+  .#{$la}-aspect-16-9 {
+    &:after {
+      padding-top: 56.25%; /*16:9 ratio*/
+      display: block;
+      content: '';
+    }
+  }
 
 
   /* Misc
@@ -302,9 +331,9 @@
   $i:0;
   @each $borderSize in $borderSizes {
     .col.#{$la}-border-#{$i} { border-width: #{$borderSize}px; }
+
     $i:$i+1;
   }
-
   $i:0;
   @each $borderSize in $borderSizes {
     .col.#{$la}-border-top-#{$i}, .col.#{$la}-border-t-#{$i} { border-top-width: #{$borderSize}px; }
