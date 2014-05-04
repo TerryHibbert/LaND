@@ -304,15 +304,15 @@
   $i:0;
   @each $padSize in $padSizes {
     $name: nth($padSizeNames, $i+1);
-    .col.#{$la}-pad-top-#{$name}, .col.#{$la}-pad-t-#{$name} { padding-top: #{$padSize}px; }
-    .col.#{$la}-pad-right-#{$name}, .col.#{$la}-pad-r-#{$name} { padding-right: #{$padSize}px; }
-    .col.#{$la}-pad-bottom-#{$name}, .col.#{$la}-pad-b-#{$name} { padding-bottom: #{$padSize}px; }
-    .col.#{$la}-pad-left-#{$name}, .col.#{$la}-pad-l-#{$name} { padding-left: #{$padSize}px; }
+    .col.#{$la}-pad-t-#{$name} { padding-top: #{$padSize}px; }
+    .col.#{$la}-pad-r-#{$name} { padding-right: #{$padSize}px; }
+    .col.#{$la}-pad-b-#{$name} { padding-bottom: #{$padSize}px; }
+    .col.#{$la}-pad-l-#{$name} { padding-left: #{$padSize}px; }
 
-    .col.#{$la}-margin-top-#{$name}, .col.#{$la}-margin-t-#{$name} { margin-top: #{$padSize}px; }
-    .col.#{$la}-margin-right-#{$name}, .col.#{$la}-margin-r-#{$name} { margin-right: #{$padSize}px; }
-    .col.#{$la}-margin-bottom-#{$name}, .col.#{$la}-margin-b-#{$name} { margin-bottom: #{$padSize}px; }
-    .col.#{$la}-margin-left-#{$name}, .col.#{$la}-margin-l-#{$name} { margin-left: #{$padSize}px; }
+    .col.#{$la}-margin-t-#{$name} { margin-top: #{$padSize}px; }
+    .col.#{$la}-margin-r-#{$name} { margin-right: #{$padSize}px; }
+    .col.#{$la}-margin-b-#{$name} { margin-bottom: #{$padSize}px; }
+    .col.#{$la}-margin-l-#{$name} { margin-left: #{$padSize}px; }
 
     $i:$i+1;
   }
@@ -329,10 +329,10 @@
   }
   $i:0;
   @each $borderSize in $borderSizes {
-    .col.#{$la}-border-top-#{$i}, .col.#{$la}-border-t-#{$i} { border-top-width: #{$borderSize}px; }
-    .col.#{$la}-border-right-#{$i}, .col.#{$la}-border-r-#{$i} { border-right-width: #{$borderSize}px; }
-    .col.#{$la}-border-left-#{$i}, .col.#{$la}-border-l-#{$i} { border-left-width: #{$borderSize}px; }
-    .col.#{$la}-border-bottom-#{$i}, .col.#{$la}-border-b-#{$i} { border-bottom-width: #{$borderSize}px; }
+    .col.#{$la}-border-t-#{$i} { border-top-width: #{$borderSize}px; }
+    .col.#{$la}-border-r-#{$i} { border-right-width: #{$borderSize}px; }
+    .col.#{$la}-border-l-#{$i} { border-left-width: #{$borderSize}px; }
+    .col.#{$la}-border-b-#{$i} { border-bottom-width: #{$borderSize}px; }
     $i:$i+1;
   }
 
