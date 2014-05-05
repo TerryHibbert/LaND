@@ -8,7 +8,7 @@
 
     $LaND_debug = false;
 
-    function debug($message, $renderScriptTags = false) {
+    function land_debug($message, $renderScriptTags = false) {
         global $LaND_debug;
         if (!$LaND_debug) return;
         $action = "console.log(\"$message\");";
@@ -35,7 +35,7 @@
 <!--[if !IE | gte IE 10]><!-->
 <style>@media all and (min-width:1px) {.mediatest{position:absolute;}}</style>
 <script>
-    <?php debug('LaND start'); ?>
+    <?php land_debug('LaND start'); ?>
 
     function loadResponsiveCSS() {
         var ref = document.createElement("link");
@@ -44,19 +44,19 @@
         ref.setAttribute("media", "<?php echo $LaND_media; ?>");
         ref.setAttribute("href", "<?php echo $url_path_to_land; ?>css/land-respond.css");
         document.getElementsByTagName("head")[0].appendChild(ref);
-        <?php debug('LaND loaded responsive CSS'); ?>
+        <?php land_debug('LaND loaded responsive CSS'); ?>
     }
 
     if (window.matchMedia) {
-        <?php debug('LaND has matchMedia support'); ?>
+        <?php land_debug('LaND has matchMedia support'); ?>
         var mm = window.matchMedia('<?php echo $LaND_media; ?> and (min-width: <?php echo $width_to_load_responsive_css; ?>px)');
 
         if (mm.matches) {
-            <?php debug('LaND matches min width'); ?>
+            <?php land_debug('LaND matches min width'); ?>
             document.write('<link rel="stylesheet" type="text/css" media="<?php echo $LaND_media; ?>" href="<?php echo $url_path_to_land; ?>css/land-respond.css">');
-            <?php debug('LaND loaded responsive CSS'); ?>
+            <?php land_debug('LaND loaded responsive CSS'); ?>
         } else {
-            <?php debug('LaND doesn\'t match min width'); ?>
+            <?php land_debug('LaND doesn\'t match min width'); ?>
             function handleMMChange() {
                 mm.removeListener(handleMMChange);
                 loadResponsiveCSS();
@@ -65,16 +65,16 @@
             mm.addListener(handleMMChange);
         }
     } else {
-        <?php debug('LaND does\'t have matchMedia support'); ?>
+        <?php land_debug('LaND does\'t have matchMedia support'); ?>
 
         if (typeof CSSMediaRule !== 'undefined') {
-            <?php debug('LaND no matchMedia, but CSS media queries are supported'); ?>
+            <?php land_debug('LaND no matchMedia, but CSS media queries are supported'); ?>
             document.write('<link rel="stylesheet" type="text/css" media="<?php echo $LaND_media; ?>" href="<?php echo $url_path_to_land; ?>css/land-respond.css">');
-            <?php debug('LaND loaded responsive CSS'); ?>
+            <?php land_debug('LaND loaded responsive CSS'); ?>
         } else {
-            <?php debug('LaND no matchMedia and no CSS media queries supported'); ?>
+            <?php land_debug('LaND no matchMedia and no CSS media queries supported'); ?>
             document.write('<link rel="stylesheet" type="text/css" media="<?php echo $LaND_media; ?>" href="<?php echo $url_path_to_land; ?>css/land-desktop.css">');
-            <?php debug('LaND loaded desktop CSS'); ?>
+            <?php land_debug('LaND loaded desktop CSS'); ?>
         }
     }
 </script>
