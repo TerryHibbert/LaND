@@ -449,6 +449,9 @@ land-s {
 .col.s-margin-0 {
   margin: 0; }
 
+.col.s-margin-auto {
+  margin: auto; }
+
 .col.s-pad-0 {
   padding: 0px; }
 
@@ -1021,6 +1024,54 @@ land-s {
 .col.s-border-5 {
   border-width: 5px; }
 
+.col.s-border-v-0 {
+  border-top-width: 0px;
+  border-bottom-width: 0px; }
+
+.col.s-border-h-0 {
+  border-right-width: 0px;
+  border-left-width: 0px; }
+
+.col.s-border-v-1 {
+  border-top-width: 1px;
+  border-bottom-width: 1px; }
+
+.col.s-border-h-1 {
+  border-right-width: 1px;
+  border-left-width: 1px; }
+
+.col.s-border-v-2 {
+  border-top-width: 2px;
+  border-bottom-width: 2px; }
+
+.col.s-border-h-2 {
+  border-right-width: 2px;
+  border-left-width: 2px; }
+
+.col.s-border-v-3 {
+  border-top-width: 3px;
+  border-bottom-width: 3px; }
+
+.col.s-border-h-3 {
+  border-right-width: 3px;
+  border-left-width: 3px; }
+
+.col.s-border-v-4 {
+  border-top-width: 4px;
+  border-bottom-width: 4px; }
+
+.col.s-border-h-4 {
+  border-right-width: 4px;
+  border-left-width: 4px; }
+
+.col.s-border-v-5 {
+  border-top-width: 5px;
+  border-bottom-width: 5px; }
+
+.col.s-border-h-5 {
+  border-right-width: 5px;
+  border-left-width: 5px; }
+
 .col.s-border-t-0 {
   border-top-width: 0px; }
 
@@ -1442,6 +1493,9 @@ land-s {
 
   .col.m-margin-0 {
     margin: 0; }
+
+  .col.m-margin-auto {
+    margin: auto; }
 
   .col.m-pad-0 {
     padding: 0px; }
@@ -2014,6 +2068,54 @@ land-s {
 
   .col.m-border-5 {
     border-width: 5px; }
+
+  .col.m-border-v-0 {
+    border-top-width: 0px;
+    border-bottom-width: 0px; }
+
+  .col.m-border-h-0 {
+    border-right-width: 0px;
+    border-left-width: 0px; }
+
+  .col.m-border-v-1 {
+    border-top-width: 1px;
+    border-bottom-width: 1px; }
+
+  .col.m-border-h-1 {
+    border-right-width: 1px;
+    border-left-width: 1px; }
+
+  .col.m-border-v-2 {
+    border-top-width: 2px;
+    border-bottom-width: 2px; }
+
+  .col.m-border-h-2 {
+    border-right-width: 2px;
+    border-left-width: 2px; }
+
+  .col.m-border-v-3 {
+    border-top-width: 3px;
+    border-bottom-width: 3px; }
+
+  .col.m-border-h-3 {
+    border-right-width: 3px;
+    border-left-width: 3px; }
+
+  .col.m-border-v-4 {
+    border-top-width: 4px;
+    border-bottom-width: 4px; }
+
+  .col.m-border-h-4 {
+    border-right-width: 4px;
+    border-left-width: 4px; }
+
+  .col.m-border-v-5 {
+    border-top-width: 5px;
+    border-bottom-width: 5px; }
+
+  .col.m-border-h-5 {
+    border-right-width: 5px;
+    border-left-width: 5px; }
 
   .col.m-border-t-0 {
     border-top-width: 0px; }
