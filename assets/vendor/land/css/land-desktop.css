@@ -5416,3 +5416,6 @@ land-d {
   display: inline;
   height: auto;
   width: auto; }
+
+html {
+  min-width: 940px; }

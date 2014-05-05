@@ -4,3 +4,7 @@
 $fixedLayoutIndex: index($layouts, $fixedLayout);
 
 @include layouts(false, 1, $fixedLayoutIndex);
+
+html {
+  min-width: $dcm;
+}
