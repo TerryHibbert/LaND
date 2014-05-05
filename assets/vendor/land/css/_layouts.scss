@@ -291,38 +291,31 @@
     $name: nth($padSizeNames, $i+1);
 
     .col.#{$la}-pad-#{$name} { padding: #{$padSize}px; }
-    .col.#{$la}-pad-top-#{$name}, .col.#{$la}-pad-t-#{$name} { padding-top: #{$padSize}px; }
-    .col.#{$la}-pad-right-#{$name}, .col.#{$la}-pad-r-#{$name} { padding-right: #{$padSize}px; }
-    .col.#{$la}-pad-bottom-#{$name}, .col.#{$la}-pad-b-#{$name} { padding-bottom: #{$padSize}px; }
-    .col.#{$la}-pad-left-#{$name}, .col.#{$la}-pad-l-#{$name} { padding-left: #{$padSize}px; }
     .col.#{$la}-pad-h-#{$name} { padding-left: #{$padSize}px; padding-right: #{$padSize}px; }
     .col.#{$la}-pad-v-#{$name} { padding-top: #{$padSize}px; padding-bottom: #{$padSize}px; }
 
     .col.#{$la}-margin-#{$name} { margin: #{$padSize}px; }
-    .col.#{$la}-margin-top-#{$name}, .col.#{$la}-margin-t-#{$name} { margin-top: #{$padSize}px; }
-    .col.#{$la}-margin-right-#{$name}, .col.#{$la}-margin-r-#{$name} { margin-right: #{$padSize}px; }
-    .col.#{$la}-margin-bottom-#{$name}, .col.#{$la}-margin-b-#{$name} { margin-bottom: #{$padSize}px; }
-    .col.#{$la}-margin-left-#{$name}, .col.#{$la}-margin-l-#{$name} { margin-left: #{$padSize}px; }
     .col.#{$la}-margin-h-#{$name} { margin-left: #{$padSize}px; margin-right: #{$padSize}px; }
     .col.#{$la}-margin-v-#{$name} { margin-top: #{$padSize}px; margin-bottom: #{$padSize}px; }
 
     $i:$i+1;
   }
 
-  .col.#{$la}-pad-top-0, .col.#{$la}-pad-t-0 { padding-top: 0; }
-  .col.#{$la}-pad-right-0, .col.#{$la}-pad-r-0 { padding-right: 0; }
-  .col.#{$la}-pad-bottom-0, .col.#{$la}-pad-b-0 { padding-bottom: 0; }
-  .col.#{$la}-pad-left-0, .col.#{$la}-pad-l-0 { padding-left: 0; }
-  .col.#{$la}-pad-h-0 { padding-left: 0; padding-right: 0; }
-  .col.#{$la}-pad-v-0 { padding-top: 0; padding-bottom: 0; }
+  $i:0;
+  @each $padSize in $padSizes {
+    $name: nth($padSizeNames, $i+1);
+    .col.#{$la}-pad-t-#{$name} { padding-top: #{$padSize}px; }
+    .col.#{$la}-pad-r-#{$name} { padding-right: #{$padSize}px; }
+    .col.#{$la}-pad-b-#{$name} { padding-bottom: #{$padSize}px; }
+    .col.#{$la}-pad-l-#{$name} { padding-left: #{$padSize}px; }
 
-  .col.#{$la}-margin-top-0, .col.#{$la}-margin-t-0 { margin-top: 0; }
-  .col.#{$la}-margin-right-0, .col.#{$la}-margin-r-0 { margin-right: 0; }
-  .col.#{$la}-margin-bottom-0, .col.#{$la}-margin-b-0 { margin-bottom: 0; }
-  .col.#{$la}-margin-left-0, .col.#{$la}-margin-l-0 { margin-left: 0; }
-  .col.#{$la}-margin-h-0 { margin-left: 0; margin-right: 0; }
-  .col.#{$la}-margin-v-0 { margin-top: 0; margin-bottom: 0; }
-  .col.#{$la}-margin-auto { margin-left: auto; margin-right: auto; }
+    .col.#{$la}-margin-t-#{$name} { margin-top: #{$padSize}px; }
+    .col.#{$la}-margin-r-#{$name} { margin-right: #{$padSize}px; }
+    .col.#{$la}-margin-b-#{$name} { margin-bottom: #{$padSize}px; }
+    .col.#{$la}-margin-l-#{$name} { margin-left: #{$padSize}px; }
+
+    $i:$i+1;
+  }
 
 
   /* Borders
@@ -336,10 +329,10 @@
   }
   $i:0;
   @each $borderSize in $borderSizes {
-    .col.#{$la}-border-top-#{$i}, .col.#{$la}-border-t-#{$i} { border-top-width: #{$borderSize}px; }
-    .col.#{$la}-border-right-#{$i}, .col.#{$la}-border-r-#{$i} { border-right-width: #{$borderSize}px; }
-    .col.#{$la}-border-left-#{$i}, .col.#{$la}-border-l-#{$i} { border-left-width: #{$borderSize}px; }
-    .col.#{$la}-border-bottom-#{$i}, .col.#{$la}-border-b-#{$i} { border-bottom-width: #{$borderSize}px; }
+    .col.#{$la}-border-t-#{$i} { border-top-width: #{$borderSize}px; }
+    .col.#{$la}-border-r-#{$i} { border-right-width: #{$borderSize}px; }
+    .col.#{$la}-border-l-#{$i} { border-left-width: #{$borderSize}px; }
+    .col.#{$la}-border-b-#{$i} { border-bottom-width: #{$borderSize}px; }
     $i:$i+1;
   }
 
