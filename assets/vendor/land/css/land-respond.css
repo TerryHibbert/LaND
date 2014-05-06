@@ -173,6 +173,12 @@
   .ml-text-left {
     text-align: left; }
 
+  .ml-weight-normal {
+    font-weight: normal; }
+
+  .ml-weight-bold {
+    font-weight: bold; }
+
   .ml-ws-normal {
     white-space: normal; }
 
@@ -1293,6 +1299,12 @@
 
   .t-text-left {
     text-align: left; }
+
+  .t-weight-normal {
+    font-weight: normal; }
+
+  .t-weight-bold {
+    font-weight: bold; }
 
   .t-ws-normal {
     white-space: normal; }
@@ -2415,6 +2427,12 @@
   .d-text-left {
     text-align: left; }
 
+  .d-weight-normal {
+    font-weight: normal; }
+
+  .d-weight-bold {
+    font-weight: bold; }
+
   .d-ws-normal {
     white-space: normal; }
 
@@ -3535,6 +3553,12 @@
 
   .dl-text-left {
     text-align: left; }
+
+  .dl-weight-normal {
+    font-weight: normal; }
+
+  .dl-weight-bold {
+    font-weight: bold; }
 
   .dl-ws-normal {
     white-space: normal; }

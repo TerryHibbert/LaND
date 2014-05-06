@@ -230,6 +230,12 @@ land-s {
 .s-text-left {
   text-align: left; }
 
+.s-weight-normal {
+  font-weight: normal; }
+
+.s-weight-bold {
+  font-weight: bold; }
+
 .s-ws-normal {
   white-space: normal; }
 
@@ -1274,6 +1280,12 @@ land-s {
 
   .m-text-left {
     text-align: left; }
+
+  .m-weight-normal {
+    font-weight: normal; }
+
+  .m-weight-bold {
+    font-weight: bold; }
 
   .m-ws-normal {
     white-space: normal; }

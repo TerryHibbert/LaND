@@ -125,6 +125,12 @@ land-s {
 .s-text-left {
   text-align: left; }
 
+.s-weight-normal {
+  font-weight: normal; }
+
+.s-weight-bold {
+  font-weight: bold; }
+
 .s-ws-normal {
   white-space: normal; }
 
@@ -1167,6 +1173,12 @@ land-m {
 
 .m-text-left {
   text-align: left; }
+
+.m-weight-normal {
+  font-weight: normal; }
+
+.m-weight-bold {
+  font-weight: bold; }
 
 .m-ws-normal {
   white-space: normal; }
@@ -2243,6 +2255,12 @@ land-ml {
 
 .ml-text-left {
   text-align: left; }
+
+.ml-weight-normal {
+  font-weight: normal; }
+
+.ml-weight-bold {
+  font-weight: bold; }
 
 .ml-ws-normal {
   white-space: normal; }
@@ -3365,6 +3383,12 @@ land-t {
 .t-text-left {
   text-align: left; }
 
+.t-weight-normal {
+  font-weight: normal; }
+
+.t-weight-bold {
+  font-weight: bold; }
+
 .t-ws-normal {
   white-space: normal; }
 
@@ -4485,6 +4509,12 @@ land-d {
 
 .d-text-left {
   text-align: left; }
+
+.d-weight-normal {
+  font-weight: normal; }
+
+.d-weight-bold {
+  font-weight: bold; }
 
 .d-ws-normal {
   white-space: normal; }
