@@ -11,10 +11,22 @@
         <div class="col t-1-2">Hello</div>
         <div class="col t-1-2">LaND</div>
     </div>
-    <p class="col">An explanation of the above: The 'col' declares the element to be a LaND column. A land column has a default layout of 't-1-1' which means<br/>
+    <p class="col">An explanation of the above: The "col" declares the element to be a LaND column. A land column has a default layout of 't-1-1' which means<br/>
         "on <strong>s</strong>mall screens and wider, the columns has a width of <strong>1</strong> divided by <strong>1</strong> (which is the whole width)". The 't-1-2' specifies that <br/>
         "for <strong>t</strong>ablet and wider, the columns have a width of <strong>1</strong> divided by <strong>2</strong> (half)".
     </p>
+
+    <h3 class="col">Tips:</h3>
+    <div class="col s-pad-0">
+        <ul>
+            <li><strong>Define the smaller layouts first:</strong><br/>
+                <em>i.e.</em> "col s-none m-block m-border-t-1 t-1-2 t-border-0"</li>
+            <li><strong>Group and order classes by layout then specificity:</strong><br/>
+                <em>i.e.</em> All the "s", then the "t", then "d"</li>
+            <li><strong>Be succinct, use the defaults and avoid redundancy:</strong><br/>
+                <em>i.e.</em> "col t-1-2" is better way than saying "col s-pad-1 s-1-1 t-pad-1 t-1-2"</li>
+        </ul>
+    </div>
 
     <h3 class="col">What's with the colors?</h3>
     <p class="col">The colors are what the site looks like in debug mode. The purpose of debug mode helps to see where the 'col' blocks start and end. It's enabled through two classes and toggleable with this bookmarklet
