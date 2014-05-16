@@ -296,10 +296,19 @@
     $name: nth($padSizeNames, $i+1);
 
     .col.#{$la}-pad-#{$name} { padding: #{$padSize}px; }
+
+    .col.#{$la}-margin-#{$name} { margin: #{$padSize}px; }
+
+    $i:$i+1;
+  }
+
+  $i:0;
+  @each $padSize in $padSizes {
+    $name: nth($padSizeNames, $i+1);
+
     .col.#{$la}-pad-h-#{$name} { padding-left: #{$padSize}px; padding-right: #{$padSize}px; }
     .col.#{$la}-pad-v-#{$name} { padding-top: #{$padSize}px; padding-bottom: #{$padSize}px; }
 
-    .col.#{$la}-margin-#{$name} { margin: #{$padSize}px; }
     .col.#{$la}-margin-h-#{$name} { margin-left: #{$padSize}px; margin-right: #{$padSize}px; }
     .col.#{$la}-margin-v-#{$name} { margin-top: #{$padSize}px; margin-bottom: #{$padSize}px; }
 
