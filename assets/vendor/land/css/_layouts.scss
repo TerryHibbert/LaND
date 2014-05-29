@@ -248,6 +248,14 @@
     }
   }
 
+  .#{$la}-aspect-4-3 {
+    &:after {
+      padding-top: 75%; /*4:3 ratio*/
+      display: block;
+      content: '';
+    }
+  }
+
 
   /* Misc
   ================================================== */
