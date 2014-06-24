@@ -213,6 +213,14 @@
   .#{$la}-top { top: 0; }
   .#{$la}-bottom { bottom: 0; }
 
+  /* Rounded
+  ================================================== */
+
+  .#{$la}-rounded-0 { border-radius: 0; }
+  .#{$la}-rounded-3 { border-radius: 3px; }
+  .#{$la}-rounded-5 { border-radius: 5px; }
+  .#{$la}-rounded-10 { border-radius: 10px; }
+  .#{$la}-rounded-20 { border-radius: 20px; }
 
   /* Depth
   ================================================== */
