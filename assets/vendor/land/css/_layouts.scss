@@ -34,10 +34,11 @@
 
         #{$invisibleSelectors} { display: none;}
 
-        .#{$la}, .#{$la} { display: initial; }
-        .#{$la}-block, .#{$la}-block { display: block; }
-        .#{$la}-inline, .#{$la}-inline { display: inline; }
-        .#{$la}-none, .#{$la}-none { display: none; }
+        .#{$la} { display: initial; }
+        .#{$la}-block { display: block; }
+        .#{$la}-inline { display: inline; }
+        .#{$la}-inline-block { display: inline-block; }
+        .#{$la}-none { display: none; }
 
         .LaND-container {
           width: #{nth($containerMax, $i)};
@@ -53,10 +54,11 @@
 
       #{$invisibleSelectors} { display: none;}
 
-      .#{$la}, .#{$la} { display: block; }
-      .#{$la}-block, .#{$la}-block { display: block; }
-      .#{$la}-inline, .#{$la}-inline { display: block; }
-      .#{$la}-none, .#{$la}-none { display: none; }
+      .#{$la} { display: block; }
+      .#{$la}-block { display: block; }
+      .#{$la}-inline { display: inline; }
+      .#{$la}-inline-block { display: inline-block; }
+      .#{$la}-none { display: none; }
 
       .LaND-container {
         width: #{nth($containerMax, $i)};
