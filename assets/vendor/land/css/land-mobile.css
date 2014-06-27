@@ -146,16 +146,19 @@ land-s {
 .m, .ml, .t, .d, .dl {
   display: none; }
 
-.s, .s {
+.s {
   display: block; }
 
-.s-block, .s-block {
+.s-block {
   display: block; }
 
-.s-inline, .s-inline {
-  display: block; }
+.s-inline {
+  display: inline; }
 
-.s-none, .s-none {
+.s-inline-block {
+  display: inline-block; }
+
+.s-none {
   display: none; }
 
 .LaND-container {
@@ -1254,16 +1257,19 @@ land-s {
   .s, .ml, .t, .d, .dl {
     display: none; }
 
-  .m, .m {
+  .m {
     display: initial; }
 
-  .m-block, .m-block {
+  .m-block {
     display: block; }
 
-  .m-inline, .m-inline {
+  .m-inline {
     display: inline; }
 
-  .m-none, .m-none {
+  .m-inline-block {
+    display: inline-block; }
+
+  .m-none {
     display: none; }
 
   .LaND-container {

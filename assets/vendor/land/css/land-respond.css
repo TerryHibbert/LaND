@@ -44,16 +44,19 @@
   .s, .m, .t, .d, .dl {
     display: none; }
 
-  .ml, .ml {
+  .ml {
     display: initial; }
 
-  .ml-block, .ml-block {
+  .ml-block {
     display: block; }
 
-  .ml-inline, .ml-inline {
+  .ml-inline {
     display: inline; }
 
-  .ml-none, .ml-none {
+  .ml-inline-block {
+    display: inline-block; }
+
+  .ml-none {
     display: none; }
 
   .LaND-container {
@@ -1195,16 +1198,19 @@
   .s, .m, .ml, .d, .dl {
     display: none; }
 
-  .t, .t {
+  .t {
     display: initial; }
 
-  .t-block, .t-block {
+  .t-block {
     display: block; }
 
-  .t-inline, .t-inline {
+  .t-inline {
     display: inline; }
 
-  .t-none, .t-none {
+  .t-inline-block {
+    display: inline-block; }
+
+  .t-none {
     display: none; }
 
   .LaND-container {
@@ -2391,16 +2397,19 @@
   .s, .m, .ml, .t, .dl {
     display: none; }
 
-  .d, .d {
+  .d {
     display: initial; }
 
-  .d-block, .d-block {
+  .d-block {
     display: block; }
 
-  .d-inline, .d-inline {
+  .d-inline {
     display: inline; }
 
-  .d-none, .d-none {
+  .d-inline-block {
+    display: inline-block; }
+
+  .d-none {
     display: none; }
 
   .LaND-container {
@@ -3587,16 +3596,19 @@
   .s, .m, .ml, .t, .d {
     display: none; }
 
-  .dl, .dl {
+  .dl {
     display: initial; }
 
-  .dl-block, .dl-block {
+  .dl-block {
     display: block; }
 
-  .dl-inline, .dl-inline {
+  .dl-inline {
     display: inline; }
 
-  .dl-none, .dl-none {
+  .dl-inline-block {
+    display: inline-block; }
+
+  .dl-none {
     display: none; }
 
   .LaND-container {

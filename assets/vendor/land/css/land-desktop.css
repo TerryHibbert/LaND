@@ -41,16 +41,19 @@ land-s {
 .m, .ml, .t, .d, .dl {
   display: none; }
 
-.s, .s {
+.s {
   display: block; }
 
-.s-block, .s-block {
+.s-block {
   display: block; }
 
-.s-inline, .s-inline {
-  display: block; }
+.s-inline {
+  display: inline; }
 
-.s-none, .s-none {
+.s-inline-block {
+  display: inline-block; }
+
+.s-none {
   display: none; }
 
 .LaND-container {
@@ -1147,16 +1150,19 @@ land-m {
 .s, .ml, .t, .d, .dl {
   display: none; }
 
-.m, .m {
+.m {
   display: block; }
 
-.m-block, .m-block {
+.m-block {
   display: block; }
 
-.m-inline, .m-inline {
-  display: block; }
+.m-inline {
+  display: inline; }
 
-.m-none, .m-none {
+.m-inline-block {
+  display: inline-block; }
+
+.m-none {
   display: none; }
 
 .LaND-container {
@@ -2265,16 +2271,19 @@ land-ml {
 .s, .m, .t, .d, .dl {
   display: none; }
 
-.ml, .ml {
+.ml {
   display: block; }
 
-.ml-block, .ml-block {
+.ml-block {
   display: block; }
 
-.ml-inline, .ml-inline {
-  display: block; }
+.ml-inline {
+  display: inline; }
 
-.ml-none, .ml-none {
+.ml-inline-block {
+  display: inline-block; }
+
+.ml-none {
   display: none; }
 
 .LaND-container {
@@ -3416,16 +3425,19 @@ land-t {
 .s, .m, .ml, .d, .dl {
   display: none; }
 
-.t, .t {
+.t {
   display: block; }
 
-.t-block, .t-block {
+.t-block {
   display: block; }
 
-.t-inline, .t-inline {
-  display: block; }
+.t-inline {
+  display: inline; }
 
-.t-none, .t-none {
+.t-inline-block {
+  display: inline-block; }
+
+.t-none {
   display: none; }
 
 .LaND-container {
@@ -4612,16 +4624,19 @@ land-d {
 .s, .m, .ml, .t, .dl {
   display: none; }
 
-.d, .d {
+.d {
   display: block; }
 
-.d-block, .d-block {
+.d-block {
   display: block; }
 
-.d-inline, .d-inline {
-  display: block; }
+.d-inline {
+  display: inline; }
 
-.d-none, .d-none {
+.d-inline-block {
+  display: inline-block; }
+
+.d-none {
   display: none; }
 
 .LaND-container {
