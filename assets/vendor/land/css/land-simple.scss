@@ -48,10 +48,6 @@ ul.plain {
   .overflow-visible { overflow: visible; }
 }
 
-ul.col {
-  list-style: none;
-}
-
 .animate {
   .col {
     @include animate($transitionDuration, 'padding, border');
@@ -128,7 +124,4 @@ $layoutsAll: implode($layoutSelectors, ', ');
 }
 
 /* Col sizes for any layout - to override with more specific layouts */
-
-@include layouts(false, 1, 1);
-
-@include layouts(true, 2, 2);
+@include layouts(true, 1, 6);

@@ -77,6 +77,9 @@ ul.plain {
   .col .overflow-visible {
     overflow: visible; }
 
+ul.col {
+  list-style: none; }
+
 .animate .col {
   transition-property: padding, border;
   -webkit-transition-property: padding, border;
