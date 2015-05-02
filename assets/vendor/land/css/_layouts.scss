@@ -271,8 +271,15 @@
   ================================================== */
   .#{$la}-cursor-pointer { cursor: pointer; }
   .#{$la}-full-height { height: 100%; }
-  .#{$la}-display-table { display: table; }
-  .#{$la}-cell-vertical-middle { display: table-cell; vertical-align: middle; float: none; }
+  .#{$la}-display-table {
+    display: table;
+    table-layout: fixed;
+  }
+  .#{$la}-cell-vertical-middle {
+    display: table-cell;
+    vertical-align: middle;
+    float: none;
+  }
 
   .#{$la}-v-center {
     position: absolute;

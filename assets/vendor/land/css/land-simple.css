@@ -457,7 +457,8 @@ ul.plain {
     height: 100%; }
 
   .s-display-table {
-    display: table; }
+    display: table;
+    table-layout: fixed; }
 
   .s-cell-vertical-middle {
     display: table-cell;
@@ -1578,7 +1579,8 @@ ul.plain {
     height: 100%; }
 
   .m-display-table {
-    display: table; }
+    display: table;
+    table-layout: fixed; }
 
   .m-cell-vertical-middle {
     display: table-cell;
@@ -2732,7 +2734,8 @@ ul.plain {
     height: 100%; }
 
   .ml-display-table {
-    display: table; }
+    display: table;
+    table-layout: fixed; }
 
   .ml-cell-vertical-middle {
     display: table-cell;
@@ -3931,7 +3934,8 @@ ul.plain {
     height: 100%; }
 
   .t-display-table {
-    display: table; }
+    display: table;
+    table-layout: fixed; }
 
   .t-cell-vertical-middle {
     display: table-cell;
@@ -5130,7 +5134,8 @@ ul.plain {
     height: 100%; }
 
   .d-display-table {
-    display: table; }
+    display: table;
+    table-layout: fixed; }
 
   .d-cell-vertical-middle {
     display: table-cell;
@@ -6329,7 +6334,8 @@ ul.plain {
     height: 100%; }
 
   .dl-display-table {
-    display: table; }
+    display: table;
+    table-layout: fixed; }
 
   .dl-cell-vertical-middle {
     display: table-cell;

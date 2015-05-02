@@ -1,0 +1,9 @@
+.access-block, .access-inline {
+  display: none; }
+
+@media braille, embossed, aural, speech {
+  .access-block {
+    display: block; }
+
+  .access-inline {
+    display: inline; } }

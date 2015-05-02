@@ -459,7 +459,8 @@ land-s {
   height: 100%; }
 
 .s-display-table {
-  display: table; }
+  display: table;
+  table-layout: fixed; }
 
 .s-cell-vertical-middle {
   display: table-cell;
@@ -1582,7 +1583,8 @@ land-s {
     height: 100%; }
 
   .m-display-table {
-    display: table; }
+    display: table;
+    table-layout: fixed; }
 
   .m-cell-vertical-middle {
     display: table-cell;

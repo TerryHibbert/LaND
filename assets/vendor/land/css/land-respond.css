@@ -399,7 +399,8 @@
     height: 100%; }
 
   .ml-display-table {
-    display: table; }
+    display: table;
+    table-layout: fixed; }
 
   .ml-cell-vertical-middle {
     display: table-cell;
@@ -1598,7 +1599,8 @@
     height: 100%; }
 
   .t-display-table {
-    display: table; }
+    display: table;
+    table-layout: fixed; }
 
   .t-cell-vertical-middle {
     display: table-cell;
@@ -2797,7 +2799,8 @@
     height: 100%; }
 
   .d-display-table {
-    display: table; }
+    display: table;
+    table-layout: fixed; }
 
   .d-cell-vertical-middle {
     display: table-cell;
@@ -3996,7 +3999,8 @@
     height: 100%; }
 
   .dl-display-table {
-    display: table; }
+    display: table;
+    table-layout: fixed; }
 
   .dl-cell-vertical-middle {
     display: table-cell;
