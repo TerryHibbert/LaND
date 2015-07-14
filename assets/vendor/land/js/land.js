@@ -8,7 +8,7 @@ var console = typeof console !== 'undefined' ? console : {log:function(){}};
 
 var LaND = function(options) {
     var that = this;
-    var options = typeof options !== 'undefined' ? options : {};
+    options = typeof options !== 'undefined' ? options : {};
 
     this.mqls = {};
 
@@ -42,13 +42,13 @@ var LaND = function(options) {
     this.addListener = function(name, handler) {
         if (!listeners.hasOwnProperty(name)) {
             throw "LaND: Can't add listener to unknown event: '" + name + "'";
-            return false;
+            //return false;
         }
 
         listeners[name][handler] = handler;
 
         return that;
-    }
+    };
 
     this.layoutChanges = function() {
         var result = {
@@ -57,18 +57,17 @@ var LaND = function(options) {
         };
         var layouts = this.layouts;
 
-        for (la in layouts) {
+        for (var la in layouts) {
             if (layouts.hasOwnProperty(la)) {
-                if (layouts[la]) {
-                    result.add.push('La-'+la);
-                } else {
+                if (layouts[la]) result.add.push('La-'+la);
+                else {
                     result.remove.push('La-'+la);
                 }
             }
         }
 
         return result;
-    }
+    };
 
     function addHTMLaddListeners() {
         var $html = $('html');
@@ -101,7 +100,7 @@ var LaND = function(options) {
         }
 
         dispatch('change', []);
-    };
+    }
 
     function findMediaQueries() {
 
@@ -129,7 +128,7 @@ var LaND = function(options) {
                     'max': rows[2].split(','),
                     'min': rows[3].split(','),
                     'containerMax': rows[4].split(',')
-                }
+                };
                 console.log(that.landInfo);
 
                 if (that.mediaQuerySupport) {
@@ -157,7 +156,7 @@ var LaND = function(options) {
             }
         }
     }
-}
+};
 
 LaND.events = {
     CHANGE: 'change'

@@ -1,0 +1,16 @@
+@mixin target_opacity($la) {
+  .#{$la}-opacity-100 { opacity: 0; }
+  .#{$la}-opacity-75 { opacity: 0.75; }
+  .#{$la}-opacity-50 { opacity: 0.5; }
+  .#{$la}-opacity-25 { opacity: 0.25; }
+}
+
+@mixin target_display($la, $invisibleSelectors) {
+  #{$invisibleSelectors} { display: none;}
+
+  .#{$la} { display: block; }
+  .#{$la}-block { display: block; }
+  .#{$la}-inline { display: inline; }
+  .#{$la}-inline-block { display: inline-block; }
+  .#{$la}-none { display: none; }
+}

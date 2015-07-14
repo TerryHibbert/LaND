@@ -1,0 +1,22 @@
+@mixin target_absolute_positioning($la) {
+  .#{$la}-absolute { position: absolute; }
+  .#{$la}-static { position: static; }
+  .#{$la}-fixed { position: fixed; }
+  .#{$la}-relative { position: relative; }
+
+  .#{$la}-left { left: 0; }
+  .#{$la}-right { right: 0; }
+  .#{$la}-top { top: 0; }
+  .#{$la}-bottom { bottom: 0; }
+}
+
+@mixin target_depth($la) {
+  .#{$la}-z0 { z-index: 0; }
+  .#{$la}-z1 { z-index: 1; }
+  .#{$la}-z9 { z-index: 9; }
+  .#{$la}-z99 { z-index: 99; }
+  .#{$la}-z999 { z-index: 999; }
+  .#{$la}-z9999 { z-index: 9999; }
+  .#{$la}-z99999 { z-index: 99999; }
+  .#{$la}-z999999 { z-index: 999999; }
+}

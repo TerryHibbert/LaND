@@ -1,16 +1,15 @@
 <?php
+    $LaND_debug = false;
+    $LaND_enable_js = false; // Not ready yet
+    $LaND_media = 'all';
+
     $width_to_load_responsive_css = 481;
     $root = defined('ROOT') ? ROOT : '/';
     $url_path_to_land = isset($url_path_to_land) ? $url_path_to_land : "{$root}assets/vendor/land/";
 
-    $LaND_enable_js = false; // Not ready yet
-    $LaND_media = 'all';
-
     $LaND_protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443)
         ? "https"
         : "http";
-
-    $LaND_debug = false;
 
     function land_debug($message, $renderScriptTags = false) {
         global $LaND_debug;
@@ -22,15 +21,9 @@
 <!-- BEGIN LaND -->
 <link rel="stylesheet" type="text/css" media="<?php echo $LaND_media; ?>" href="<?php echo $url_path_to_land; ?>css/normalize.css"/>
 
-<!--[if lt IE 9]>
-<script src="<?php echo $LaND_protocol; ?>://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
-<!--[if lt IE 8]>
-<script src="<?php echo $url_path_to_land; ?>js/json2.js"></script>
-<![endif]-->
-<!--[if lt IE 7]>
-<script src="<?php echo $LaND_protocol; ?>://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE7.js"></script>
-<![endif]-->
+<!--[if lt IE 9]><script src="<?php echo $LaND_protocol; ?>://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<!--[if lt IE 8]><script src="<?php echo $url_path_to_land; ?>js/json2.js"></script><![endif]-->
+<!--[if lt IE 7]><script src="<?php echo $LaND_protocol; ?>://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE7.js"></script><![endif]-->
 
 <link rel="stylesheet" type="text/css" media="<?php echo $LaND_media; ?>" href="<?php echo $url_path_to_land; ?>css/land-mobile.css"/>
 
@@ -59,12 +52,14 @@
             <?php land_debug('LaND matches min width'); ?>
             document.write('<link rel="stylesheet" type="text/css" media="<?php echo $LaND_media; ?>" href="<?php echo $url_path_to_land; ?>css/land-respond.css"/>');
             <?php land_debug('LaND loaded responsive CSS'); ?>
+
         } else {
             <?php land_debug('LaND doesn\'t match min width'); ?>
+
             function handleMMChange() {
                 mm.removeListener(handleMMChange);
                 loadResponsiveCSS();
-            };
+            }
 
             mm.addListener(handleMMChange);
         }
@@ -92,7 +87,7 @@
 
         land.addListener('change', function() {
             console.log('LaND change...');
-            $output = $('.output');
+            var $output = $('.output');
 
             var activeLayouts = [];
             $.each(land.layouts, function(i, layout) {

@@ -1,0 +1,103 @@
+@import "functions";
+
+@import "columns";
+@import "animation";
+@import "borders";
+@import "fixed";
+@import "layout";
+@import "type";
+@import "visibility";
+@import "position";
+@import "images";
+@import "interaction";
+
+/* Layout targeted properties
+================================================== */
+@mixin targetedProperties($la) {
+
+  @include target_clear($la);
+  @include target_float($la);
+  @include target_opacity($la);
+  @include target_overflow($la);
+  @include target_font_size($la);
+  @include target_font_weight($la);
+  @include target_text_align($la);
+  @include target_white_space($la);
+  @include target_no_select($la);
+  //@include target_fixed($la);
+  @include target_absolute_positioning($la);
+  @include target_depth($la);
+  @include target_dimensions($la);
+  @include target_mouse_cursor($la);
+
+
+  /* Misc
+  ================================================== */
+
+  @include target_vertical_center($la);
+
+  @include target_padding_and_margin($la, $padSizes, $padColDefaultSize);
+
+  @include target_border_rounded($la);
+  @include target_border-size($la);
+
+  @include target_images($la);
+}
+
+@mixin layouts($mediaQueries, $firstLayoutIndex, $lastLayoutIndex) {
+  /* BUILD LAYOUTS */
+  $lastDone: false;
+  $lastItem: $lastLayoutIndex;
+
+  @for $i from $firstLayoutIndex through $lastItem {
+    $la: nth($layouts, $i);
+    $isLast: $i == $lastItem;
+    $denomMax: nth($denominatorMax, $i);
+
+    $invisibles: ();
+    @for $j from 1 through $layoutCount {
+      @if $j < $i {
+        $layout: nth($layouts, $j);
+        $selector: '.' + $layout;
+        $invisibles: append($invisibles, $selector);
+
+      } @else if $j > $i {
+        $layout: nth($layouts, $j);
+        $selector: '.' + $layout;
+        $invisibles: append($invisibles, $selector);
+      }
+    }
+
+    $invisibleSelectors: implode($invisibles, ', ');
+    /* $invisibleSelectors #{$invisibleSelectors} */
+
+    @if ($mediaQueries) {
+      @media (min-width: #{nth($min, $i)}) {
+        land-#{$la} {cue:none}
+
+        @include target_display($la, $invisibleSelectors);
+
+        .LaND-container {
+          width: #{nth($containerMax, $i)};
+        }
+
+        @include colSizes($la, $denomMax);
+        @include targetedProperties($la: $la);
+      }
+
+    } @else {
+      land-#{$la} {cue:none}
+
+      #{$invisibleSelectors} { display: none;}
+
+      @include target_display($la, $invisibleSelectors);
+
+      .LaND-container {
+        width: #{nth($containerMax, $i)};
+      }
+
+      @include colSizes($la, $denomMax);
+      @include targetedProperties($la: $la);
+    }
+  }
+}

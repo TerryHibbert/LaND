@@ -1,5 +1,4 @@
-@import "land";
-@import "functions";
-@import "layouts";
+@import "land-config";
+@import "inc/core";
 
 @include layouts(true, 3, $layoutCount);

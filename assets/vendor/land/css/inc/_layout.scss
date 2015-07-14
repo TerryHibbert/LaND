@@ -1,0 +1,145 @@
+@mixin borderBoxSizing() {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  *behavior: url('../boxsizing.htc');
+}
+
+@mixin target_clear($la) {
+  .#{$la}-clear, .#{$la}-clear-left { clear: left; }
+  .#{$la}-clear-right { clear: right; }
+  .#{$la}-clear-both { clear: both; }
+  .#{$la}-clear-none { clear: none; }
+}
+
+@mixin target_float($la) {
+  .#{$la}-float-left { float: left; }
+  .#{$la}-float-right { float: right; }
+  .#{$la}-float-none { float: none; }
+}
+
+@mixin target_overflow($la) {
+  .#{$la}-overflow-visible { overflow: visible; }
+  .#{$la}-overflow-scroll { overflow: scroll; }
+}
+
+@mixin target_dimensions($la) {
+  .#{$la}-auto { width: auto; }
+
+  .#{$la}-full-height { height: 100%; }
+
+  .#{$la}-aspect-1-1 {
+    &:after {
+      padding-top: 100%;
+      display: block;
+      content: '';
+    }
+  }
+
+  .#{$la}-aspect-2-1 {
+    &:after {
+      padding-top: 50%;
+      display: block;
+      content: '';
+    }
+  }
+
+  .#{$la}-aspect-16-9 {
+    &:after {
+      padding-top: 56.25%; /*16:9 ratio*/
+      display: block;
+      content: '';
+    }
+  }
+
+  .#{$la}-aspect-4-3 {
+    &:after {
+      padding-top: 75%; /*4:3 ratio*/
+      display: block;
+      content: '';
+    }
+  }
+}
+
+
+@mixin target_padding_and_margin($la, $padSizes, $padColDefaultSize) {
+  /* Padding and margin
+    ================================================== */
+
+  @if $padColDefaultSize > 0 {
+    /* $padColDefaultSize: #{$padColDefaultSize} */
+    .col {
+      padding: #{nth($padSizes, $padColDefaultSize)}px;
+    }
+  }
+
+  .col.#{$la}-pad-0 { padding: 0; }
+  .col.#{$la}-margin-0 { margin: 0; }
+
+  .col.#{$la}-margin-auto { margin: auto; }
+
+  $i:0;
+  @each $padSize in $padSizes {
+    $name: nth($padSizeNames, $i+1);
+
+    .col.#{$la}-pad-#{$name} { padding: #{$padSize}px; }
+
+    .col.#{$la}-margin-#{$name} { margin: #{$padSize}px; }
+
+    $i:$i+1;
+  }
+
+  $i:0;
+  @each $padSize in $padSizes {
+    $name: nth($padSizeNames, $i+1);
+
+    .col.#{$la}-pad-h-#{$name} { padding-left: #{$padSize}px; padding-right: #{$padSize}px; }
+    .col.#{$la}-pad-v-#{$name} { padding-top: #{$padSize}px; padding-bottom: #{$padSize}px; }
+
+    .col.#{$la}-margin-h-#{$name} { margin-left: #{$padSize}px; margin-right: #{$padSize}px; }
+    .col.#{$la}-margin-v-#{$name} { margin-top: #{$padSize}px; margin-bottom: #{$padSize}px; }
+
+    $i:$i+1;
+  }
+
+  $i:0;
+  @each $padSize in $padSizes {
+    $name: nth($padSizeNames, $i+1);
+    .col.#{$la}-pad-t-#{$name} { padding-top: #{$padSize}px; }
+    .col.#{$la}-pad-r-#{$name} { padding-right: #{$padSize}px; }
+    .col.#{$la}-pad-b-#{$name} { padding-bottom: #{$padSize}px; }
+    .col.#{$la}-pad-l-#{$name} { padding-left: #{$padSize}px; }
+
+    .col.#{$la}-margin-t-#{$name} { margin-top: #{$padSize}px; }
+    .col.#{$la}-margin-r-#{$name} { margin-right: #{$padSize}px; }
+    .col.#{$la}-margin-b-#{$name} { margin-bottom: #{$padSize}px; }
+    .col.#{$la}-margin-l-#{$name} { margin-left: #{$padSize}px; }
+
+    $i:$i+1;
+  }
+}
+
+@mixin target_vertical_center($la) {
+
+  .#{$la}-display-table { display: table; }
+  .#{$la}-cell-vertical-middle { display: table-cell; vertical-align: middle; float: none; }
+
+  .#{$la}-v-center {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 100%;
+    width: 100%;
+    height: 100%;
+    display: table;
+
+    .#{$la}-v-center-content {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

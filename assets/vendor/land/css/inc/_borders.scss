@@ -1,0 +1,32 @@
+@mixin target_border_rounded($la) {
+  .#{$la}-rounded-0 { border-radius: 0; }
+  .#{$la}-rounded-3 { border-radius: 3px; }
+  .#{$la}-rounded-5 { border-radius: 5px; }
+  .#{$la}-rounded-10 { border-radius: 10px; }
+  .#{$la}-rounded-20 { border-radius: 20px; }
+}
+
+@mixin target_border_size($la) {
+  $i:0;
+  @each $borderSize in $borderSizes {
+    .col.#{$la}-border-#{$i} { border-width: #{$borderSize}px; }
+
+    $i:$i+1;
+  }
+
+  $i:0;
+  @each $borderSize in $borderSizes {
+    .col.#{$la}-border-v-#{$i} { border-top-width: #{$borderSize}px; border-bottom-width: #{$borderSize}px; }
+    .col.#{$la}-border-h-#{$i} { border-right-width: #{$borderSize}px; border-left-width: #{$borderSize}px; }
+    $i:$i+1;
+  }
+
+  $i:0;
+  @each $borderSize in $borderSizes {
+    .col.#{$la}-border-t-#{$i} { border-top-width: #{$borderSize}px; }
+    .col.#{$la}-border-r-#{$i} { border-right-width: #{$borderSize}px; }
+    .col.#{$la}-border-l-#{$i} { border-left-width: #{$borderSize}px; }
+    .col.#{$la}-border-b-#{$i} { border-bottom-width: #{$borderSize}px; }
+    $i:$i+1;
+  }
+}

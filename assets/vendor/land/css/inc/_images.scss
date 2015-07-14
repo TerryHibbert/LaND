@@ -1,0 +1,17 @@
+@mixin target_images($la) {
+  .col img.#{$la}-fill {
+    display: block;
+    height: auto;
+    width: 100%;
+  }
+  .col img.#{$la}-fit {
+    display: inline-block;
+    height: auto;
+    max-width: 100%;
+  }
+  .col img.#{$la}-auto {
+    display: inline;
+    height: auto;
+    width: auto;
+  }
+}

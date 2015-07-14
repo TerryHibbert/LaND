@@ -1,0 +1,3 @@
+@mixin target_mouse_cursor($la) {
+  .#{$la}-cursor-pointer { cursor: pointer; }
+}

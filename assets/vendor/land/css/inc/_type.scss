@@ -1,0 +1,32 @@
+@mixin target_font_size($la) {
+  .#{$la}-font-80 { font-size: 80%; }
+  .#{$la}-font-100 { font-size: 100%; }
+  .#{$la}-font-125 { font-size: 125%; }
+}
+
+@mixin target_font_weight($la) {
+  .#{$la}-weight-normal { font-weight: normal; }
+  .#{$la}-weight-bold { font-weight: bold; }
+}
+
+@mixin target_text_align($la) {
+  .#{$la}-text-center { text-align: center; }
+  .#{$la}-text-right { text-align: right; }
+  .#{$la}-text-left { text-align: left; }
+}
+
+@mixin target_white_space($la) {
+  .#{$la}-ws-normal { white-space: normal; }
+  .#{$la}-ws-nowrap { white-space: nowrap; }
+}
+
+@mixin target_no_select($la) {
+  .#{$la}-no-select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+}

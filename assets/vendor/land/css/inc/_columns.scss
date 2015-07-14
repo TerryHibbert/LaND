@@ -1,0 +1,15 @@
+@mixin colSize($la, $numerator, $denominator) {
+  .#{$la}-#{$numerator}-#{$denominator} {
+    width: fraction_percent($numerator, $denominator);
+  }
+}
+
+@mixin colSizes($la, $denomMax) {
+  @for $i from 1 through $denomMax {
+    @for $j from 1 through $i {
+      @if $j <= $i {
+        @include colSize(#{$la}, $j, $i);
+      }
+    }
+  }
+}

@@ -1,14 +1,13 @@
-@import "land";
-@import "functions";
-@import "layouts";
+@import "land-config";
+@import "inc/core";
 
 $infoWrapper: '*';
 
 .LaND-info {
   content: $infoWrapper + implode($layouts,',')
-        + '|' + implode($min,',')
-        + '|' + implode($containerMax,',')
-        + $infoWrapper;
+      + '|' + implode($min,',')
+      + '|' + implode($containerMax,',')
+      + $infoWrapper;
 }
 
 /* General
@@ -123,12 +122,9 @@ ul.col {
 
 $layoutsAll: implode($layoutSelectors, ', ');
 
-#{$layoutsAll} {
-  display: none;
-}
+#{$layoutsAll} { display: none; }
 
 /* Col sizes for any layout - to override with more specific layouts */
 
 @include layouts(false, 1, 1);
-
 @include layouts(true, 2, 2);

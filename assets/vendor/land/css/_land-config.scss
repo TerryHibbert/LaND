@@ -63,7 +63,7 @@ $padColDefaultSize: 2; // NB: Start at 1, no such thing as 0
 $borderSizes: 0 1 2 3 4 5;
 
 // Animation transitions. Applied to containers with 'animate' class:
-$transitionDuration: '0.5s';
+$transitionDuration: '0.25s';
 
 // Fixed width sizes:
 $fixedSizes: 100 200 300 400;
@@ -71,10 +71,4 @@ $fixedSizes: 100 200 300 400;
 $layoutCount: length($layouts);
 
 // Business
-//==================================================
-
-@import "functions";
-@import "layouts";
-
-@import "accessibility";
-
+//==================================================w
