@@ -22,17 +22,10 @@
  *
  *  E.g. 'col s-1-2 d-1-4' will be a half column element that changes to quarter width on desktop.
  */
+/* #Fixed with fluid columns
+  ================================================== */
 /* Layout targeted properties
 ================================================== */
-.access-block, .access-inline {
-  display: none; }
-
-@media braille, embossed, aural, speech {
-  .access-block {
-    display: block; }
-
-  .access-inline {
-    display: inline; } }
 /* Layout targeted properties
 ================================================== */
 .LaND-info {
@@ -80,8 +73,8 @@ ul.plain {
 .animate .col {
   transition-property: padding, border;
   -webkit-transition-property: padding, border;
-  transition-duration: 0.5s;
-  -webkit-transition-duration: 0.5s; }
+  transition-duration: 0.25s;
+  -webkit-transition-duration: 0.25s; }
 
 .col.collapsible {
   min-height: 0; }
@@ -93,7 +86,7 @@ ul.plain {
   background: -ms-linear-gradient(-45deg, rgba(255, 127, 127, 0.5) 0%, rgba(131, 255, 127, 0.5) 100%);
   /* IE10+ */
   background: linear-gradient(135deg, rgba(255, 127, 127, 0.5) 0%, rgba(131, 255, 127, 0.5) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF7F7F', endColorstr='#83FF7F', GradientType=1 );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FF7F7F', endColorstr='#83FF7F', GradientType=1 );
   /* IE6-9 fallback on horizontal gradient */ }
 .debug .debuggable .col.one,
 .debug .debuggable .col.full,
@@ -113,8 +106,8 @@ ul.plain {
 .LaND-container.animate {
   transition-property: all;
   -webkit-transition-property: all;
-  transition-duration: 0.5s;
-  -webkit-transition-duration: 0.5s; }
+  transition-duration: 0.25s;
+  -webkit-transition-duration: 0.25s; }
 
 /* Less than ie9 is fixed. Upgrade your browser please... */
 .lt-ie8 .LaND-container {
@@ -7126,3 +7119,5 @@ ul.plain {
     display: inline;
     height: auto;
     width: auto; } }
+
+/*# sourceMappingURL=land-simple.css.map */
