@@ -30,7 +30,7 @@
 
     <h3 class="col">What's with the colors?</h3>
     <p class="col">The colors are what the site looks like in debug mode. The purpose of debug mode helps to see where the 'col' blocks start and end. It's enabled through two classes and toggleable with this bookmarklet
-        (<a href="javascript:(function(){$=jQuery;$h=$('html');$b=$('body');if($h.hasClass('debug')){$h.removeClass('debug')}else{$h.addClass('debug');$b.addClass('debuggable');}})();">LaND Debug</a>), which you can drag to your bookmark bar.</p>
+        (<a href="javascript:(function(){function hasClass(ele,cls){return !!ele.className.match(new RegExp('(\\s|^)'+cls+'(\\s|$)'));}function addClass(ele,cls) { if (!hasClass(ele,cls)) ele.className += ' '+cls;}function removeClass(ele,cls) { if (hasClass(ele,cls)) { var reg = new RegExp('(\\s|^)'+cls+'(\\s|$)'); ele.className=ele.className.replace(reg,' ');}}var h=document.getElementsByTagName('html');var b=document.getElementsByTagName('body');if(hasClass(h[0],'debug')){removeClass(h[0], 'debug');}else{addClass(h[0], 'debug');addClass(b[0], 'debuggable');}})();">LaND Debug</a>), which you can drag to your bookmark bar.</p>
 
     <h3 class="col">Are there more options?</h3>
     <p class="col">Yes, see the <a href="https://github.com/TerryHibbert/LaND/tree/mobile-first">GitHub readme</a> for more documentation.</p>
