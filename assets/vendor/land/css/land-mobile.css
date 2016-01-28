@@ -338,8 +338,7 @@ land-s {
 /* Misc
 ================================================== */
 .s-display-table {
-  display: table;
-  table-layout: fixed; }
+  display: table; }
 
 .s-cell-vertical-middle {
   display: table-cell;
@@ -1358,8 +1357,7 @@ land-s {
   /* Misc
   ================================================== */
   .m-display-table {
-    display: table;
-    table-layout: fixed; }
+    display: table; }
 
   .m-cell-vertical-middle {
     display: table-cell;

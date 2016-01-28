@@ -1,5 +1,5 @@
-@function fraction_percent($parts, $whole) {
-  @return ($parts / $whole) * 100%;
+@function fraction_percent($nominator, $denominator) {
+  @return ($nominator / $denominator) * 100%;
 }
 
 @function implode($list, $glue) {
@@ -12,4 +12,10 @@
     }
   }
   @return $result;
+}
+
+// Get the minimum width from the LaND breakpoint defined in land-config. e.g. s, m, ml, etc.
+@function get_la_min($la) {
+  $i: index($layouts, $la);
+  @return nth($min, $i);
 }

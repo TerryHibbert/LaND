@@ -275,8 +275,7 @@
   /* Misc
   ================================================== */
   .ml-display-table {
-    display: table;
-    table-layout: fixed; }
+    display: table; }
 
   .ml-cell-vertical-middle {
     display: table-cell;
@@ -1371,8 +1370,7 @@
   /* Misc
   ================================================== */
   .t-display-table {
-    display: table;
-    table-layout: fixed; }
+    display: table; }
 
   .t-cell-vertical-middle {
     display: table-cell;
@@ -2467,8 +2465,7 @@
   /* Misc
   ================================================== */
   .d-display-table {
-    display: table;
-    table-layout: fixed; }
+    display: table; }
 
   .d-cell-vertical-middle {
     display: table-cell;
@@ -3563,8 +3560,7 @@
   /* Misc
   ================================================== */
   .dl-display-table {
-    display: table;
-    table-layout: fixed; }
+    display: table; }
 
   .dl-cell-vertical-middle {
     display: table-cell;

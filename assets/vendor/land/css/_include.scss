@@ -1,0 +1,52 @@
+@import "land-config";
+@import "inc/core";
+
+@mixin borderBoxSizing() {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  *behavior: url('../boxsizing.htc');
+}
+
+@mixin col($layout: false, $nominator: 1, $denominator: 1) {
+  @if $layout == false {
+    @include borderBoxSizing();
+    float: left;
+    overflow: hidden;
+    position: relative;
+    min-height: 1px;
+    width: 100%;
+
+  } @else {
+    @media screen and (min-width: get_la_min($layout)) {
+      width: ($nominator / $denominator) * 100%;
+    }
+  }
+}
+
+@mixin property($property, $value) {
+  @if $property == 'col' {
+    width: (nth($value, 1) / nth($value, 2)) * 100%;
+
+  } @else {
+    #{$property}: #{$value};
+  }
+}
+
+@mixin layout ($layout, $properties) {
+  @media screen and (min-width: get_la_min($layout)) {
+    @each $name, $property in $properties {
+      @include property($name, $property);
+    }
+  }
+}
+
+@mixin land($layouts, $isCol: true) {
+  @if ($isCol) {
+    @include col;
+  }
+
+  @each $layout, $properties in $layouts {
+    @include layout($layout, $properties);
+  }
+}

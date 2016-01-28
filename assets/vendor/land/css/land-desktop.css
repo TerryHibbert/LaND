@@ -232,8 +232,7 @@ land-s {
 /* Misc
 ================================================== */
 .s-display-table {
-  display: table;
-  table-layout: fixed; }
+  display: table; }
 
 .s-cell-vertical-middle {
   display: table-cell;
@@ -1253,8 +1252,7 @@ land-m {
 /* Misc
 ================================================== */
 .m-display-table {
-  display: table;
-  table-layout: fixed; }
+  display: table; }
 
 .m-cell-vertical-middle {
   display: table-cell;
@@ -2307,8 +2305,7 @@ land-ml {
 /* Misc
 ================================================== */
 .ml-display-table {
-  display: table;
-  table-layout: fixed; }
+  display: table; }
 
 .ml-cell-vertical-middle {
   display: table-cell;
@@ -3406,8 +3403,7 @@ land-t {
 /* Misc
 ================================================== */
 .t-display-table {
-  display: table;
-  table-layout: fixed; }
+  display: table; }
 
 .t-cell-vertical-middle {
   display: table-cell;
@@ -4505,8 +4501,7 @@ land-d {
 /* Misc
 ================================================== */
 .d-display-table {
-  display: table;
-  table-layout: fixed; }
+  display: table; }
 
 .d-cell-vertical-middle {
   display: table-cell;

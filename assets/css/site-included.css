@@ -1,0 +1,126 @@
+/* LaND - A mobile first fluid responsive layout framework by Terry Hibbert.
+ *
+ * TIPS:  Edit the SCSS and not the CSS.
+ *        Add non-layout styles to a different CSS file loaded after LaND.
+ *
+ * Usage 'col La-N-D' where:
+ *  'La' is replaced by the shorthand of the targeted layout:
+ *      s   :   small
+ *      mp  :   mobile portrait
+ *      ml  :   mobile landscape (also table portrait)
+ *      t   :   tablet (landscape)
+ *      d   :   desktop
+ *      dl  :   desktop large
+ *
+ *      There's also limited visibility options for print vs screen
+ *      p   :   print only
+ *      s   :   screen only
+ *
+ *  Then '-N-D' to represent the fraction: N/D where
+ *       'N' is the numerator (top of the fraction)
+ *       'D' is the denominator (bottom of the fraction)
+ *
+ *  E.g. 'col s-1-2 d-1-4' will be a half column element that changes to quarter width on desktop.
+ */
+/* #Fixed with fluid columns
+  ================================================== */
+/* Layout targeted properties
+================================================== */
+div.layout_default {
+  margin: auto;
+  background-color: lightgray;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  *behavior: url("../boxsizing.htc");
+  float: left;
+  overflow: hidden;
+  position: relative;
+  min-height: 1px;
+  width: 100%; }
+  div.layout_default nav {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    *behavior: url("../boxsizing.htc");
+    float: left;
+    overflow: hidden;
+    position: relative;
+    min-height: 1px;
+    width: 100%; }
+    div.layout_default nav ul {
+      list-style: none;
+      padding: 0; }
+      div.layout_default nav ul li {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        *behavior: url("../boxsizing.htc");
+        float: left;
+        overflow: hidden;
+        position: relative;
+        min-height: 1px;
+        width: 100%;
+        float: left; }
+        @media screen and (min-width: 0px) {
+          div.layout_default nav ul li {
+            width: 33.33333%;
+            text-align: center;
+            border: 1px solid grey; } }
+  @media screen and (min-width: 961px) {
+    div.layout_default {
+      max-width: 961px;
+      float: none; } }
+  @media screen and (min-width: 1025px) {
+    div.layout_default {
+      max-width: 1025px; } }
+  div.layout_default main {
+    background: red;
+    padding: 10px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    *behavior: url("../boxsizing.htc");
+    float: left;
+    overflow: hidden;
+    position: relative;
+    min-height: 1px;
+    width: 100%; }
+    @media screen and (min-width: 480px) {
+      div.layout_default main {
+        width: 66.66667%;
+        background-color: orange; } }
+    @media screen and (min-width: 961px) {
+      div.layout_default main {
+        width: 75%;
+        background-color: yellow; } }
+  div.layout_default aside {
+    background: green;
+    padding: 10px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    *behavior: url("../boxsizing.htc");
+    float: left;
+    overflow: hidden;
+    position: relative;
+    min-height: 1px;
+    width: 100%; }
+    @media screen and (min-width: 480px) {
+      div.layout_default aside {
+        width: 33.33333%; } }
+    @media screen and (min-width: 961px) {
+      div.layout_default aside {
+        width: 25%; } }
+  div.layout_default footer {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    *behavior: url("../boxsizing.htc");
+    float: left;
+    overflow: hidden;
+    position: relative;
+    min-height: 1px;
+    width: 100%; }
+
+/*# sourceMappingURL=site-included.css.map */

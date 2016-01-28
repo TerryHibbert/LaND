@@ -35,7 +35,7 @@ $dcm: $defaultContainerMax; // Just an alias
 // Layout definitions
 //                |         |         |         |         |         |
 //                small     mobile    mobile    tablet    desktop   desktop
-//                portrait  landscape                     large
+//                portrait  landscape                               large
 $layouts:         s         m         ml        t         d         dl;
 $min:             0px       320px     480px     961px     1025px    1200px;
 $containerMax:    100%      100%      100%      $dcm      $dcm      1150px;
